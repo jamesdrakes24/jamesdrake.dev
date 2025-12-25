@@ -4,22 +4,23 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>James Drake — Mechanical Engineering Portfolio</title>
-  <meta name="description" content="James Drake — Mechanical R&D portfolio: design, prototyping, testing, and mechatronics integration." />
+  <meta name="description" content="James Drake — Mechanical engineering portfolio: design, prototyping, and test-driven iteration with instrumentation and embedded prototyping." />
 
   <style>
     :root{
       --bg:#ffffff;
-      --surface:#f8fafc;
-      --text:#0f172a;
-      --muted:#475569;
-      --faint:#94a3b8;
-      --line:#e2e8f0;
+      --surface:#f8fafc;      /* slate-50 */
+      --text:#0f172a;         /* slate-900 */
+      --muted:#475569;        /* slate-600 */
+      --faint:#94a3b8;        /* slate-400 */
+      --line:#e2e8f0;         /* slate-200 */
       --shadow:0 18px 42px rgba(2,6,23,.08);
       --r:18px;
       --max:1080px;
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
+
     *{box-sizing:border-box}
     body{
       margin:0;
@@ -31,8 +32,11 @@
     a{color:inherit; text-decoration:none}
     a:hover{opacity:.92}
 
+    /* Header */
     .topbar{
-      position:sticky; top:0; z-index:30;
+      position:sticky;
+      top:0;
+      z-index:30;
       background:rgba(255,255,255,.88);
       backdrop-filter: blur(10px);
       border-bottom:1px solid var(--line);
@@ -47,28 +51,47 @@
       gap:14px;
     }
     .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:800; letter-spacing:-.2px; white-space:nowrap;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      letter-spacing:-.2px;
+      white-space:nowrap;
     }
     .mark{width:10px;height:10px;border-radius:999px;background:var(--text)}
-    .nav{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;}
+    .nav{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
     .nav a{
-      font-size:13px; color:var(--muted);
+      font-size:13px;
+      color:var(--muted);
       padding:8px 10px;
       border:1px solid transparent;
       border-radius:999px;
     }
-    .nav a:hover{color:var(--text); background:var(--surface); border-color:var(--line);}
+    .nav a:hover{
+      color:var(--text);
+      background:var(--surface);
+      border-color:var(--line);
+    }
 
     main{padding:34px 18px 80px}
     .wrap{max-width:var(--max); margin:0 auto}
 
-    .section{padding:34px 0; border-bottom:1px solid var(--line);}
+    .section{
+      padding:34px 0;
+      border-bottom:1px solid var(--line);
+    }
     .section:last-child{border-bottom:none}
 
     .kicker{
-      font-size:12px; color:var(--muted);
-      text-transform:uppercase; letter-spacing:.18em;
+      font-size:12px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.18em;
       margin-bottom:10px;
     }
     h1{
@@ -84,7 +107,12 @@
       max-width: 92ch;
       font-size:16px;
     }
-    h2{margin:0; font-size:24px; letter-spacing:-.5px; line-height:1.2;}
+    h2{
+      margin:0;
+      font-size:24px;
+      letter-spacing:-.5px;
+      line-height:1.2;
+    }
     h3{
       margin:0;
       font-size:12px;
@@ -96,7 +124,9 @@
 
     .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
     .btn{
-      display:inline-flex; align-items:center; justify-content:center;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
       padding:11px 14px;
       border-radius:12px;
       border:1px solid var(--line);
@@ -106,7 +136,11 @@
       box-shadow: 0 1px 0 rgba(2,6,23,.04);
     }
     .btn:hover{background:var(--surface)}
-    .btn.primary{background:var(--text); border-color:var(--text); color:#fff;}
+    .btn.primary{
+      background:var(--text);
+      border-color:var(--text);
+      color:#fff;
+    }
 
     .grid{
       display:grid;
@@ -121,8 +155,16 @@
       padding:16px;
       box-shadow:var(--shadow);
     }
-    .card.white{background:#fff; box-shadow:none;}
-    .meta{margin-top:12px; display:flex; flex-wrap:wrap; gap:8px;}
+    .card.white{
+      background:#fff;
+      box-shadow:none;
+    }
+    .meta{
+      margin-top:12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
     .pill{
       font-size:12px;
       color:var(--muted);
@@ -136,13 +178,30 @@
     ul{margin:0; padding-left:18px; color:var(--muted)}
     li{margin:6px 0}
 
-    .project{padding:26px 0; border-top:1px solid var(--line);}
+    /* Projects */
+    .project{
+      padding:26px 0;
+      border-top:1px solid var(--line);
+    }
     .project:first-child{border-top:none}
     .proj-head{
-      display:flex; align-items:flex-start; justify-content:space-between; gap:16px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
     }
-    .proj-head p{margin:8px 0 0; color:var(--muted); max-width: 92ch;}
-    .proj-tags{display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end; align-items:flex-start;}
+    .proj-head p{
+      margin:8px 0 0;
+      color:var(--muted);
+      max-width: 92ch;
+    }
+    .proj-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      justify-content:flex-end;
+      align-items:flex-start;
+    }
     .cols{
       margin-top:14px;
       display:grid;
@@ -188,11 +247,11 @@
       <!-- ABOUT -->
       <section class="section" id="about">
         <div class="kicker">Mechanical Engineering • R&amp;D Portfolio</div>
-        <h1>Mechanical product development — CAD, prototyping, testing — with mechatronics when it improves the system.</h1>
+        <h1>Mechanical product development — CAD, prototyping, and test-driven iteration.</h1>
         <p class="lede">
-          I build hardware that gets tested and iterated. My work includes mechanical design (CAD/assemblies), prototype fabrication,
-          and practical validation. I’m also comfortable working in <b>mechatronics</b> — sensors, embedded firmware, and control —
-          when instrumentation or actuation is part of the product.
+          I build hardware and improve it through hands-on testing. My work includes mechanical design (CAD/assemblies),
+          prototype fabrication, and documenting iterations so each revision is clearly better. When a project benefits from
+          instrumentation, I also build embedded prototypes for sensing and data capture.
         </p>
 
         <div class="cta">
@@ -208,9 +267,9 @@
             <div class="divider"></div>
             <ul>
               <li>Mechanical design intent: interfaces, constraints, packaging, tolerance awareness.</li>
-              <li>Prototype-first execution with test-driven iteration and clear revision notes.</li>
-              <li>Mechatronics integration: sensors, wiring, embedded bring-up, calibration, basic control loops.</li>
-              <li>Documentation that makes designs reviewable and changes traceable.</li>
+              <li>Prototype-first execution with disciplined iteration based on test results.</li>
+              <li>Instrumentation and embedded prototyping: sensors, wiring, calibration, and data capture for validation.</li>
+              <li>Clear documentation: what changed, why it changed, and what the test results showed.</li>
             </ul>
           </div>
 
@@ -222,10 +281,10 @@
               <span class="pill">Assemblies</span>
               <span class="pill">3D printing</span>
               <span class="pill">Prototype fabrication</span>
-              <span class="pill">Test mindset</span>
+              <span class="pill">Test documentation</span>
               <span class="pill">Instrumentation</span>
-              <span class="pill">Embedded</span>
-              <span class="pill">Controls</span>
+              <span class="pill">Sensors + calibration</span>
+              <span class="pill">Embedded prototyping</span>
             </div>
           </div>
         </div>
@@ -235,17 +294,17 @@
       <section class="section" id="projects">
         <h2>Projects</h2>
         <p class="lede" style="margin-top:10px;">
-          Selected work across mechanical design and prototyping, including mechatronics where it supports measurement, control, or usability.
+          Selected work across mechanical design and prototyping, with instrumentation included where it supports measurement, control, or usability.
         </p>
 
         <!-- MIDI -->
         <div class="project" id="midi">
           <div class="proj-head">
             <div>
-              <h2>Audio Control Surface (Ergonomics + Embedded Interface)</h2>
+              <h2>Audio Control Surface (Physical Controls + Level Display)</h2>
               <p>
-                A physical controller for an audio workflow: tactile controls with a clear level display. Built around clean packaging,
-                stable behavior, and a layout that supports fast, repeatable use.
+                A hardware controller designed for an audio workflow: tactile controls paired with a clear level display.
+                Built around clean packaging, stable behavior, and a layout that supports fast, repeatable use.
               </p>
             </div>
             <div class="proj-tags">
@@ -257,21 +316,21 @@
           </div>
           <div class="cols">
             <div class="card white">
-              <h3>Responsibilities</h3>
+              <h3>What I built</h3>
               <div class="divider"></div>
               <ul>
-                <li>Designed physical layout: control spacing, reach, and usability.</li>
-                <li>Integrated electronics cleanly: mounting, wiring paths, access/serviceability.</li>
-                <li>Defined consistent behavior across inputs and visual feedback.</li>
+                <li>Physical layout decisions: spacing, ergonomics, control placement.</li>
+                <li>Clean integration: mounting strategy, wiring paths, access/serviceability.</li>
+                <li>Consistent input behavior with clear visual feedback.</li>
               </ul>
             </div>
             <div class="card white">
-              <h3>Engineering decisions</h3>
+              <h3>How I validated it</h3>
               <div class="divider"></div>
               <ul>
-                <li>Stability improvements (noise/jitter handling) without sacrificing responsiveness.</li>
-                <li>Iterated based on real use cases and repeatable workflows.</li>
-                <li>Versioned changes with clear intent and observed outcome.</li>
+                <li>Iterated from repeatable use cases (workflow speed and consistency).</li>
+                <li>Improved stability (noise/jitter handling) without sacrificing responsiveness.</li>
+                <li>Logged revisions with intent and observed outcome.</li>
               </ul>
             </div>
           </div>
@@ -296,21 +355,21 @@
           </div>
           <div class="cols">
             <div class="card white">
-              <h3>Responsibilities</h3>
+              <h3>What I built</h3>
               <div class="divider"></div>
               <ul>
-                <li>Built the measurement/control stack around thermocouple feedback.</li>
-                <li>Designed for repeatability: consistent setup, safe operating limits, predictable behavior.</li>
-                <li>Created a tuning workflow focused on stability first, then speed.</li>
+                <li>Measurement/control stack around thermocouple feedback.</li>
+                <li>Setup designed for repeatability with safe operating limits.</li>
+                <li>Tuning workflow focused on stability first, then speed.</li>
               </ul>
             </div>
             <div class="card white">
-              <h3>Evaluation</h3>
+              <h3>How I validated it</h3>
               <div class="divider"></div>
               <ul>
                 <li>Step response characterization to compare tuning changes.</li>
                 <li>Repeatability runs across multiple trials.</li>
-                <li>Logged changes and results to guide the next iteration.</li>
+                <li>Change log for adjustments and observed behavior.</li>
               </ul>
             </div>
           </div>
@@ -335,16 +394,16 @@
           </div>
           <div class="cols">
             <div class="card white">
-              <h3>Responsibilities</h3>
+              <h3>What I defined</h3>
               <div class="divider"></div>
               <ul>
-                <li>Defined requirements around safety, repeatability, and clear operator feedback.</li>
-                <li>Considered calibration and drift as core constraints, not afterthoughts.</li>
-                <li>Outlined mechanical architecture with safe limits and predictable behavior.</li>
+                <li>Requirements around safety, repeatability, and clear operator feedback.</li>
+                <li>Mechanical architecture with safe limits and predictable behavior.</li>
+                <li>Measurement constraints: calibration, drift, repeatable zeroing.</li>
               </ul>
             </div>
             <div class="card white">
-              <h3>Verification plan</h3>
+              <h3>How I would verify it</h3>
               <div class="divider"></div>
               <ul>
                 <li>Bench testing against known conditions with acceptance criteria.</li>
@@ -362,7 +421,7 @@
               <h2>Autonomous Drone Platform (Build + Integration)</h2>
               <p>
                 Platform work under real constraints (weight, vibration, packaging) with emphasis on reliability and controlled iteration.
-                Focused on mechanical integration choices that support consistent performance.
+                Focused on integration choices that support consistent performance.
               </p>
             </div>
             <div class="proj-tags">
@@ -374,7 +433,7 @@
           </div>
           <div class="cols">
             <div class="card white">
-              <h3>Responsibilities</h3>
+              <h3>What I built</h3>
               <div class="divider"></div>
               <ul>
                 <li>Packaging and assembly decisions to reduce failure points.</li>
@@ -383,7 +442,7 @@
               </ul>
             </div>
             <div class="card white">
-              <h3>Iteration discipline</h3>
+              <h3>How I iterated</h3>
               <div class="divider"></div>
               <ul>
                 <li>Controlled changes with consistent evaluation checks.</li>
@@ -413,16 +472,16 @@
           </div>
           <div class="cols">
             <div class="card white">
-              <h3>Responsibilities</h3>
+              <h3>What I built</h3>
               <div class="divider"></div>
               <ul>
                 <li>Interface-driven design: clearances, mounting geometry, tolerance awareness.</li>
                 <li>Prototyped and revised using physical fit checks and documented observations.</li>
-                <li>Selected geometry/material choices aligned with the use environment.</li>
+                <li>Material/geometry decisions aligned with the use environment.</li>
               </ul>
             </div>
             <div class="card white">
-              <h3>Results captured</h3>
+              <h3>How results were captured</h3>
               <div class="divider"></div>
               <ul>
                 <li>Revision history with rationale for each change.</li>
@@ -452,10 +511,10 @@
           </div>
           <div class="cols">
             <div class="card white">
-              <h3>Responsibilities</h3>
+              <h3>What I built</h3>
               <div class="divider"></div>
               <ul>
-                <li>Built a constraint-driven assembly reflecting real interfaces.</li>
+                <li>Constraint-driven assembly reflecting real interfaces.</li>
                 <li>Organized parts/subassemblies for reviewability and clarity.</li>
                 <li>Captured design intent through views and notes, not just geometry.</li>
               </ul>
