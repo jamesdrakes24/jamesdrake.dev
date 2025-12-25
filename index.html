@@ -4,530 +4,867 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>James Drake — Engineering Portfolio</title>
-  <meta name="description" content="James Drake — Mechanical/Mechatronics R&D projects: embedded systems, automotive, instrumentation, prototyping." />
+  <meta name="description" content="James Drake — engineering portfolio: R&D-style project case studies, prototypes, testing, and iteration." />
 
   <style>
     :root{
-      --bg:#0b0c0f;
-      --card:#11131a;
-      --card2:#0f1117;
-      --text:#f5f7ff;
-      --muted:#aab0c0;
-      --line:#23263a;
-      --accent:#7aa2ff;
-      --good:#78f0b7;
-
-      --max:1100px;
-      --r:16px;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --bg:#ffffff;
+      --text:#0f172a;       /* slate-900 */
+      --muted:#475569;      /* slate-600 */
+      --faint:#94a3b8;      /* slate-400 */
+      --line:#e2e8f0;       /* slate-200 */
+      --card:#f8fafc;       /* slate-50 */
+      --accent:#0f172a;
+      --max: 980px;
+      --r: 16px;
+      --shadow: 0 12px 30px rgba(2,6,23,.08);
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
     body{
       margin:0;
-      background: radial-gradient(1200px 700px at 70% -10%, rgba(122,162,255,.18), transparent 60%),
-                  radial-gradient(900px 500px at 10% 0%, rgba(120,240,183,.12), transparent 55%),
-                  var(--bg);
+      background:var(--bg);
       color:var(--text);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       line-height:1.55;
-      letter-spacing:.1px;
     }
 
-    a{color:inherit; text-decoration:none}
-    a:hover{opacity:.9}
-
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 80px}
-    .nav{
-      position:sticky; top:0; z-index:10;
+    /* --- Top nav --- */
+    .topbar{
+      position:fixed;
+      top:0; left:0; right:0;
+      z-index:50;
+      background:rgba(255,255,255,.82);
       backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(11,12,15,.85), rgba(11,12,15,.45));
-      border-bottom:1px solid rgba(35,38,58,.55);
+      border-bottom:1px solid var(--line);
     }
-    .nav-inner{
-      max-width:var(--max); margin:0 auto;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 18px;
+    .topbar-inner{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
     }
     .brand{
-      display:flex; gap:10px; align-items:center; font-weight:650;
-      letter-spacing:.2px;
+      font-weight:700;
+      letter-spacing:-.2px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      white-space:nowrap;
     }
-    .dot{
-      width:10px; height:10px; border-radius:50%;
-      background: linear-gradient(135deg, var(--accent), var(--good));
-      box-shadow: 0 0 0 6px rgba(122,162,255,.08);
+    .brand .mark{
+      width:10px; height:10px;
+      border-radius:999px;
+      background: var(--text);
     }
-    .links{display:flex; gap:14px; flex-wrap:wrap; align-items:center}
-    .links a{
+    .navlinks{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .navlinks a{
+      font-size:13px;
       color:var(--muted);
       padding:8px 10px;
-      border-radius:10px;
+      border-radius:999px;
       border:1px solid transparent;
+      text-decoration:none;
     }
-    .links a:hover{
+    .navlinks a:hover{
       color:var(--text);
-      border-color:rgba(35,38,58,.8);
-      background:rgba(17,19,26,.6);
+      background:var(--card);
+      border-color:var(--line);
     }
 
-    .hero{padding:34px 0 10px}
-    .kicker{
-      display:inline-flex; align-items:center; gap:8px;
-      color:var(--muted);
-      border:1px solid rgba(35,38,58,.8);
-      background:rgba(17,19,26,.55);
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:13px;
+    /* --- Scroll container with snap --- */
+    .snap{
+      height:100vh;
+      overflow-y:auto;
+      scroll-snap-type: y mandatory;
+      scroll-behavior:smooth;
     }
-    .kicker .pulse{
-      width:8px; height:8px; border-radius:999px;
-      background:var(--good);
-      box-shadow:0 0 0 6px rgba(120,240,183,.10);
+    /* spacing so topbar doesn’t cover section titles */
+    .snap::before{
+      content:"";
+      display:block;
+      height:64px;
+    }
+
+    section{
+      min-height: calc(100vh - 64px);
+      scroll-snap-align: start;
+      padding: 46px 18px 60px;
+      display:flex;
+      align-items:center;
+    }
+    .wrap{
+      width:100%;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    /* --- Layout blocks --- */
+    .kicker{
+      font-size:12px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      margin-bottom:10px;
     }
     h1{
-      margin:16px 0 10px;
-      font-size:46px;
-      line-height:1.08;
-      letter-spacing:-.8px;
+      margin:0 0 10px;
+      font-size:44px;
+      letter-spacing:-1px;
+      line-height:1.05;
     }
-    .sub{
-      margin:0;
+    h2{
+      margin:0 0 8px;
+      font-size:28px;
+      letter-spacing:-.6px;
+      line-height:1.15;
+    }
+    .lede{
       color:var(--muted);
-      max-width:70ch;
       font-size:16px;
+      max-width: 75ch;
+      margin: 0 0 18px;
     }
 
-    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
+    .cta{
+      display:flex;
       gap:10px;
-      padding:11px 14px;
-      border-radius:12px;
-      border:1px solid rgba(35,38,58,.95);
-      background:rgba(17,19,26,.65);
+      flex-wrap:wrap;
+      margin-top: 16px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 11px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background:#fff;
       color:var(--text);
-      font-weight:600;
-      box-shadow: 0 1px 0 rgba(255,255,255,.04) inset;
+      font-weight:650;
+      text-decoration:none;
+      box-shadow: 0 1px 0 rgba(2,6,23,.04);
     }
-    .btn:hover{transform:translateY(-1px)}
+    .btn:hover{
+      background:var(--card);
+    }
     .btn.primary{
-      background: linear-gradient(135deg, rgba(122,162,255,.18), rgba(120,240,183,.10));
-      border-color: rgba(122,162,255,.45);
+      background: var(--text);
+      color:#fff;
+      border-color: var(--text);
     }
-    .btn small{color:var(--muted); font-weight:600}
+    .btn.primary:hover{
+      opacity:.92;
+    }
+    .btn.ghost{
+      background: transparent;
+    }
 
     .grid{
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:16px;
-      margin-top:22px;
+      grid-template-columns: 1.3fr .7fr;
+      gap:14px;
+      margin-top: 18px;
     }
 
     .card{
-      background:linear-gradient(180deg, rgba(17,19,26,.92), rgba(15,17,23,.92));
-      border:1px solid rgba(35,38,58,.85);
-      border-radius:var(--r);
-      box-shadow:var(--shadow);
-      padding:18px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      padding: 16px;
+      box-shadow: var(--shadow);
     }
-    .card h2{margin:0 0 10px; font-size:16px; letter-spacing:.2px}
-    .card p{margin:0; color:var(--muted)}
+
     .meta{
-      display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top: 10px;
     }
     .pill{
       font-size:12px;
       color:var(--muted);
-      border:1px solid rgba(35,38,58,.85);
-      background:rgba(11,12,15,.30);
-      padding:6px 9px;
-      border-radius:999px;
-      white-space:nowrap;
-    }
-    .pill strong{color:var(--text); font-weight:650}
-
-    .section{margin-top:26px}
-    .section-head{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
-      margin:18px 0 10px;
-    }
-    .section-head h3{
-      margin:0;
-      font-size:14px;
-      color:var(--muted);
-      text-transform:uppercase;
-      letter-spacing:.16em;
-    }
-    .section-head .hint{
-      color:var(--muted);
-      font-size:13px;
-    }
-
-    .projects{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap:14px;
-    }
-    .proj{
-      grid-column: span 6;
-      padding:16px;
-      border-radius:var(--r);
-      border:1px solid rgba(35,38,58,.85);
-      background:linear-gradient(180deg, rgba(17,19,26,.92), rgba(15,17,23,.92));
-      box-shadow:var(--shadow);
-      position:relative;
-      overflow:hidden;
-    }
-    .proj::before{
-      content:"";
-      position:absolute; inset:-2px -2px auto auto;
-      width:180px; height:180px;
-      background: radial-gradient(circle at 30% 30%, rgba(122,162,255,.18), transparent 60%);
-      filter: blur(0px);
-      pointer-events:none;
-    }
-    .proj-top{
-      display:flex; justify-content:space-between; gap:10px; align-items:flex-start;
-    }
-    .proj h4{margin:0; font-size:18px; letter-spacing:-.2px}
-    .proj .tag{
-      font-size:12px;
-      color:var(--muted);
-      border:1px solid rgba(35,38,58,.85);
-      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
       padding:6px 10px;
-      background:rgba(11,12,15,.25);
-      white-space:nowrap;
+      border-radius:999px;
     }
-    .proj p{margin:10px 0 12px; color:var(--muted)}
-    .bullets{margin:0; padding-left:18px; color:var(--muted)}
-    .bullets li{margin:6px 0}
-    .proj .links2{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
-    .mini{
-      font-size:13px;
-      padding:8px 10px;
-      border-radius:12px;
-      border:1px solid rgba(35,38,58,.85);
-      background:rgba(11,12,15,.22);
-      color:var(--text);
-    }
-    .mini:hover{transform:translateY(-1px)}
-    .mini span{color:var(--muted)}
 
-    .two-col{
+    .case{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap:14px;
+      margin-top: 14px;
     }
-
-    .list{
-      margin:0; padding-left:18px; color:var(--muted);
-    }
-    .list li{margin:6px 0}
-
-    .footer{
-      margin-top:34px;
-      padding-top:18px;
-      border-top:1px solid rgba(35,38,58,.75);
-      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    .case h3{
+      margin:0 0 8px;
+      font-size:14px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
       color:var(--muted);
+    }
+    ul{
+      margin:0;
+      padding-left: 18px;
+      color:var(--muted);
+    }
+    li{ margin: 6px 0; }
+
+    .placeholder{
+      width:100%;
+      aspect-ratio: 16/9;
+      border-radius: 14px;
+      border: 1px dashed #cbd5e1;
+      background: linear-gradient(180deg, #ffffff, #f8fafc);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: #64748b;
       font-size:13px;
+      text-align:center;
+      padding: 14px;
     }
 
+    /* --- Section headers --- */
+    .section-title{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom: 10px;
+    }
+    .section-title small{
+      color: var(--faint);
+      font-size: 12px;
+      white-space:nowrap;
+      padding-top: 10px;
+    }
+
+    /* --- Growth timeline / divider --- */
+    .divider{
+      height:1px;
+      background: var(--line);
+      margin: 14px 0;
+    }
+    .timeline{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .timeline b{ color: var(--text); }
+
+    /* --- Right-side dot nav --- */
+    .dots{
+      position: fixed;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 60;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .dotbtn{
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      border: 1px solid #cbd5e1;
+      background: rgba(255,255,255,.9);
+      cursor:pointer;
+      padding:0;
+    }
+    .dotbtn.active{
+      background: var(--text);
+      border-color: var(--text);
+    }
+    .dotbtn:hover{ transform: scale(1.05); }
+
+    /* --- Footer --- */
+    .foot{
+      color: var(--faint);
+      font-size: 13px;
+      margin-top: 14px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    /* --- Responsive --- */
     @media (max-width: 900px){
-      .grid{grid-template-columns:1fr}
-      .projects{grid-template-columns:1fr}
-      .proj{grid-column: span 12}
-      h1{font-size:38px}
-      .two-col{grid-template-columns:1fr}
+      h1{ font-size: 36px; }
+      .grid{ grid-template-columns:1fr; }
+      .case{ grid-template-columns:1fr; }
+      .dots{ display:none; } /* on mobile, dots get in the way */
+      .topbar-inner{ gap:10px; }
     }
   </style>
 </head>
 
 <body>
-  <div class="nav">
-    <div class="nav-inner">
+  <!-- Top Navigation -->
+  <header class="topbar">
+    <div class="topbar-inner">
       <div class="brand">
-        <span class="dot" aria-hidden="true"></span>
+        <span class="mark" aria-hidden="true"></span>
         <span>James Drake</span>
       </div>
-      <div class="links">
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
+      <nav class="navlinks" aria-label="Site navigation">
+        <a href="#home">Home</a>
+        <a href="#new">Newer</a>
+        <a href="#older">Earlier</a>
         <a href="#contact">Contact</a>
-      </div>
+      </nav>
     </div>
+  </header>
+
+  <!-- Dot Navigation (right side) -->
+  <div class="dots" aria-label="Section navigation">
+    <button class="dotbtn" data-target="home" title="Home"></button>
+    <button class="dotbtn" data-target="midi" title="MIDI Controller"></button>
+    <button class="dotbtn" data-target="thermo" title="Thermocouple Controller"></button>
+    <button class="dotbtn" data-target="iv" title="Smart IV Bag"></button>
+    <button class="dotbtn" data-target="drone" title="Autonomous Drone"></button>
+    <button class="dotbtn" data-target="trim" title="Car Trim Piece"></button>
+    <button class="dotbtn" data-target="pump" title="3D Water Pump"></button>
+    <button class="dotbtn" data-target="models" title="Early Models"></button>
+    <button class="dotbtn" data-target="contact" title="Contact"></button>
   </div>
 
-  <main class="wrap">
-    <section class="hero">
-      <div class="kicker"><span class="pulse" aria-hidden="true"></span> Mechanical / Mechatronics • R&D Portfolio</div>
-      <h1>Build-driven engineer focused on real prototypes, test data, and clean execution.</h1>
-      <p class="sub">
-        I design and build electromechanical systems end-to-end: CAD → wiring → embedded firmware → testing.
-        I’m looking for an <strong>R&D / Product Development</strong> role where I can ship hardware that works.
-      </p>
-
-      <div class="cta">
-        <!-- Replace href with your resume PDF path once you upload it (ex: /assets/JamesDrake_Resume.pdf) -->
-        <a class="btn primary" href="#" onclick="alert('Upload your resume PDF and set this link.'); return false;">
-          Download Resume <small>(PDF)</small>
-        </a>
-        <!-- Replace links below with your real profiles -->
-        <a class="btn" href="#" onclick="alert('Paste your LinkedIn URL here.'); return false;">LinkedIn</a>
-        <a class="btn" href="#" onclick="alert('Paste your GitHub URL here.'); return false;">GitHub</a>
-        <a class="btn" href="#contact">Contact</a>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <h2>What I do best</h2>
-          <p>
-            Rapid prototyping + validation. I like projects where success is measurable:
-            stable control, accurate sensing, robust packaging, and repeatable results.
-          </p>
-          <div class="meta">
-            <span class="pill"><strong>Strength:</strong> mechatronics integration</span>
-            <span class="pill"><strong>Strength:</strong> instrumentation & calibration</span>
-            <span class="pill"><strong>Strength:</strong> iterate fast, document clearly</span>
-            <span class="pill"><strong>Preference:</strong> R&D / product development</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h2>Currently building</h2>
-          <p>
-            Portfolio is being filled in with photos, test plots, and case studies.
-            For now, each project includes the kind of bullets hiring managers care about.
-          </p>
-          <div class="meta">
-            <span class="pill"><strong>Focus:</strong> embedded + mechanical</span>
-            <span class="pill"><strong>Focus:</strong> automotive + tools</span>
-            <span class="pill"><strong>Focus:</strong> robust prototypes</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="section">
-      <div class="section-head">
-        <h3>Featured projects</h3>
-        <div class="hint">Tip: replace “Add photo / data” items with real images + results.</div>
-      </div>
-
-      <div class="projects">
-        <!-- PROJECT 1 -->
-        <article class="proj">
-          <div class="proj-top">
-            <h4>Arduino Boost Gauge + MAP Sensor Calibration</h4>
-            <span class="tag">Embedded • Instrumentation</span>
-          </div>
-          <p>Dash-style gauge that reads manifold pressure, displays boost/vacuum on OLED, and supports calibration + zeroing.</p>
-          <ul class="bullets">
-            <li>Built sensor read + filtering + display pipeline (MAP sensor → MCU → OLED).</li>
-            <li>Implemented calibration workflow to match real vacuum at idle (ex: ~-16 to -17 PSI) and correct 0 PSI offset.</li>
-            <li><strong>Add:</strong> photo of installed gauge, screenshot of UI, and a before/after calibration plot.</li>
-          </ul>
-          <div class="links2">
-            <a class="mini" href="#" onclick="alert('Link your repo here (Boost Gauge).'); return false;">Code <span>(GitHub)</span></a>
-            <a class="mini" href="#" onclick="alert('Add a short 1-page PDF writeup later.'); return false;">1-page writeup <span>(PDF)</span></a>
-          </div>
-        </article>
-
-        <!-- PROJECT 2 -->
-        <article class="proj">
-          <div class="proj-top">
-            <h4>Open-Source ECU Platform (Honda K20 Concept)</h4>
-            <span class="tag">Automotive • Controls</span>
-          </div>
-          <p>Early-stage architecture planning for an ECU platform: sensing, actuation, safety, and a path toward real testing.</p>
-          <ul class="bullets">
-            <li>Defined system blocks: crank/cam sensing, injector/ignition outputs, power stage considerations, logging.</li>
-            <li>Planned validation approach: bench simulation → signal generation → hardware-in-loop style tests.</li>
-            <li><strong>Add:</strong> block diagram, IO list, and a “first milestone” test (ex: clean RPM decode).</li>
-          </ul>
-          <div class="links2">
-            <a class="mini" href="#" onclick="alert('Link your ECU repo here once you create it.'); return false;">Design notes <span>(GitHub)</span></a>
-            <a class="mini" href="#" onclick="alert('Add diagrams/images later.'); return false;">System diagram <span>(PNG)</span></a>
-          </div>
-        </article>
-
-        <!-- PROJECT 3 -->
-        <article class="proj">
-          <div class="proj-top">
-            <h4>Smart IV Pole (Motorized Lift + Load Sensing)</h4>
-            <span class="tag">Mechatronics • Prototyping</span>
-          </div>
-          <p>Concept-to-prototype plan for a motorized IV pole with weight sensing and a simple user interface.</p>
-          <ul class="bullets">
-            <li>Mechanical concept: lead screw / worm drive lift; packaging + stability considerations.</li>
-            <li>Electronics: load cell + amplifier, motor driver, limit switches, battery power planning.</li>
-            <li><strong>Add:</strong> CAD render, wiring diagram, and a video clip of a lift cycle + measured load reading.</li>
-          </ul>
-          <div class="links2">
-            <a class="mini" href="#" onclick="alert('Link your CAD screenshots later.'); return false;">CAD <span>(renders)</span></a>
-            <a class="mini" href="#" onclick="alert('Link your firmware repo later.'); return false;">Firmware <span>(GitHub)</span></a>
-          </div>
-        </article>
-
-        <!-- PROJECT 4 -->
-        <article class="proj">
-          <div class="proj-top">
-            <h4>PID-Controlled Heating Rig (Thermocouple + SSR)</h4>
-            <span class="tag">Controls • Test Rig</span>
-          </div>
-          <p>Temperature control setup to test heating behavior with a thermocouple sensor and PID loop.</p>
-          <ul class="bullets">
-            <li>Designed control loop concept and wiring (sensor → controller/MCU → SSR → heater).</li>
-            <li><strong>Add:</strong> step response plot (setpoint vs measured), tuning values, stability notes.</li>
-            <li>Document test method + repeatability (what changed between runs, what stayed stable).</li>
-          </ul>
-          <div class="links2">
-            <a class="mini" href="#" onclick="alert('Add your test plots later.'); return false;">Test data <span>(plots)</span></a>
-            <a class="mini" href="#" onclick="alert('Link your build notes later.'); return false;">Build notes <span>(PDF)</span></a>
-          </div>
-        </article>
-
-        <!-- PROJECT 5 -->
-        <article class="proj">
-          <div class="proj-top">
-            <h4>Consumer FPV Drone Builds + Tuning Workflow</h4>
-            <span class="tag">Systems • Iteration</span>
-          </div>
-          <p>Build + tune process for small FPV drones focused on controllability, indoor flight, and reliability.</p>
-          <ul class="bullets">
-            <li>Documented throttle response tuning approach and settings impact on indoor stability.</li>
-            <li>Integrated components, improved wiring/packaging, and validated flight behavior changes.</li>
-            <li><strong>Add:</strong> one “before/after” tuning clip + settings summary.</li>
-          </ul>
-          <div class="links2">
-            <a class="mini" href="#" onclick="alert('Add a tuning notes page later.'); return false;">Tuning notes <span>(page)</span></a>
-            <a class="mini" href="#" onclick="alert('Add a short flight video later.'); return false;">Demo <span>(video)</span></a>
-          </div>
-        </article>
-
-        <!-- PROJECT 6 -->
-        <article class="proj">
-          <div class="proj-top">
-            <h4>DIY Alignment Sensor Tool (Concept)</h4>
-            <span class="tag">Sensors • Tooling</span>
-          </div>
-          <p>Concept for a low-cost alignment measurement tool using sensors + a repeatable setup method.</p>
-          <ul class="bullets">
-            <li>Explored sensor tradeoffs and accuracy pitfalls (toe measurement sensitivity, repeatability).</li>
-            <li><strong>Add:</strong> final method you choose + quick test showing repeatable toe measurement.</li>
-            <li>Make it “R&D-ready”: define requirements, error sources, and calibration steps.</li>
-          </ul>
-          <div class="links2">
-            <a class="mini" href="#" onclick="alert('Link CAD/print files later.'); return false;">3D print files <span>(STL)</span></a>
-            <a class="mini" href="#" onclick="alert('Link code later.'); return false;">Prototype code <span>(GitHub)</span></a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="about" class="section">
-      <div class="section-head">
-        <h3>About</h3>
-        <div class="hint">Keep this short. You want them to scroll to projects.</div>
-      </div>
-
-      <div class="two-col">
-        <div class="card">
-          <h2>Summary</h2>
-          <p>
-            I’m a mechanical engineering student with strong hands-on mechatronics experience (fabrication, wiring, calibration, and iteration).
-            I’m most effective in environments where I can build prototypes, test them, and improve them quickly.
-          </p>
-          <div class="meta">
-            <span class="pill"><strong>Role target:</strong> R&D / Product Dev</span>
-            <span class="pill"><strong>Interest:</strong> automotive + tools</span>
-            <span class="pill"><strong>Strength:</strong> build & validate</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h2>What hiring managers care about</h2>
-          <ul class="list">
-            <li>Can you define requirements and make tradeoffs?</li>
-            <li>Can you measure performance and show results?</li>
-            <li>Can you document clearly so others can reproduce?</li>
-            <li>Can you integrate mechanical + electrical + firmware without chaos?</li>
-          </ul>
-          <p style="margin-top:10px; color:var(--muted);">
-            This site is structured to answer those questions quickly.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="section">
-      <div class="section-head">
-        <h3>Skills</h3>
-        <div class="hint">Swap these to match your actual toolset.</div>
-      </div>
-
-      <div class="two-col">
-        <div class="card">
-          <h2>Mechanical</h2>
-          <ul class="list">
-            <li>CAD (SolidWorks) • packaging • design for assembly</li>
-            <li>3D printing (PETG/ASA etc.) • rapid iteration</li>
-            <li>Fabrication / shop experience • welding familiarity</li>
-            <li>Basic GD&T awareness • tolerance thinking</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h2>Electrical + Firmware</h2>
-          <ul class="list">
-            <li>Arduino/MCU prototyping • sensor integration</li>
-            <li>Calibration workflows • filtering • sanity checks</li>
-            <li>Motor drivers, relays/SSR, power basics</li>
-            <li>Test mindset: logs, plots, repeatability</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="section-head">
-        <h3>Contact</h3>
-        <div class="hint">Make this effortless. One click to email.</div>
-      </div>
-
-      <div class="card">
-        <h2>Reach me</h2>
-        <p>
-          Email is best for internships / co-ops / R&D roles.
-          <!-- Replace with your preferred email -->
+  <main class="snap" id="scroller">
+    <!-- HOME -->
+    <section id="home">
+      <div class="wrap">
+        <div class="kicker">Mechanical / Mechatronics • R&D Portfolio</div>
+        <h1>Prototypes, tests, and iteration — documented like R&D.</h1>
+        <p class="lede">
+          I build real hardware: CAD → wiring → embedded firmware → testing. This site is structured as
+          scrollable “pages” so each project reads like a short case study.
         </p>
-        <div class="cta" style="margin-top:12px">
-          <a class="btn primary" href="mailto:jamesdrake@gmail.com?subject=R%26D%20Opportunity%20-%20James%20Drake">
-            Email me <small>(jamesdrake@gmail.com)</small>
-          </a>
-          <a class="btn" href="#" onclick="alert('Paste your LinkedIn URL here.'); return false;">LinkedIn</a>
-          <a class="btn" href="#" onclick="alert('Paste your GitHub URL here.'); return false;">GitHub</a>
+
+        <div class="cta">
+          <!-- Update these links when ready -->
+          <a class="btn primary" href="#" onclick="alert('Upload resume PDF and update link.'); return false;">Resume (PDF)</a>
+          <a class="btn" href="#" onclick="alert('Paste LinkedIn URL in the HTML.'); return false;">LinkedIn</a>
+          <a class="btn" href="#" onclick="alert('Paste GitHub URL in the HTML.'); return false;">GitHub</a>
+          <a class="btn ghost" href="#midi">Start scrolling ↓</a>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <div class="section-title">
+              <h2>What I want</h2>
+              <small>Target: R&D / Product Dev</small>
+            </div>
+            <p class="lede" style="margin-bottom:0;">
+              An R&D role where I can build prototypes, validate them with data, and improve them fast.
+              I care about reliability, clean integration, and measurable results.
+            </p>
+            <div class="meta">
+              <span class="pill">Mechatronics integration</span>
+              <span class="pill">Instrumentation & calibration</span>
+              <span class="pill">Prototype → test → iterate</span>
+              <span class="pill">Documentation-first</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="section-title">
+              <h2>How to read this</h2>
+              <small>Newer → Earlier</small>
+            </div>
+            <ul>
+              <li><b>Newer projects</b> show current capability: integration, testing, polish.</li>
+              <li><b>Earlier projects</b> show growth: modeling, basics, learning trajectory.</li>
+              <li>Each project uses an R&D-style format: Problem / Approach / Results / Tools.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <div class="timeline">
+          <span><b>Scroll:</b> one project = one page</span>
+          <span>•</span>
+          <span><b>Goal:</b> make it easy for a hiring manager to say “yes”</span>
         </div>
       </div>
     </section>
 
-    <div class="footer">
-      <div>© <span id="y"></span> James Drake • Built on Cloudflare Pages</div>
-      <div style="display:flex; gap:10px; flex-wrap:wrap;">
-        <a href="#projects">Projects</a>
-        <span>•</span>
-        <a href="#contact">Contact</a>
+    <!-- NEWER SECTION ANCHOR (for nav) -->
+    <section id="new" aria-hidden="true" style="min-height:0; padding:0;"></section>
+
+    <!-- PROJECT: MIDI CONTROLLER -->
+    <section id="midi">
+      <div class="wrap">
+        <div class="kicker">Newer project</div>
+        <div class="section-title">
+          <h2>MIDI Controller + Audio Level Bars</h2>
+          <small>Embedded • UI • Prototyping</small>
+        </div>
+
+        <p class="lede">
+          A tactile controller built for real workflow: knobs/faders + visual audio feedback (level bars).
+          Designed to feel like a finished product, not a breadboard demo.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Photo / demo (add later)</h3>
+            <div class="placeholder">Drop a hero photo or a short demo GIF here later.<br/>Recommended: one clean top-down shot.</div>
+          </div>
+          <div class="card">
+            <h3>At a glance</h3>
+            <div class="meta">
+              <span class="pill">Inputs: faders / encoders</span>
+              <span class="pill">Output: MIDI</span>
+              <span class="pill">UI: audio bars</span>
+              <span class="pill">Focus: usability</span>
+            </div>
+            <div class="divider"></div>
+            <ul>
+              <li><b>Problem:</b> physical controls + clear visual feedback for audio mixing.</li>
+              <li><b>Approach:</b> modular firmware + simple UI states.</li>
+              <li><b>Results:</b> (add) latency, update rate, stability notes.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="case">
+          <div class="card">
+            <h3>Engineering decisions</h3>
+            <ul>
+              <li>IO strategy for smooth fader/encoder reads (debounce + filtering).</li>
+              <li>UI behavior designed around fast “at-a-glance” understanding.</li>
+              <li>Mechanical layout optimized for hand feel and spacing.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>What to add later</h3>
+            <ul>
+              <li>1 wiring photo + 1 enclosure photo</li>
+              <li>Short spec list (power, update rate, number of controls)</li>
+              <li>1-minute demo video</li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <!-- PROJECT: THERMOCOUPLE CONTROLLER -->
+    <section id="thermo">
+      <div class="wrap">
+        <div class="kicker">Newer project</div>
+        <div class="section-title">
+          <h2>Thermocouple Temperature Controller (PID Test Rig)</h2>
+          <small>Controls • Test • Safety</small>
+        </div>
+
+        <p class="lede">
+          Temperature control setup for repeatable heating tests. Built to measure performance, tune response,
+          and document repeatability like a real lab rig.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Photo / plot (add later)</h3>
+            <div class="placeholder">Add a setpoint vs measured plot here later.<br/>This is hiring-manager gold.</div>
+          </div>
+          <div class="card">
+            <h3>R&D framing</h3>
+            <ul>
+              <li><b>Problem:</b> stable, safe temperature control with measurable performance.</li>
+              <li><b>Approach:</b> thermocouple sensing → PID → SSR/driver → heater.</li>
+              <li><b>Results:</b> (add) overshoot, settling time, steady-state error.</li>
+            </ul>
+            <div class="meta">
+              <span class="pill">Thermocouple</span>
+              <span class="pill">PID tuning</span>
+              <span class="pill">SSR / power stage</span>
+              <span class="pill">Repeatable tests</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="case">
+          <div class="card">
+            <h3>What I learned</h3>
+            <ul>
+              <li>How noise & sampling affect control stability.</li>
+              <li>How to tune for “fast but not sloppy.”</li>
+              <li>How to document results so they’re credible.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Next milestone</h3>
+            <ul>
+              <li>Add logged data export (CSV) + plotting.</li>
+              <li>Define safety limits and fault behavior.</li>
+              <li>Write a 1-page test report (spec → results).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT: SMART IV BAG -->
+    <section id="iv">
+      <div class="wrap">
+        <div class="kicker">Newer project</div>
+        <div class="section-title">
+          <h2>Smart IV Bag / IV Pole System</h2>
+          <small>Mechatronics • Medical-style device thinking</small>
+        </div>
+
+        <p class="lede">
+          A mechatronics concept focused on practical usability: sensing + controls + a clear UI.
+          Structured as a product-like system: requirements, constraints, and validation plan.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <h3>CAD / prototype photo (add later)</h3>
+            <div class="placeholder">Add a CAD render or prototype photo here later.</div>
+          </div>
+          <div class="card">
+            <h3>System overview</h3>
+            <ul>
+              <li><b>Problem:</b> improve monitoring + usability.</li>
+              <li><b>Approach:</b> load sensing + actuator concept + UI.</li>
+              <li><b>Results:</b> (add) accuracy, repeatability, user workflow.</li>
+            </ul>
+            <div class="meta">
+              <span class="pill">Load sensing</span>
+              <span class="pill">Motorized mechanism</span>
+              <span class="pill">UI + alerts</span>
+              <span class="pill">Design constraints</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="case">
+          <div class="card">
+            <h3>Design constraints</h3>
+            <ul>
+              <li>Stability and safe motion (limit switches / stops).</li>
+              <li>Battery life + charging considerations.</li>
+              <li>Calibration and drift over time.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Validation plan</h3>
+            <ul>
+              <li>Bench test load readings across multiple weights.</li>
+              <li>Repeatability tests (same weight, multiple trials).</li>
+              <li>Motion cycle test (wear / reliability).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT: AUTONOMOUS DRONE -->
+    <section id="drone">
+      <div class="wrap">
+        <div class="kicker">Newer project</div>
+        <div class="section-title">
+          <h2>Autonomous Drone Build</h2>
+          <small>Systems • Integration • Iteration</small>
+        </div>
+
+        <p class="lede">
+          Drone platform work focused on real-world reliability: component integration, tuning, packaging,
+          and a test-driven approach to improving flight behavior.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Flight / build photo (add later)</h3>
+            <div class="placeholder">Add one clean build photo + one flight clip thumbnail later.</div>
+          </div>
+          <div class="card">
+            <h3>What matters for R&D</h3>
+            <ul>
+              <li><b>Problem:</b> stable flight + repeatable performance changes.</li>
+              <li><b>Approach:</b> tune parameters, log changes, validate with flights.</li>
+              <li><b>Results:</b> (add) “before/after” behavior and settings summary.</li>
+            </ul>
+            <div class="meta">
+              <span class="pill">Integration</span>
+              <span class="pill">Tuning workflow</span>
+              <span class="pill">Packaging</span>
+              <span class="pill">Testing</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="case">
+          <div class="card">
+            <h3>Highlights</h3>
+            <ul>
+              <li>Repeatable tuning process (changes tracked + validated).</li>
+              <li>Wiring and mechanical packaging improvements.</li>
+              <li>Focus on “works every time,” not “works once.”</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Add later</h3>
+            <ul>
+              <li>Short checklist: build, setup, tuning steps.</li>
+              <li>Table: change → expected effect → observed effect.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OLDER SECTION ANCHOR -->
+    <section id="older" aria-hidden="true" style="min-height:0; padding:0;"></section>
+
+    <!-- PROJECT: CAR TRIM PIECE -->
+    <section id="trim">
+      <div class="wrap">
+        <div class="kicker">Earlier project</div>
+        <div class="section-title">
+          <h2>Automotive Trim Piece (Design + 3D Print)</h2>
+          <small>CAD • Fitment • Iteration</small>
+        </div>
+
+        <p class="lede">
+          Practical CAD-to-physical part workflow: measure, model, print, test fit, revise.
+          This project shows early “real-world constraints” thinking.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Before/after (add later)</h3>
+            <div class="placeholder">Add a “broken/stock” photo and your printed part installed.</div>
+          </div>
+          <div class="card">
+            <h3>Process</h3>
+            <ul>
+              <li><b>Problem:</b> replacement / improvement part that fits and holds up.</li>
+              <li><b>Approach:</b> measure → CAD → prototype prints → revise.</li>
+              <li><b>Results:</b> (add) fitment notes + print settings/material.</li>
+            </ul>
+            <div class="meta">
+              <span class="pill">Measurement</span>
+              <span class="pill">CAD revision</span>
+              <span class="pill">FDM printing</span>
+              <span class="pill">Fit testing</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="case">
+          <div class="card">
+            <h3>Growth point</h3>
+            <ul>
+              <li>This is where I learned iteration discipline (small changes, retest).</li>
+              <li>Fitment taught tolerance and real-world variability.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Upgrade later</h3>
+            <ul>
+              <li>Add a dimensioned drawing snapshot.</li>
+              <li>Add a “rev history” note (Rev A, B, C improvements).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT: 3D MODELED WATERPUMP -->
+    <section id="pump">
+      <div class="wrap">
+        <div class="kicker">Earlier project</div>
+        <div class="section-title">
+          <h2>3D Modeled Water Pump</h2>
+          <small>CAD • Mechanisms • Learning fundamentals</small>
+        </div>
+
+        <p class="lede">
+          A modeling-heavy project that shows fundamentals: part breakdown, assemblies, and mechanical reasoning.
+          Great for demonstrating growth from CAD skill → integrated mechatronics later.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Render (add later)</h3>
+            <div class="placeholder">Add 1 clean render + exploded view if you have it.</div>
+          </div>
+          <div class="card">
+            <h3>What it demonstrates</h3>
+            <ul>
+              <li>Understanding of components and assembly relationships.</li>
+              <li>Better modeling practices over time (naming, constraints, structure).</li>
+              <li><b>Add:</b> what you’d do differently today (DFM, tolerances, sealing).</li>
+            </ul>
+            <div class="meta">
+              <span class="pill">Assemblies</span>
+              <span class="pill">Mechanisms</span>
+              <span class="pill">CAD discipline</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="case">
+          <div class="card">
+            <h3>Lessons learned</h3>
+            <ul>
+              <li>How to structure assemblies cleanly.</li>
+              <li>How to think about motion constraints and interfaces.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Make it stronger later</h3>
+            <ul>
+              <li>Add a simple section view or interface detail.</li>
+              <li>Add a short “requirements” paragraph retroactively.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT: EARLY MODELS (GROWTH) -->
+    <section id="models">
+      <div class="wrap">
+        <div class="kicker">Earlier work</div>
+        <div class="section-title">
+          <h2>Early CAD Models (Growth)</h2>
+          <small>Show progression</small>
+        </div>
+
+        <p class="lede">
+          A curated set of earlier models to show growth over time.
+          Keep this section selective: 4–8 items max, each with one sentence.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Gallery placeholder</h3>
+            <div class="placeholder">
+              Later: add a simple grid of images.<br/>
+              Best format: 2×3 grid with short captions.
+            </div>
+          </div>
+          <div class="card">
+            <h3>How to present growth (do this)</h3>
+            <ul>
+              <li>Label each: <b>Year / Context</b> (class, personal, client).</li>
+              <li>One line: what you learned (constraints, tolerances, assembly).</li>
+              <li>End with: “What I do differently now.”</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="case">
+          <div class="card">
+            <h3>Example entries (replace later)</h3>
+            <ul>
+              <li>Bracket model — learned constraints & clean sketches.</li>
+              <li>Assembly practice — learned mates and motion planning.</li>
+              <li>Fitment part — learned tolerances and iteration.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Why this helps hiring</h3>
+            <ul>
+              <li>Shows trajectory, not just isolated wins.</li>
+              <li>Signals coachability and learning speed.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="kicker">Contact</div>
+        <div class="section-title">
+          <h2>Let’s talk</h2>
+          <small>Fastest response: email</small>
+        </div>
+
+        <p class="lede">
+          If you’re hiring for R&D / product development roles (mechanical, mechatronics, test), I’d love to connect.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Email</h3>
+            <p class="lede" style="margin:0 0 10px;">
+              Replace this with your preferred email if needed.
+            </p>
+            <div class="cta" style="margin-top:0;">
+              <a class="btn primary" href="mailto:jamesdrake@gmail.com?subject=R%26D%20Opportunity%20-%20James%20Drake">Email me</a>
+              <a class="btn" href="#" onclick="alert('Paste LinkedIn URL in the HTML.'); return false;">LinkedIn</a>
+              <a class="btn" href="#" onclick="alert('Paste GitHub URL in the HTML.'); return false;">GitHub</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Next improvements (later)</h3>
+            <ul>
+              <li>Add resume PDF + set the Resume button link.</li>
+              <li>Add 1 hero photo per project + 1 results plot when possible.</li>
+              <li>Make each project include a measurable result (even simple ones).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="foot">
+          <span>© <span id="y"></span> James Drake</span>
+          <span>Built with Cloudflare Pages</span>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script>
+    // Year
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Dot nav: click to scroll to section
+    const scroller = document.getElementById("scroller");
+    const dotBtns = Array.from(document.querySelectorAll(".dotbtn"));
+    dotBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const id = btn.getAttribute("data-target");
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    // Highlight active dot based on scroll position
+    const sectionIds = dotBtns.map(b => b.getAttribute("data-target"));
+    const sections = sectionIds
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const id = e.target.id;
+          dotBtns.forEach(b => b.classList.toggle("active", b.getAttribute("data-target") === id));
+        }
+      });
+    }, { root: scroller, threshold: 0.6 });
+
+    sections.forEach(s => obs.observe(s));
   </script>
 </body>
 </html>
