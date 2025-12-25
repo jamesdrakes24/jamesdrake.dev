@@ -4,16 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>James Drake — Mechanical Engineering Portfolio</title>
-  <meta name="description" content="James Drake — Mechanical engineering portfolio: design, prototyping, test-driven iteration, and practical mechatronics." />
+  <meta name="description" content="James Drake — Mechanical engineering portfolio: design, prototyping, and test-driven iteration with instrumentation experience." />
 
   <style>
     :root{
       --bg:#ffffff;
-      --surface:#f8fafc;      /* slate-50 */
-      --text:#0f172a;         /* slate-900 */
-      --muted:#475569;        /* slate-600 */
-      --faint:#94a3b8;        /* slate-400 */
-      --line:#e2e8f0;         /* slate-200 */
+      --surface:#f8fafc;
+      --text:#0f172a;
+      --muted:#475569;
+      --faint:#94a3b8;
+      --line:#e2e8f0;
       --shadow:0 18px 42px rgba(2,6,23,.08);
       --r:18px;
       --max:1080px;
@@ -32,7 +32,6 @@
     a{color:inherit; text-decoration:none}
     a:hover{opacity:.92}
 
-    /* Header */
     .topbar{
       position:sticky;
       top:0;
@@ -99,7 +98,7 @@
       font-size:42px;
       letter-spacing:-1px;
       line-height:1.08;
-      max-width: 36ch;
+      max-width: 40ch;
     }
     .lede{
       margin:0;
@@ -178,7 +177,6 @@
     ul{margin:0; padding-left:18px; color:var(--muted)}
     li{margin:6px 0}
 
-    /* Projects */
     .project{
       padding:26px 0;
       border-top:1px solid var(--line);
@@ -247,11 +245,12 @@
       <!-- ABOUT -->
       <section class="section" id="about">
         <div class="kicker">Mechanical Engineering • R&amp;D Portfolio</div>
-        <h1>Design, prototype, test, iterate — with practical electromechanical integration when it adds value.</h1>
+        <h1>Mechanical design, prototyping, and test-driven iteration.</h1>
         <p class="lede">
-          I’m a mechanical engineer who builds and refines physical systems. My work spans CAD and assemblies, prototype fabrication,
-          and practical testing to validate performance. When a mechanical system benefits from instrumentation or control, I’m comfortable
-          integrating sensors, embedded hardware, and basic feedback control — as part of the overall product development process.
+          I’m a mechanical engineer who likes building real hardware and improving it through hands-on testing.
+          My work includes CAD and assemblies, prototyping (including 3D-printed fixtures and parts), and documenting iterations
+          so the next revision is clearly better than the last. I’m also comfortable with basic electronics and embedded prototyping
+          when a project needs instrumentation, sensing, or simple control.
         </p>
 
         <div class="cta">
@@ -263,13 +262,13 @@
 
         <div class="grid">
           <div class="card white">
-            <h3>Strengths</h3>
+            <h3>What I do well</h3>
             <div class="divider"></div>
             <ul>
-              <li>Mechanical design intent: interfaces, constraints, packaging, tolerance awareness.</li>
-              <li>Prototype-first execution with disciplined iteration based on test results.</li>
-              <li>Electromechanical integration when needed: sensors, wiring, embedded prototyping, basic controls.</li>
-              <li>Clear documentation: what changed, why it changed, and how it was evaluated.</li>
+              <li>Design intent: interfaces, constraints, packaging, and tolerance awareness.</li>
+              <li>Prototypes that are buildable, serviceable, and easy to iterate on.</li>
+              <li>Test mindset: define acceptance criteria, measure, revise, repeat.</li>
+              <li>Instrumentation as needed: sensors, wiring, data capture, basic firmware.</li>
             </ul>
           </div>
 
@@ -280,11 +279,11 @@
               <span class="pill">SolidWorks CAD</span>
               <span class="pill">Assemblies</span>
               <span class="pill">3D printing</span>
-              <span class="pill">Prototyping</span>
-              <span class="pill">Test mindset</span>
+              <span class="pill">Prototype fabrication</span>
+              <span class="pill">Test documentation</span>
               <span class="pill">Sensors + calibration</span>
-              <span class="pill">Basic controls</span>
               <span class="pill">Embedded prototyping</span>
+              <span class="pill">Basic controls</span>
             </div>
           </div>
         </div>
@@ -294,95 +293,95 @@
       <section class="section" id="projects">
         <h2>Projects</h2>
         <p class="lede" style="margin-top:10px;">
-          Selected work across mechanical design, prototyping, and validation — including electromechanical integration where relevant.
+          Selected work across mechanical design and prototyping, with electronics/embedded included where it supports the system.
         </p>
 
-        <!-- Project 1 -->
+        <!-- MIDI -->
         <div class="project" id="midi">
           <div class="proj-head">
             <div>
-              <h2>Audio Control Surface (Mechanical Layout + Embedded Interface)</h2>
+              <h2>Audio Control Surface (Physical Controls + Level Display)</h2>
               <p>
-                A physical controller built for an audio workflow: tactile controls paired with a clear level display.
-                Designed around stability, usability, and clean packaging — the goal was something that feels consistent under real use.
+                A hardware controller designed around usability and consistency: tactile controls paired with a clear level display.
+                Focused on packaging, stable behavior, and a layout that makes sense in real use.
               </p>
             </div>
             <div class="proj-tags">
-              <span class="pill">Product design</span>
+              <span class="pill">Product layout</span>
               <span class="pill">Packaging</span>
-              <span class="pill">Human factors</span>
+              <span class="pill">User interaction</span>
               <span class="pill">Embedded interface</span>
             </div>
           </div>
           <div class="cols">
             <div class="card white">
-              <h3>Engineering highlights</h3>
+              <h3>Key work</h3>
               <div class="divider"></div>
               <ul>
-                <li>Layout decisions: spacing, ergonomics, and control placement with a “use it fast” mindset.</li>
-                <li>Packaging: mounting, access, and integration choices that keep the build serviceable.</li>
-                <li>Stable interaction behavior: consistent response across controls and clear visual feedback.</li>
+                <li>Physical layout decisions: spacing, ergonomics, control placement.</li>
+                <li>Clean integration: mounting strategy, access/serviceability.</li>
+                <li>Stable interaction behavior through filtering and consistent response.</li>
               </ul>
             </div>
             <div class="card white">
-              <h3>Validation approach</h3>
+              <h3>How it was iterated</h3>
               <div class="divider"></div>
               <ul>
-                <li>Iterated based on usability observations (what’s confusing, what’s slow, what feels inconsistent).</li>
-                <li>Focused on stability (reducing jitter/noise) without introducing a laggy feel.</li>
-                <li>Documented revisions as small changes with clear intent and observed outcomes.</li>
+                <li>Refined based on repeatable use cases (what felt inconsistent or slow).</li>
+                <li>Improved noise/jitter behavior while keeping the interface responsive.</li>
+                <li>Documented revisions with intent and observed outcome.</li>
               </ul>
             </div>
           </div>
         </div>
 
-        <!-- Project 2 -->
+        <!-- THERMOCOUPLE -->
         <div class="project" id="thermo">
           <div class="proj-head">
             <div>
               <h2>Thermocouple Temperature Control Test Rig</h2>
               <p>
-                A temperature control setup designed for repeatable testing. Built to tune response and evaluate performance with measurable criteria
-                (overshoot, settling behavior, steady-state error).
+                Temperature control setup built for repeatable evaluation. Designed to tune response and measure behavior using
+                overshoot, settling, and steady-state error.
               </p>
             </div>
             <div class="proj-tags">
               <span class="pill">Test rig</span>
               <span class="pill">Thermal</span>
-              <span class="pill">Controls</span>
               <span class="pill">Instrumentation</span>
+              <span class="pill">Controls</span>
             </div>
           </div>
           <div class="cols">
             <div class="card white">
-              <h3>Engineering highlights</h3>
+              <h3>Key work</h3>
               <div class="divider"></div>
               <ul>
-                <li>Feedback-based temperature control using thermocouple measurement.</li>
-                <li>Practical system design: safe limits, predictable behavior, and repeatable setup.</li>
-                <li>Tuning workflow focused on stability first, then response speed.</li>
+                <li>Feedback-based temperature control with thermocouple measurement.</li>
+                <li>Built for repeatability: consistent setup and defined safety limits.</li>
+                <li>Tuning workflow focused on stability before speed.</li>
               </ul>
             </div>
             <div class="card white">
-              <h3>Evaluation method</h3>
+              <h3>How it was evaluated</h3>
               <div class="divider"></div>
               <ul>
-                <li>Step response checks to characterize overshoot and settling.</li>
-                <li>Repeatability checks across multiple runs.</li>
-                <li>Change log for tuning adjustments with observed behavior notes.</li>
+                <li>Step response checks (overshoot / settling time / error).</li>
+                <li>Repeatability runs across multiple trials.</li>
+                <li>Change log for tuning adjustments and observed behavior.</li>
               </ul>
             </div>
           </div>
         </div>
 
-        <!-- Project 3 -->
+        <!-- IV -->
         <div class="project" id="iv">
           <div class="proj-head">
             <div>
               <h2>Smart IV System (Concept + Prototype Plan)</h2>
               <p>
-                Product-style system concept focused on mechanical constraints, usability, and verification. Structured as requirements → design decisions → validation plan,
-                with sensor integration considered as part of the complete system.
+                System concept structured like a real development effort: requirements → design decisions → verification plan.
+                Focused on mechanical constraints, usability, and reliable measurement.
               </p>
             </div>
             <div class="proj-tags">
@@ -394,34 +393,34 @@
           </div>
           <div class="cols">
             <div class="card white">
-              <h3>Engineering highlights</h3>
+              <h3>Key work</h3>
               <div class="divider"></div>
               <ul>
-                <li>Requirements-driven design: safety, repeatability, and clear operator feedback.</li>
-                <li>Mechanical constraints and safe limits addressed early in the architecture.</li>
-                <li>Calibration and drift considered as a first-class design constraint.</li>
+                <li>Requirements-driven thinking around safety, repeatability, and operator feedback.</li>
+                <li>Mechanical constraints and safe limits considered in the architecture.</li>
+                <li>Measurement considerations: calibration, drift, repeatable zeroing.</li>
               </ul>
             </div>
             <div class="card white">
-              <h3>Validation plan</h3>
+              <h3>Verification plan</h3>
               <div class="divider"></div>
               <ul>
-                <li>Bench tests against known conditions with repeat trials and acceptance criteria.</li>
-                <li>Cycle testing to assess wear and reliability over time.</li>
+                <li>Bench tests against known conditions with acceptance criteria.</li>
+                <li>Cycle testing for wear and reliability.</li>
                 <li>Failure-mode thinking: predictable behavior and safe defaults.</li>
               </ul>
             </div>
           </div>
         </div>
 
-        <!-- Project 4 -->
+        <!-- DRONE -->
         <div class="project" id="drone">
           <div class="proj-head">
             <div>
               <h2>Autonomous Drone Platform (Build + Integration)</h2>
               <p>
-                Platform build work under real constraints (weight, vibration, packaging) with emphasis on reliable assembly and controlled iteration.
-                Focused on mechanical integration decisions that support consistent performance.
+                Platform build work under constraints (weight, vibration, packaging), with emphasis on reliable assembly and controlled iteration.
+                Focused on mechanical integration choices that support consistent performance.
               </p>
             </div>
             <div class="proj-tags">
@@ -433,7 +432,7 @@
           </div>
           <div class="cols">
             <div class="card white">
-              <h3>Engineering highlights</h3>
+              <h3>Key work</h3>
               <div class="divider"></div>
               <ul>
                 <li>Packaging and assembly choices aimed at reducing failure points.</li>
@@ -446,14 +445,14 @@
               <div class="divider"></div>
               <ul>
                 <li>Controlled changes with a consistent evaluation checklist.</li>
-                <li>Documentation of what changed, why it changed, and observed impact.</li>
+                <li>Documented what changed, why, and observed impact.</li>
                 <li>Reliability treated as a requirement, not an afterthought.</li>
               </ul>
             </div>
           </div>
         </div>
 
-        <!-- Project 5 -->
+        <!-- TRIM -->
         <div class="project" id="trim">
           <div class="proj-head">
             <div>
@@ -472,7 +471,7 @@
           </div>
           <div class="cols">
             <div class="card white">
-              <h3>Engineering highlights</h3>
+              <h3>Key work</h3>
               <div class="divider"></div>
               <ul>
                 <li>Interface-driven design: clearances, mounting geometry, tolerance awareness.</li>
@@ -481,7 +480,7 @@
               </ul>
             </div>
             <div class="card white">
-              <h3>Documentation</h3>
+              <h3>How results were captured</h3>
               <div class="divider"></div>
               <ul>
                 <li>Revision history with rationale for each change.</li>
@@ -492,40 +491,40 @@
           </div>
         </div>
 
-        <!-- Project 6 -->
+        <!-- PUMP -->
         <div class="project" id="pump">
           <div class="proj-head">
             <div>
               <h2>Water Pump Assembly Model (SolidWorks)</h2>
               <p>
-                Assembly model demonstrating mechanical fundamentals: component breakdown, constraints, and interface awareness.
-                Built as a structured CAD project with emphasis on clean mates, clear part relationships, and manufacturable geometry.
+                Structured assembly model emphasizing mechanical fundamentals: component breakdown, constraints, and interface awareness.
+                Built with clean mates, clear part relationships, and manufacturable geometry in mind.
               </p>
             </div>
             <div class="proj-tags">
               <span class="pill">SolidWorks</span>
               <span class="pill">Assemblies</span>
               <span class="pill">Mechanisms</span>
-              <span class="pill">Documentation</span>
+              <span class="pill">Design communication</span>
             </div>
           </div>
           <div class="cols">
             <div class="card white">
-              <h3>Engineering highlights</h3>
+              <h3>Key work</h3>
               <div class="divider"></div>
               <ul>
-                <li>Structured assembly with constraints that reflect real mechanical interfaces.</li>
-                <li>Clear part relationships and serviceability-minded breakdown.</li>
-                <li>Design considerations captured (interfaces, sealing surfaces, fastener access).</li>
+                <li>Constraint-driven assembly reflecting real interfaces.</li>
+                <li>Clear organization (parts, subassemblies, naming) for reviewability.</li>
+                <li>Design intent captured in views and notes, not just geometry.</li>
               </ul>
             </div>
             <div class="card white">
-              <h3>Quality and communication</h3>
+              <h3>Mechanical considerations</h3>
               <div class="divider"></div>
               <ul>
-                <li>Clean naming/organization to make the model easy to review.</li>
-                <li>Views and notes intended to communicate intent, not just geometry.</li>
-                <li>Modeled with an eye toward “could this be manufactured and assembled?”</li>
+                <li>Interface surfaces and fastener access awareness.</li>
+                <li>Assembly/serviceability considerations in layout decisions.</li>
+                <li>DFM mindset: “could this be made and assembled?”</li>
               </ul>
             </div>
           </div>
@@ -564,7 +563,7 @@
             <ul>
               <li>Resume (PDF link)</li>
               <li>LinkedIn profile</li>
-              <li>GitHub / project code (if applicable)</li>
+              <li>GitHub (project code where applicable)</li>
             </ul>
           </div>
         </div>
