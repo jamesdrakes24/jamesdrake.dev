@@ -4,42 +4,41 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>James Drake — Engineering Portfolio</title>
-  <meta name="description" content="Engineering portfolio — mechatronics, prototyping, embedded systems, CAD, and test-driven iteration." />
+  <meta name="description" content="Engineering portfolio — hands-on mechatronics, prototyping, embedded systems, CAD, and testing." />
 
   <style>
     :root{
       --bg:#ffffff;
-      --surface:#f8fafc;   /* slate-50 */
-      --text:#0f172a;      /* slate-900 */
-      --muted:#475569;     /* slate-600 */
-      --faint:#94a3b8;     /* slate-400 */
-      --line:#e2e8f0;      /* slate-200 */
-      --shadow:0 18px 40px rgba(2,6,23,.08);
+      --surface:#f8fafc;      /* slate-50 */
+      --text:#0f172a;         /* slate-900 */
+      --muted:#475569;        /* slate-600 */
+      --faint:#94a3b8;        /* slate-400 */
+      --line:#e2e8f0;         /* slate-200 */
+      --shadow:0 18px 42px rgba(2,6,23,.08);
       --r:18px;
-      --max:1120px;
-
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --max:1080px;
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family: var(--sans);
+      font-family:var(--sans);
       color:var(--text);
       background:var(--bg);
       line-height:1.55;
     }
-
     a{color:inherit; text-decoration:none}
-    a:hover{opacity:.92}
+    a:hover{opacity:.9}
+    ::selection{background:#e2e8f0}
 
     /* Top bar */
     .topbar{
-      position:fixed;
-      inset:0 0 auto 0;
-      z-index:50;
+      position:sticky;
+      top:0;
+      z-index:30;
       background:rgba(255,255,255,.88);
       backdrop-filter: blur(10px);
       border-bottom:1px solid var(--line);
@@ -57,14 +56,11 @@
       display:flex;
       align-items:center;
       gap:10px;
-      font-weight:750;
+      font-weight:800;
       letter-spacing:-.2px;
       white-space:nowrap;
     }
-    .mark{
-      width:10px; height:10px; border-radius:999px;
-      background:var(--text);
-    }
+    .mark{width:10px;height:10px;border-radius:999px;background:var(--text)}
     .nav{
       display:flex;
       gap:8px;
@@ -84,32 +80,9 @@
       border-color:var(--line);
     }
 
-    /* Scroll “pages” */
-    .pages{
-      height:100vh;
-      overflow-y:auto;
-      scroll-snap-type:y mandatory;
-      scroll-behavior:smooth;
-    }
-    .pages::before{
-      content:"";
-      display:block;
-      height:62px; /* space for topbar */
-    }
-    section.page{
-      min-height: calc(100vh - 62px);
-      scroll-snap-align:start;
-      padding:54px 18px 72px;
-      display:flex;
-      align-items:center;
-    }
-    .wrap{
-      width:100%;
-      max-width:var(--max);
-      margin:0 auto;
-    }
-
-    /* Typography */
+    /* Layout */
+    main{padding:32px 18px 72px}
+    .wrap{max-width:var(--max); margin:0 auto}
     .kicker{
       font-size:12px;
       color:var(--muted);
@@ -119,63 +92,43 @@
     }
     h1{
       margin:0 0 10px;
-      font-size:48px;
-      line-height:1.05;
-      letter-spacing:-1.1px;
-      max-width: 22ch;
+      font-size:44px;
+      letter-spacing:-1px;
+      line-height:1.06;
+      max-width: 26ch;
     }
     .lede{
       margin:0;
       color:var(--muted);
+      max-width: 80ch;
       font-size:16px;
-      max-width: 78ch;
     }
     h2{
       margin:0;
-      font-size:28px;
+      font-size:26px;
       letter-spacing:-.6px;
       line-height:1.15;
     }
-    .subhead{
-      margin:8px 0 0;
+    h3{
+      margin:0;
+      font-size:14px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
       color:var(--muted);
-      max-width: 80ch;
+      font-family:var(--mono);
     }
 
-    /* Buttons */
-    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:11px 14px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      background:#fff;
-      color:var(--text);
-      font-weight:700;
-      box-shadow: 0 1px 0 rgba(2,6,23,.04);
+    .section{
+      padding:28px 0;
+      border-bottom:1px solid var(--line);
     }
-    .btn:hover{background:var(--surface)}
-    .btn.primary{
-      background:var(--text);
-      border-color:var(--text);
-      color:#fff;
-    }
-    .btn.primary:hover{opacity:.93}
-    .btn .hint{
-      font-weight:650;
-      color:rgba(255,255,255,.8);
-      font-size:12px;
-    }
+    .section:last-child{border-bottom:none}
 
-    /* Layout */
     .grid{
-      margin-top:22px;
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:14px;
+      grid-template-columns: 1.15fr .85fr;
+      gap:16px;
+      margin-top:18px;
     }
     .card{
       background:var(--surface);
@@ -203,115 +156,86 @@
       border-radius:999px;
       white-space:nowrap;
     }
+    .divider{height:1px;background:var(--line); margin:14px 0}
+    ul{margin:0; padding-left:18px; color:var(--muted)}
+    li{margin:6px 0}
 
-    .case{
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:11px 14px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--text);
+      font-weight:750;
+      box-shadow: 0 1px 0 rgba(2,6,23,.04);
+    }
+    .btn:hover{background:var(--surface)}
+    .btn.primary{
+      background:var(--text);
+      border-color:var(--text);
+      color:#fff;
+    }
+
+    /* Project list */
+    .project{
+      padding:26px 0;
+      border-top:1px solid var(--line);
+    }
+    .project:first-child{border-top:none}
+    .proj-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .proj-title{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .proj-title p{
+      margin:0;
+      color:var(--muted);
+      max-width: 90ch;
+    }
+    .proj-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      justify-content:flex-end;
+      align-items:flex-start;
+    }
+    .quiet{
+      color:var(--faint);
+      font-size:12px;
+      font-family:var(--mono);
+      text-align:right;
+      white-space:nowrap;
+    }
+
+    .cols{
       margin-top:14px;
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap:14px;
     }
-    .label{
-      font-size:12px;
-      color:var(--muted);
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      margin:0 0 8px;
-      font-family: var(--mono);
-    }
-    ul{
-      margin:0;
-      padding-left:18px;
-      color:var(--muted);
-    }
-    li{margin:6px 0}
-    .divider{
-      height:1px;
-      background:var(--line);
-      margin:14px 0;
-    }
 
-    /* Media placeholder */
-    .media{
-      border-radius: 16px;
-      border:1px dashed #cbd5e1;
-      background:linear-gradient(180deg, #fff, #f8fafc);
-      aspect-ratio: 16/9;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:16px;
-      text-align:center;
-      color:#64748b;
-      font-size:13px;
-    }
-    .media strong{
-      color:var(--text);
-      font-weight:800;
-    }
-
-    /* Project header row */
-    .proj-head{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:14px;
-      margin-bottom:10px;
-    }
-    .proj-head small{
-      font-size:12px;
-      color:var(--faint);
-      white-space:nowrap;
-      padding-bottom: 4px;
-      font-family: var(--mono);
-    }
-
-    /* Left-side table of contents (desktop) */
-    .toc{
-      position:fixed;
-      left:14px;
-      top:50%;
-      transform:translateY(-50%);
-      z-index:40;
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-      padding:10px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.78);
-      backdrop-filter: blur(10px);
+    .callout{
       border-radius:14px;
-    }
-    .toc a{
-      font-size:12px;
+      border:1px solid var(--line);
+      background:#fff;
+      padding:12px 14px;
       color:var(--muted);
-      padding:8px 10px;
-      border-radius:10px;
-      border:1px solid transparent;
-      max-width: 190px;
-      display:flex;
-      gap:8px;
-      align-items:center;
+      font-size:14px;
     }
-    .toc a:hover{
-      background:var(--surface);
-      border-color:var(--line);
-      color:var(--text);
-    }
-    .toc a.active{
-      background:var(--text);
-      color:#fff;
-      border-color:var(--text);
-    }
-    .toc .dot{
-      width:6px; height:6px; border-radius:999px;
-      background: currentColor;
-      opacity:.65;
-      flex:0 0 auto;
-    }
+    .callout b{color:var(--text)}
 
-    /* Footer */
     .foot{
-      margin-top:18px;
+      margin-top:22px;
       color:var(--faint);
       font-size:13px;
       display:flex;
@@ -320,12 +244,13 @@
       flex-wrap:wrap;
     }
 
-    /* Responsive */
-    @media (max-width: 980px){
-      h1{font-size:38px}
+    @media (max-width: 960px){
+      h1{font-size:36px}
       .grid{grid-template-columns:1fr}
-      .case{grid-template-columns:1fr}
-      .toc{display:none}
+      .cols{grid-template-columns:1fr}
+      .quiet{text-align:left}
+      .proj-head{flex-direction:column}
+      .proj-tags{justify-content:flex-start}
     }
   </style>
 </head>
@@ -334,603 +259,364 @@
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand"><span class="mark" aria-hidden="true"></span><span>James Drake</span></div>
-      <nav class="nav" aria-label="Top navigation">
-        <a href="#projects">Projects</a>
+      <nav class="nav" aria-label="Site navigation">
         <a href="#about">About</a>
+        <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- Desktop quick-nav (feels like a real website, not a long scroll) -->
-  <nav class="toc" aria-label="Project quick navigation">
-    <a href="#projects" data-id="projects"><span class="dot"></span>Overview</a>
-    <a href="#midi" data-id="midi"><span class="dot"></span>MIDI Controller</a>
-    <a href="#thermo" data-id="thermo"><span class="dot"></span>Thermocouple Rig</a>
-    <a href="#iv" data-id="iv"><span class="dot"></span>Smart IV Bag</a>
-    <a href="#drone" data-id="drone"><span class="dot"></span>Autonomous Drone</a>
-    <a href="#trim" data-id="trim"><span class="dot"></span>Car Trim Piece</a>
-    <a href="#pump" data-id="pump"><span class="dot"></span>3D Water Pump</a>
-    <a href="#contact" data-id="contact"><span class="dot"></span>Contact</a>
-  </nav>
+  <main>
+    <div class="wrap">
 
-  <main class="pages" id="scroller">
-    <!-- PAGE: HERO / OVERVIEW -->
-    <section class="page" id="projects">
-      <div class="wrap">
-        <div class="kicker">Mechanical / Mechatronics • R&D-style Portfolio</div>
-        <h1>Build prototypes that work, then prove it with testable results.</h1>
+      <!-- ABOUT (front) -->
+      <section class="section" id="about">
+        <div class="kicker">Engineering Portfolio</div>
+        <h1>Hands-on builder who cares about the last 10%: reliability, clarity, and real-world testing.</h1>
         <p class="lede">
-          I’m a hands-on engineer focused on product development: CAD, embedded systems, sensors, controls,
-          and making physical builds reliable. Each project below is written like a mini case study
-          so a hiring manager can quickly evaluate how I think and execute.
+          I like projects where you can’t hide behind slides — something either works in the real world or it doesn’t.
+          Most of what I build sits at the intersection of <b>mechanical design</b>, <b>electronics</b>, and <b>embedded code</b>:
+          prototype fast, measure performance, and iterate until it’s solid.
         </p>
 
         <div class="cta">
-          <!-- Update these URLs -->
-          <a class="btn primary" href="#" onclick="alert('Upload resume PDF and update this link.'); return false;">Resume <span class="hint">(PDF)</span></a>
-          <a class="btn" href="#" onclick="alert('Paste your LinkedIn URL here.'); return false;">LinkedIn</a>
-          <a class="btn" href="#" onclick="alert('Paste your GitHub URL here.'); return false;">GitHub</a>
-          <a class="btn" href="#midi">Start →</a>
+          <!-- Replace with your actual links -->
+          <a class="btn primary" href="#" onclick="alert('Upload resume PDF and update this link.'); return false;">Resume (PDF)</a>
+          <a class="btn" href="#" onclick="alert('Paste LinkedIn URL here.'); return false;">LinkedIn</a>
+          <a class="btn" href="#" onclick="alert('Paste GitHub URL here.'); return false;">GitHub</a>
+          <a class="btn" href="#projects">See projects ↓</a>
         </div>
 
         <div class="grid">
           <div class="card white">
-            <div class="proj-head">
-              <h2>What you’ll see</h2>
-              <small>Short • measurable • real</small>
-            </div>
-            <ul>
-              <li><b>Problem framing</b> (what needed to work, constraints)</li>
-              <li><b>Engineering approach</b> (architecture, tradeoffs, iteration)</li>
-              <li><b>Validation mindset</b> (how I’d test and prove performance)</li>
-              <li><b>Practical execution</b> (build quality, integration, reliability)</li>
-            </ul>
+            <h3>What I’m aiming for</h3>
             <div class="divider"></div>
+            <p class="lede" style="margin:0;">
+              R&D / product development roles where I can build prototypes, validate them, and ship improvements.
+              I’m strongest when there’s a clear definition of “done”: accuracy, stability, latency, robustness, or usability.
+            </p>
             <div class="meta">
+              <span class="pill">Mechatronics</span>
               <span class="pill">Prototyping</span>
-              <span class="pill">Sensors + calibration</span>
-              <span class="pill">CAD + packaging</span>
-              <span class="pill">Embedded firmware</span>
-              <span class="pill">Test-driven iteration</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <p class="label">Hiring fit</p>
-            <p class="subhead" style="margin:0;">
-              I’m targeting <b>R&D / Product Development</b> roles where I can build hardware, validate it,
-              and iterate quickly. I work best when success is measurable: stability, accuracy, latency, robustness,
-              and clean documentation.
-            </p>
-            <div class="divider"></div>
-            <p class="label">Contact (quick)</p>
-            <p style="margin:0; color:var(--muted);">
-              Email: <a href="mailto:jamesdrake@gmail.com?subject=R%26D%20Opportunity%20-%20James%20Drake"><b>jamesdrake@gmail.com</b></a>
-            </p>
-          </div>
-        </div>
-
-        <div class="foot">
-          <span>Tip: add one clean photo per project + one test plot where possible.</span>
-          <span>Scroll = page-by-page sections</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- PAGE: MIDI CONTROLLER -->
-    <section class="page" id="midi">
-      <div class="wrap">
-        <div class="proj-head">
-          <h2>MIDI Controller with Audio Level Bars</h2>
-          <small>Embedded • UI • Human factors</small>
-        </div>
-        <p class="lede">
-          A tactile controller designed for real workflow: knobs/faders plus visual audio feedback (level bars).
-          Built with the goal of “feels like a product,” not a one-off demo.
-        </p>
-
-        <div class="grid">
-          <div class="card">
-            <div class="media">
-              <div>
-                <strong>Add hero photo later</strong><br/>
-                One clean shot of the controller + a small UI screenshot works best.
-              </div>
-            </div>
-          </div>
-          <div class="card white">
-            <p class="label">Highlights</p>
-            <ul>
-              <li>Designed for low-friction use: clear layout, readable feedback, consistent interaction.</li>
-              <li>Modular firmware approach so controls/behaviors can be expanded without rewrites.</li>
-              <li>Focus on responsiveness: smooth control reads and stable visualization updates.</li>
-            </ul>
-            <div class="divider"></div>
-            <p class="label">What I would show with images</p>
-            <ul>
-              <li>Top-down photo (layout, labeling)</li>
-              <li>Internal wiring + strain relief / cable management</li>
-              <li>Short demo video (15–30s)</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="case">
-          <div class="card white">
-            <p class="label">Problem</p>
-            <p class="subhead">
-              Build physical controls that feel reliable and communicate state instantly (audio levels), while staying
-              responsive and stable during real use.
-            </p>
-          </div>
-          <div class="card white">
-            <p class="label">Approach</p>
-            <ul>
-              <li>Input pipeline: filtering/debounce → mapping → output.</li>
-              <li>UI pipeline: audio level → smoothing → bar display update.</li>
-              <li>Iteration loop: adjust feel, test, refine.</li>
-            </ul>
-          </div>
-          <div class="card white">
-            <p class="label">Outcome</p>
-            <ul>
-              <li>Controller behavior structured around consistency and clarity.</li>
-              <li>Ready to expand: more controls, modes, or per-app mappings.</li>
-              <li><b>Later add:</b> update rate, latency notes, and any measured noise/jitter reduction.</li>
-            </ul>
-          </div>
-          <div class="card white">
-            <p class="label">Tools</p>
-            <div class="meta">
-              <span class="pill">MCU prototyping</span>
-              <span class="pill">Signal filtering</span>
-              <span class="pill">UI feedback</span>
-              <span class="pill">Enclosure/packaging</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PAGE: THERMOCOUPLE CONTROLLER -->
-    <section class="page" id="thermo">
-      <div class="wrap">
-        <div class="proj-head">
-          <h2>Thermocouple Temperature Controller (PID Rig)</h2>
-          <small>Controls • Test rig • Reliability</small>
-        </div>
-        <p class="lede">
-          A temperature control setup designed around repeatable tests: measure response, tune behavior,
-          and document performance like a small lab instrument.
-        </p>
-
-        <div class="grid">
-          <div class="card">
-            <div class="media">
-              <div>
-                <strong>Add plot later</strong><br/>
-                Best: “Setpoint vs Measured” curve + overshoot/settling callouts.
-              </div>
-            </div>
-          </div>
-          <div class="card white">
-            <p class="label">What makes this R&D-relevant</p>
-            <ul>
-              <li>Closed-loop thinking: not just “it heats,” but “how well does it control?”</li>
-              <li>Performance metrics: overshoot, settling time, steady-state error, repeatability.</li>
-              <li>Safety mindset: limits, fault behavior, wiring/power considerations.</li>
-            </ul>
-            <div class="divider"></div>
-            <p class="label">Next additions</p>
-            <ul>
-              <li>CSV logging + plotting</li>
-              <li>Short test report (objective → method → results)</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="case">
-          <div class="card white">
-            <p class="label">Problem</p>
-            <p class="subhead">
-              Maintain stable target temperature under real disturbances while staying safe and repeatable.
-            </p>
-          </div>
-          <div class="card white">
-            <p class="label">Approach</p>
-            <ul>
-              <li>Thermocouple sensing → control law (PID) → power stage (SSR/driver) → heater.</li>
-              <li>Tuning workflow focused on stability first, then speed.</li>
-              <li>Test plan: step changes and repeated runs to verify consistency.</li>
-            </ul>
-          </div>
-          <div class="card white">
-            <p class="label">Outcome</p>
-            <ul>
-              <li>Platform ready to characterize heater behavior and tune response.</li>
-              <li><b>Later add:</b> quantitative results (°C error, seconds to settle, overshoot %).</li>
-            </ul>
-          </div>
-          <div class="card white">
-            <p class="label">Tools</p>
-            <div class="meta">
-              <span class="pill">Thermocouple</span>
-              <span class="pill">PID tuning</span>
-              <span class="pill">Power electronics</span>
-              <span class="pill">Test methodology</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PAGE: SMART IV BAG -->
-    <section class="page" id="iv">
-      <div class="wrap">
-        <div class="proj-head">
-          <h2>Smart IV Bag / IV System Concept</h2>
-          <small>Mechatronics • Requirements • Validation plan</small>
-        </div>
-        <p class="lede">
-          A mechatronics system concept designed like a product: define requirements, choose sensors/actuation,
-          and plan verification. Emphasis on usability + reliability.
-        </p>
-
-        <div class="grid">
-          <div class="card">
-            <div class="media">
-              <div>
-                <strong>Add CAD render later</strong><br/>
-                A single clean render + a labeled diagram is ideal here.
-              </div>
-            </div>
-          </div>
-          <div class="card white">
-            <p class="label">System thinking</p>
-            <ul>
-              <li>Sensor approach (e.g., load/weight) + calibration and drift considerations.</li>
-              <li>Actuation concept with limits and safety behavior.</li>
-              <li>UI/alerts designed around quick operator understanding.</li>
-            </ul>
-            <div class="divider"></div>
-            <p class="label">What I’d validate</p>
-            <ul>
-              <li>Accuracy and repeatability across known weights</li>
-              <li>Cycle testing (reliability over time)</li>
-              <li>Failure modes and safe defaults</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="case">
-          <div class="card white">
-            <p class="label">Problem</p>
-            <p class="subhead">
-              Improve monitoring and usability with a system that remains safe, stable, and easy to calibrate.
-            </p>
-          </div>
-          <div class="card white">
-            <p class="label">Approach</p>
-            <ul>
-              <li>Define requirements (accuracy, battery life, UI clarity, safety constraints).</li>
-              <li>Architect sensing + actuation + UI as a cohesive system.</li>
-              <li>Build a verification plan before “polish.”</li>
-            </ul>
-          </div>
-          <div class="card white">
-            <p class="label">Outcome</p>
-            <ul>
-              <li>A product-style structure that supports a prototype roadmap.</li>
-              <li><b>Later add:</b> block diagram + first prototype data points.</li>
-            </ul>
-          </div>
-          <div class="card white">
-            <p class="label">Tools</p>
-            <div class="meta">
-              <span class="pill">System architecture</span>
-              <span class="pill">Sensing + calibration</span>
-              <span class="pill">Mechanism concept</span>
-              <span class="pill">Validation planning</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PAGE: AUTONOMOUS DRONE -->
-    <section class="page" id="drone">
-      <div class="wrap">
-        <div class="proj-head">
-          <h2>Autonomous Drone Platform</h2>
-          <small>Integration • Iteration • Reliability</small>
-        </div>
-        <p class="lede">
-          Drone build work focused on repeatable improvements: integration, packaging, tuning workflow,
-          and validating changes instead of guessing.
-        </p>
-
-        <div class="grid">
-          <div class="card">
-            <div class="media">
-              <div>
-                <strong>Add build + flight media later</strong><br/>
-                Best: one build photo + one “before/after tuning” clip.
-              </div>
-            </div>
-          </div>
-          <div class="card white">
-            <p class="label">Why this matters for product development</p>
-            <ul>
-              <li>Complex integration under constraints (space, weight, power, vibration).</li>
-              <li>Testing discipline: change one thing, evaluate, keep notes.</li>
-              <li>“Works every time” mindset (wiring quality, mounting, robustness).</li>
-            </ul>
-            <div class="divider"></div>
-            <p class="label">Add later</p>
-            <ul>
-              <li>Change log table: adjustment → expected effect → observed effect</li>
-              <li>Quick checklist: build steps + verification steps</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="case">
-          <div class="card white">
-            <p class="label">Problem</p>
-            <p class="subhead">
-              Achieve stable, predictable behavior and iterate improvements without losing reliability.
-            </p>
-          </div>
-          <div class="card white">
-            <p class="label">Approach</p>
-            <ul>
-              <li>Structured tuning workflow with controlled changes.</li>
-              <li>Packaging/wiring upgrades to reduce failure points.</li>
-              <li>Validation via repeatable flight checks.</li>
-            </ul>
-          </div>
-          <div class="card white">
-            <p class="label">Outcome</p>
-            <ul>
-              <li>Platform-oriented build that supports future autonomy upgrades.</li>
-              <li><b>Later add:</b> the single most compelling improvement metric you have.</li>
-            </ul>
-          </div>
-          <div class="card white">
-            <p class="label">Tools</p>
-            <div class="meta">
-              <span class="pill">Systems integration</span>
-              <span class="pill">Tuning + testing</span>
-              <span class="pill">Packaging</span>
-              <span class="pill">Documentation</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PAGE: CAR TRIM PIECE -->
-    <section class="page" id="trim">
-      <div class="wrap">
-        <div class="proj-head">
-          <h2>Car Trim Piece (CAD → Print → Fitment)</h2>
-          <small>CAD • DFM-ish thinking • Iteration</small>
-        </div>
-        <p class="lede">
-          A practical part-design workflow: measure, model, print prototypes, test fit, revise.
-          This project reads well to employers because it’s real constraints + iteration.
-        </p>
-
-        <div class="grid">
-          <div class="card">
-            <div class="media">
-              <div>
-                <strong>Add “installed” photo later</strong><br/>
-                Best: before/after + close-up on fit and surface finish.
-              </div>
-            </div>
-          </div>
-          <div class="card white">
-            <p class="label">Core engineering loop</p>
-            <ul>
-              <li>Measure critical interfaces → model → print → fit check → revise.</li>
-              <li>Material choice and print settings based on use case.</li>
-              <li>Learning: tolerances, real-world variability, and revision discipline.</li>
-            </ul>
-            <div class="divider"></div>
-            <p class="label">Add later</p>
-            <ul>
-              <li>Revision notes (Rev A/B/C) and what changed</li>
-              <li>Key dimensions and why they mattered</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="case">
-          <div class="card white">
-            <p class="label">Problem</p>
-            <p class="subhead">
-              Create a replacement/improvement part that fits properly and survives real use.
-            </p>
-          </div>
-          <div class="card white">
-            <p class="label">Approach</p>
-            <ul>
-              <li>Identify constraints (mounting points, clearances, load/deflection zones).</li>
-              <li>Prototype fast with prints; refine based on fit evidence.</li>
-            </ul>
-          </div>
-          <div class="card white">
-            <p class="label">Outcome</p>
-            <ul>
-              <li>A functional part produced through measured iterations.</li>
-              <li><b>Later add:</b> material + reasons, and what improved across revisions.</li>
-            </ul>
-          </div>
-          <div class="card white">
-            <p class="label">Tools</p>
-            <div class="meta">
-              <span class="pill">SolidWorks CAD</span>
-              <span class="pill">3D printing</span>
-              <span class="pill">Fitment testing</span>
-              <span class="pill">Iteration</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PAGE: 3D WATER PUMP -->
-    <section class="page" id="pump">
-      <div class="wrap">
-        <div class="proj-head">
-          <h2>3D Modeled Water Pump</h2>
-          <small>CAD • Assemblies • Mechanical reasoning</small>
-        </div>
-        <p class="lede">
-          A modeling-focused project that demonstrates fundamentals: component breakdown, assemblies,
-          and clean mechanical structure. Strong as a “foundation” project when paired with your newer builds.
-        </p>
-
-        <div class="grid">
-          <div class="card">
-            <div class="media">
-              <div>
-                <strong>Add render / exploded view later</strong><br/>
-                One hero render + one exploded view is perfect.
-              </div>
-            </div>
-          </div>
-          <div class="card white">
-            <p class="label">What it shows</p>
-            <ul>
-              <li>Ability to model assemblies cleanly and think in interfaces.</li>
-              <li>Understanding of how parts relate and where constraints live.</li>
-              <li><b>Best upgrade:</b> add “what I’d improve today” (DFM, sealing, tolerances).</li>
-            </ul>
-            <div class="divider"></div>
-            <p class="label">Add later</p>
-            <ul>
-              <li>One section view or interface detail</li>
-              <li>Short bullet list: key design assumptions</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="case">
-          <div class="card white">
-            <p class="label">Problem</p>
-            <p class="subhead">
-              Build modeling fundamentals: parts, mates, assembly structure, and mechanical interfaces.
-            </p>
-          </div>
-          <div class="card white">
-            <p class="label">Approach</p>
-            <ul>
-              <li>Break system into logical components.</li>
-              <li>Model with consistent references and clean assembly structure.</li>
-            </ul>
-          </div>
-          <div class="card white">
-            <p class="label">Outcome</p>
-            <ul>
-              <li>A complete modeled assembly suitable for renders and documentation.</li>
-              <li><b>Later add:</b> key constraints and a quick “design review” paragraph.</li>
-            </ul>
-          </div>
-          <div class="card white">
-            <p class="label">Tools</p>
-            <div class="meta">
-              <span class="pill">SolidWorks</span>
-              <span class="pill">Assemblies</span>
-              <span class="pill">Mechanism thinking</span>
-              <span class="pill">Documentation</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="foot">
-          <span>Want a faster read? The left nav jumps to any project.</span>
-          <span>Last updated: <span id="updated"></span></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- PAGE: ABOUT -->
-    <section class="page" id="about">
-      <div class="wrap">
-        <div class="kicker">About</div>
-        <div class="proj-head">
-          <h2>Hands-on builder with a test-first mindset</h2>
-          <small>Short on purpose</small>
-        </div>
-
-        <div class="grid">
-          <div class="card white">
-            <p class="subhead" style="margin:0;">
-              I like projects where performance is measurable and the “last 10%” matters: clean wiring, robust mounting,
-              calibration that holds, and behavior that’s repeatable. My strongest work is at the intersection of
-              mechanical + electronics + firmware — turning ideas into prototypes that can be validated.
-            </p>
-            <div class="divider"></div>
-            <p class="label">What I’m looking for</p>
-            <ul>
-              <li>R&D / product development roles (mechanical, mechatronics, test).</li>
-              <li>Teams that build, test, learn, and iterate quickly.</li>
-              <li>Work that rewards clarity, reliability, and craft.</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <p class="label">Core skills</p>
-            <div class="meta">
-              <span class="pill">Prototyping + integration</span>
               <span class="pill">Sensors + calibration</span>
               <span class="pill">Controls mindset</span>
               <span class="pill">CAD + packaging</span>
-              <span class="pill">Documentation</span>
-            </div>
-            <div class="divider"></div>
-            <p class="label">How I document</p>
-            <ul>
-              <li>Short case study + key photos</li>
-              <li>One plot/table if it proves performance</li>
-              <li>Clear “what I’d do next” roadmap</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PAGE: CONTACT -->
-    <section class="page" id="contact">
-      <div class="wrap">
-        <div class="kicker">Contact</div>
-        <div class="proj-head">
-          <h2>Let’s connect</h2>
-          <small>Fastest: email</small>
-        </div>
-
-        <div class="grid">
-          <div class="card white">
-            <p class="lede" style="margin:0 0 14px;">
-              If you’re hiring for R&D / product development, I’d love to talk. I’m happy to share deeper writeups,
-              CAD screenshots, or test data as I add it.
-            </p>
-            <div class="cta" style="margin-top:0;">
-              <a class="btn primary" href="mailto:jamesdrake@gmail.com?subject=R%26D%20Opportunity%20-%20James%20Drake">Email me</a>
-              <a class="btn" href="#" onclick="alert('Paste your LinkedIn URL in the HTML.'); return false;">LinkedIn</a>
-              <a class="btn" href="#" onclick="alert('Paste your GitHub URL in the HTML.'); return false;">GitHub</a>
             </div>
           </div>
 
           <div class="card">
-            <p class="label">Next steps to “complete”</p>
+            <h3>What you’ll get from me</h3>
+            <div class="divider"></div>
             <ul>
-              <li>Add 1 hero image per project (even phone photos are fine).</li>
-              <li>Add 1 measurable result per project (latency, accuracy, update rate, etc.).</li>
-              <li>Upload resume PDF and link it from the top page.</li>
+              <li>Clean integration (wiring, mounting, packaging)</li>
+              <li>Repeatable behavior (not “it worked once”)</li>
+              <li>Practical iteration (small changes, real validation)</li>
+              <li>Clear communication and documentation</li>
+            </ul>
+            <div class="divider"></div>
+            <div class="callout">
+              <b>Domain:</b> jamesdrake.dev<br/>
+              <span style="color:var(--faint)">Built with Cloudflare Pages. Photos will be added.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="section" id="projects">
+        <h2>Projects</h2>
+        <p class="lede" style="margin-top:10px;">
+          A selection of builds that represent how I work: define the goal, build a prototype, test it, and improve it.
+          Photos are coming — the writeups are complete.
+        </p>
+
+        <!-- MIDI -->
+        <div class="project" id="midi">
+          <div class="proj-head">
+            <div class="proj-title">
+              <h2>MIDI Controller with Audio Level Bars</h2>
+              <p>
+                A tactile controller built for real workflow: physical controls plus clear visual feedback via audio level bars.
+                Designed to feel consistent and “product-like” rather than a one-off demo.
+              </p>
+            </div>
+            <div>
+              <div class="proj-tags">
+                <span class="pill">Embedded</span>
+                <span class="pill">UI/UX</span>
+                <span class="pill">Signal smoothing</span>
+                <span class="pill">Prototyping</span>
+              </div>
+              <div class="quiet">Images: coming soon</div>
+            </div>
+          </div>
+
+          <div class="cols">
+            <div class="card white">
+              <h3>What I built</h3>
+              <div class="divider"></div>
+              <ul>
+                <li>Input pipeline for knobs/faders/encoders that feels stable and responsive.</li>
+                <li>Audio visualization that reads clearly at a glance (smoothed level bars).</li>
+                <li>A layout and interaction model designed around speed and consistency.</li>
+              </ul>
+            </div>
+            <div class="card white">
+              <h3>Engineering details</h3>
+              <div class="divider"></div>
+              <ul>
+                <li>Noise/jitter handling (debounce, filtering, smoothing).</li>
+                <li>Modular structure so new controls/modes can be added without rewrites.</li>
+                <li>Focus on practical packaging and a clean “finished” feel.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- THERMOCOUPLE RIG -->
+        <div class="project" id="thermo">
+          <div class="proj-head">
+            <div class="proj-title">
+              <h2>Thermocouple Temperature Controller (PID Test Rig)</h2>
+              <p>
+                Temperature control setup designed for repeatable heating tests. Built to measure performance,
+                tune response, and document behavior like a small lab instrument.
+              </p>
+            </div>
+            <div>
+              <div class="proj-tags">
+                <span class="pill">Controls</span>
+                <span class="pill">Thermocouple</span>
+                <span class="pill">Safety</span>
+                <span class="pill">Testing</span>
+              </div>
+              <div class="quiet">Images/plots: coming soon</div>
+            </div>
+          </div>
+
+          <div class="cols">
+            <div class="card white">
+              <h3>What I built</h3>
+              <div class="divider"></div>
+              <ul>
+                <li>Closed-loop temperature control using thermocouple feedback and PID behavior.</li>
+                <li>Practical power/control setup intended for stable, repeatable operation.</li>
+                <li>A tuning workflow focused on stability first, then response speed.</li>
+              </ul>
+            </div>
+            <div class="card white">
+              <h3>How I validate it</h3>
+              <div class="divider"></div>
+              <ul>
+                <li>Step response tests to evaluate overshoot and settling time.</li>
+                <li>Repeatability runs to confirm the system behaves the same over time.</li>
+                <li>Defined safety limits and “fault” behavior expectations.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- SMART IV BAG -->
+        <div class="project" id="iv">
+          <div class="proj-head">
+            <div class="proj-title">
+              <h2>Smart IV Bag / IV System Concept</h2>
+              <p>
+                A mechatronics concept structured like a product: sensing + mechanism + UI, with a plan for calibration
+                and verification. The goal is usability and reliability, not just a prototype that “moves.”
+              </p>
+            </div>
+            <div>
+              <div class="proj-tags">
+                <span class="pill">Mechatronics</span>
+                <span class="pill">Sensing</span>
+                <span class="pill">Mechanisms</span>
+                <span class="pill">System design</span>
+              </div>
+              <div class="quiet">CAD/photos: coming soon</div>
+            </div>
+          </div>
+
+          <div class="cols">
+            <div class="card white">
+              <h3>System thinking</h3>
+              <div class="divider"></div>
+              <ul>
+                <li>Requirements-driven layout: what must be accurate, safe, and easy to use.</li>
+                <li>Calibration considerations: drift, repeatability, and user-friendly zeroing.</li>
+                <li>Failure-mode mindset: safe defaults and limits.</li>
+              </ul>
+            </div>
+            <div class="card white">
+              <h3>Verification plan</h3>
+              <div class="divider"></div>
+              <ul>
+                <li>Bench tests across known loads/conditions with repeat trials.</li>
+                <li>Cycle testing for wear and reliability.</li>
+                <li>UI validation: alerts that are obvious and actionable.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- AUTONOMOUS DRONE -->
+        <div class="project" id="drone">
+          <div class="proj-head">
+            <div class="proj-title">
+              <h2>Autonomous Drone Platform</h2>
+              <p>
+                Drone platform work focused on integration and repeatable improvements: packaging, wiring quality,
+                tuning discipline, and validating changes instead of guessing.
+              </p>
+            </div>
+            <div>
+              <div class="proj-tags">
+                <span class="pill">Systems integration</span>
+                <span class="pill">Packaging</span>
+                <span class="pill">Tuning</span>
+                <span class="pill">Iteration</span>
+              </div>
+              <div class="quiet">Build/flight media: coming soon</div>
+            </div>
+          </div>
+
+          <div class="cols">
+            <div class="card white">
+              <h3>What I focused on</h3>
+              <div class="divider"></div>
+              <ul>
+                <li>Reliable integration under tight constraints (space, weight, power, vibration).</li>
+                <li>Repeatable tuning workflow (controlled changes, observe results, keep notes).</li>
+                <li>“Works every time” mindset through cleaner packaging and fewer failure points.</li>
+              </ul>
+            </div>
+            <div class="card white">
+              <h3>How I’d present results</h3>
+              <div class="divider"></div>
+              <ul>
+                <li>A simple change log: adjustment → expected effect → observed effect.</li>
+                <li>Before/after behavior clips for stability and control feel.</li>
+                <li>Checklist that shows reliability, not just performance.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- CAR TRIM -->
+        <div class="project" id="trim">
+          <div class="proj-head">
+            <div class="proj-title">
+              <h2>Car Trim Piece (CAD → Print → Fitment)</h2>
+              <p>
+                Real-world part design workflow: measure critical interfaces, model, prototype quickly, test fit,
+                and revise until it installs cleanly and holds up in use.
+              </p>
+            </div>
+            <div>
+              <div class="proj-tags">
+                <span class="pill">CAD</span>
+                <span class="pill">3D printing</span>
+                <span class="pill">Fitment</span>
+                <span class="pill">Iteration</span>
+              </div>
+              <div class="quiet">Installed photos: coming soon</div>
+            </div>
+          </div>
+
+          <div class="cols">
+            <div class="card white">
+              <h3>What makes it strong</h3>
+              <div class="divider"></div>
+              <ul>
+                <li>Constraints are real: clearances, mounting points, tolerance stack-ups.</li>
+                <li>Fast iteration cycle with evidence-based revisions (not guesswork).</li>
+                <li>Practical material/print considerations based on how the part is used.</li>
+              </ul>
+            </div>
+            <div class="card white">
+              <h3>What I’d add later</h3>
+              <div class="divider"></div>
+              <ul>
+                <li>Revision history (Rev A/B/C) and what changed each time.</li>
+                <li>One dimensioned screenshot showing the critical interfaces.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- WATERPUMP -->
+        <div class="project" id="pump">
+          <div class="proj-head">
+            <div class="proj-title">
+              <h2>3D Modeled Water Pump</h2>
+              <p>
+                Modeling-focused project demonstrating fundamentals: breaking down a mechanism into parts, building a clean assembly,
+                and thinking in interfaces. Strong as a “foundation” project in a product-development portfolio.
+              </p>
+            </div>
+            <div>
+              <div class="proj-tags">
+                <span class="pill">SolidWorks</span>
+                <span class="pill">Assemblies</span>
+                <span class="pill">Mechanisms</span>
+                <span class="pill">Documentation</span>
+              </div>
+              <div class="quiet">Renders: coming soon</div>
+            </div>
+          </div>
+
+          <div class="cols">
+            <div class="card white">
+              <h3>What it shows</h3>
+              <div class="divider"></div>
+              <ul>
+                <li>Clean assembly structure and constraint thinking.</li>
+                <li>Component-level reasoning: interfaces, motion, and packaging.</li>
+                <li>Ability to document mechanical work clearly.</li>
+              </ul>
+            </div>
+            <div class="card white">
+              <h3>How I’d strengthen it</h3>
+              <div class="divider"></div>
+              <ul>
+                <li>Add one exploded view and one section view for clarity.</li>
+                <li>Short note: what I’d change today (DFM, sealing, tolerances).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <h2>Contact</h2>
+        <p class="lede" style="margin-top:10px;">
+          If you’re hiring for R&D / product development, I’d love to connect.
+        </p>
+
+        <div class="grid">
+          <div class="card white">
+            <h3>Email</h3>
+            <div class="divider"></div>
+            <p class="lede" style="margin:0 0 12px;">
+              <a href="mailto:jamesdrake@gmail.com?subject=R%26D%20Opportunity%20-%20James%20Drake"><b>jamesdrake@gmail.com</b></a>
+            </p>
+            <div class="cta" style="margin-top:0;">
+              <a class="btn primary" href="mailto:jamesdrake@gmail.com?subject=R%26D%20Opportunity%20-%20James%20Drake">Email me</a>
+              <a class="btn" href="#" onclick="alert('Paste LinkedIn URL here.'); return false;">LinkedIn</a>
+              <a class="btn" href="#" onclick="alert('Paste GitHub URL here.'); return false;">GitHub</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Status</h3>
+            <div class="divider"></div>
+            <ul>
+              <li>Site is live at <b>jamesdrake.dev</b></li>
+              <li>Photos will be added as I capture clean shots and short demos</li>
+              <li>Last updated: <span id="updated" style="font-family:var(--mono);"></span></li>
             </ul>
           </div>
         </div>
@@ -939,31 +625,15 @@
           <span>© <span id="y"></span> James Drake</span>
           <span>Hosted on Cloudflare Pages</span>
         </div>
-      </div>
-    </section>
+      </section>
+
+    </div>
   </main>
 
   <script>
-    // Dates
     document.getElementById("y").textContent = new Date().getFullYear();
-    document.getElementById("updated").textContent = new Date().toLocaleDateString(undefined, {year:"numeric", month:"short", day:"2-digit"});
-
-    // Active state for TOC based on visible section inside scroller
-    const scroller = document.getElementById("scroller");
-    const tocLinks = Array.from(document.querySelectorAll(".toc a"));
-    const ids = tocLinks.map(a => a.getAttribute("data-id"));
-    const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
-
-    const observer = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (!e.isIntersecting) continue;
-        const id = e.target.id;
-        tocLinks.forEach(a => a.classList.toggle("active", a.getAttribute("data-id") === id));
-      }
-    }, { root: scroller, threshold: 0.6 });
-
-    sections.forEach(s => observer.observe(s));
+    document.getElementById("updated").textContent =
+      new Date().toLocaleDateString(undefined, {year:"numeric", month:"short", day:"2-digit"});
   </script>
 </body>
 </html>
-
