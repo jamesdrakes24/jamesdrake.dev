@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>James Drake — Mechanical Engineering Portfolio</title>
-  <meta name="description" content="James D - Mechanical engineering portfolio" />
+  <meta name="description" content="James Drake - Mechanical engineering portfolio" />
 
   <style>
     :root{
@@ -209,7 +209,7 @@
       gap:14px;
     }
 
-    /* Photo galleries (3 per project) */
+    /* Photo galleries */
     .gallery{
       margin-top:14px;
       display:grid;
@@ -225,9 +225,14 @@
     }
     .gallery img{
       width:100%;
-      height:160px;
+      height:170px;
       object-fit:cover;
       display:block;
+    }
+    /* Use this to "zoom out" / avoid cropping on select images */
+    .gallery img.contain{
+      object-fit:contain;
+      background:#fff;
     }
 
     .foot{
@@ -247,7 +252,7 @@
       .proj-tags{justify-content:flex-start}
       .proj-head{flex-direction:column}
       .gallery{grid-template-columns:1fr}
-      .gallery img{height:220px}
+      .gallery img{height:240px}
     }
   </style>
 </head>
@@ -272,16 +277,18 @@
         <div class="kicker">Mechanical Engineering • R&amp;D Portfolio</div>
         <h1>Mechanical product development — CAD, prototyping, and test-driven iteration.</h1>
         <p class="lede">
-          I take ideas from CAD to working prototypes, then refine them using repeatable checks and documented results. My projects emphasize mechanical packaging, reliable assembly, and design changes backed by testing. When measurement helps, I integrate simple instrumentation—sensor integration and calibration—to quantify performance and guide iteration.
+          I take ideas from CAD to working prototypes, then refine them using repeatable checks and documented results.
+          My projects emphasize mechanical packaging, reliable assembly, and design changes backed by testing.
+          When measurement helps, I integrate simple instrumentation—sensor integration and calibration—to quantify performance and guide iteration.
         </p>
 
         <div class="cta">
-          <!-- Replace with your actual links -->
+          <!-- Replace these placeholders with real links whenever you're ready -->
           <a class="btn primary" href="#" onclick="alert('Upload resume PDF and update this link.'); return false;">Resume</a>
           <a class="btn" href="#" onclick="alert('Paste LinkedIn URL here.'); return false;">LinkedIn</a>
           <a class="btn" href="#" onclick="alert('Paste GitHub URL here.'); return false;">GitHub</a>
 
-          <!-- GrabCAD + eBay -->
+          <!-- Real links you gave -->
           <a class="btn" href="https://grabcad.com/james.drake-14/models" target="_blank" rel="noopener">GrabCAD</a>
           <a class="btn" href="https://www.ebay.com/usr/jam_jd_v6dtgp8" target="_blank" rel="noopener">eBay</a>
         </div>
@@ -339,6 +346,7 @@
               <span class="pill">Controls</span>
             </div>
           </div>
+
           <div class="cols">
             <div class="card white">
               <h3>What I built</h3>
@@ -360,16 +368,15 @@
             </div>
           </div>
 
-          <!-- Thermocouple case photos (uploaded) -->
           <div class="gallery" aria-label="Thermocouple rig photos">
-            <a href="images/TC%20Case%20Front%20Angle.png" target="_blank" rel="noopener">
-              <img src="images/TC%20Case%20Front%20Angle.png" alt="Thermocouple case — front angle" loading="lazy" />
+            <a href="images/TC Case Front Angle.png" target="_blank" rel="noopener">
+              <img src="images/TC Case Front Angle.png" alt="Thermocouple case — front angle" loading="lazy" />
             </a>
-            <a href="images/TC%20Case%20Back%20Angle.png" target="_blank" rel="noopener">
-              <img src="images/TC%20Case%20Back%20Angle.png" alt="Thermocouple case — back angle" loading="lazy" />
+            <a href="images/TC Case Back Angle.png" target="_blank" rel="noopener">
+              <img src="images/TC Case Back Angle.png" alt="Thermocouple case — back angle" loading="lazy" />
             </a>
-            <a href="images/TC%20Case%20Filler%20Angle.png" target="_blank" rel="noopener">
-              <img src="images/TC%20Case%20Filler%20Angle.png" alt="Thermocouple case — additional view" loading="lazy" />
+            <a href="images/TC Case Filler Angle.png" target="_blank" rel="noopener">
+              <img src="images/TC Case Filler Angle.png" alt="Thermocouple case — additional view" loading="lazy" />
             </a>
           </div>
         </div>
@@ -391,6 +398,7 @@
               <span class="pill">Verification</span>
             </div>
           </div>
+
           <div class="cols">
             <div class="card white">
               <h3>What I defined</h3>
@@ -412,16 +420,15 @@
             </div>
           </div>
 
-          <!-- IV Photos -->
           <div class="gallery" aria-label="Smart IV system photos">
-            <a href="images/IV%20Stand%203%20Angle.png" target="_blank" rel="noopener">
-              <img src="images/IV%20Stand%203%20Angle.png" alt="Smart IV system — 3/4 view (CAD)" loading="lazy" />
+            <a href="images/IV Stand 3 Angle.png" target="_blank" rel="noopener">
+              <img src="images/IV Stand 3 Angle.png" alt="Smart IV system — 3/4 view (CAD)" loading="lazy" />
             </a>
-            <a href="images/IV%20Stand%20Actual.png" target="_blank" rel="noopener">
-              <img src="images/IV%20Stand%20Actual.png" alt="Smart IV system — physical prototype" loading="lazy" />
+            <a href="images/IV Stand Actual.png" target="_blank" rel="noopener">
+              <img src="images/IV Stand Actual.png" alt="Smart IV system — physical prototype" loading="lazy" />
             </a>
-            <a href="images/IV%20Stand%20Assembly%20Drawing.png" target="_blank" rel="noopener">
-              <img src="images/IV%20Stand%20Assembly%20Drawing.png" alt="Smart IV system — assembly drawing" loading="lazy" />
+            <a href="images/IV Stand Assembly Drawing.png" target="_blank" rel="noopener">
+              <img src="images/IV Stand Assembly Drawing.png" alt="Smart IV system — assembly drawing" loading="lazy" />
             </a>
           </div>
         </div>
@@ -443,6 +450,7 @@
               <span class="pill">Testing</span>
             </div>
           </div>
+
           <div class="cols">
             <div class="card white">
               <h3>What I built</h3>
@@ -464,16 +472,15 @@
             </div>
           </div>
 
-          <!-- Drone Photos -->
           <div class="gallery" aria-label="Drone platform photos">
-            <a href="images/Drone%20Front%20Angle.png" target="_blank" rel="noopener">
-              <img src="images/Drone%20Front%20Angle.png" alt="Drone platform — front angle" loading="lazy" />
+            <a href="images/Drone Front Angle.png" target="_blank" rel="noopener">
+              <img src="images/Drone Front Angle.png" alt="Drone platform — front angle" loading="lazy" />
             </a>
-            <a href="images/Drone%20Back%20Angle.png" target="_blank" rel="noopener">
-              <img src="images/Drone%20Back%20Angle.png" alt="Drone platform — back angle" loading="lazy" />
+            <a href="images/Drone Back Angle.png" target="_blank" rel="noopener">
+              <img src="images/Drone Back Angle.png" alt="Drone platform — back angle" loading="lazy" />
             </a>
-            <a href="images/Drone%20Filler%20Shot.png" target="_blank" rel="noopener">
-              <img src="images/Drone%20Filler%20Shot.png" alt="Drone platform — additional view" loading="lazy" />
+            <a href="images/Drone Filler Shot.png" target="_blank" rel="noopener">
+              <img src="images/Drone Filler Shot.png" alt="Drone platform — additional view" loading="lazy" />
             </a>
           </div>
         </div>
@@ -495,6 +502,7 @@
               <span class="pill">Iteration</span>
             </div>
           </div>
+
           <div class="cols">
             <div class="card white">
               <h3>What I built</h3>
@@ -516,16 +524,16 @@
             </div>
           </div>
 
-          <!-- Trim Photos -->
           <div class="gallery" aria-label="Automotive trim component photos">
-            <a href="images/Trim%20Clip%20Front%20Angle.png" target="_blank" rel="noopener">
-              <img src="images/Trim%20Clip%20Front%20Angle.png" alt="Trim component — CAD front angle" loading="lazy" />
+            <a href="images/Trim Clip Front Angle.png" target="_blank" rel="noopener">
+              <img src="images/Trim Clip Front Angle.png" alt="Trim component — CAD front angle" loading="lazy" />
             </a>
-            <a href="images/Trim%20Clip%20Back%20Angle.png" target="_blank" rel="noopener">
-              <img src="images/Trim%20Clip%20Back%20Angle.png" alt="Trim component — CAD back angle" loading="lazy" />
+            <a href="images/Trim Clip Back Angle.png" target="_blank" rel="noopener">
+              <img src="images/Trim Clip Back Angle.png" alt="Trim component — CAD back angle" loading="lazy" />
             </a>
-            <a href="images/Trim%20Clip%20Actual.png" target="_blank" rel="noopener">
-              <img src="images/Trim%20Clip%20Actual.png" alt="Trim component — installed on vehicle" loading="lazy" />
+            <a href="images/Trim Clip Actual.png" target="_blank" rel="noopener">
+              <!-- contain = zoom out (no crop) -->
+              <img class="contain" src="images/Trim Clip Actual.png" alt="Trim component — installed on vehicle" loading="lazy" />
             </a>
           </div>
         </div>
@@ -547,6 +555,7 @@
               <span class="pill">Design communication</span>
             </div>
           </div>
+
           <div class="cols">
             <div class="card white">
               <h3>What I built</h3>
@@ -568,16 +577,16 @@
             </div>
           </div>
 
-          <!-- Water Pump photos (uploaded) -->
           <div class="gallery" aria-label="Water pump assembly photos">
-            <a href="images/Water%20Pump%20Front%20Angle.png" target="_blank" rel="noopener">
-              <img src="images/Water%20Pump%20Front%20Angle.png" alt="Water pump — front angle" loading="lazy" />
+            <a href="images/Water Pump Front Angle.png" target="_blank" rel="noopener">
+              <img src="images/Water Pump Front Angle.png" alt="Water pump — front angle" loading="lazy" />
             </a>
-            <a href="images/Water%20Pump%20Back%20Angle.png" target="_blank" rel="noopener">
-              <img src="images/Water%20Pump%20Back%20Angle.png" alt="Water pump — back angle" loading="lazy" />
+            <a href="images/Water Pump Back Angle.png" target="_blank" rel="noopener">
+              <img src="images/Water Pump Back Angle.png" alt="Water pump — back angle" loading="lazy" />
             </a>
-            <a href="images/Water%20Pump%20Actual.png" target="_blank" rel="noopener">
-              <img src="images/Water%20Pump%20Actual.png" alt="Water pump — physical part" loading="lazy" />
+            <a href="images/Water Pump Actual.png" target="_blank" rel="noopener">
+              <!-- contain = zoom out (no crop) -->
+              <img class="contain" src="images/Water Pump Actual.png" alt="Water pump — physical part" loading="lazy" />
             </a>
           </div>
 
@@ -591,9 +600,7 @@
       <!-- CONTACT -->
       <section class="section" id="contact">
         <h2>Contact</h2>
-        <p class="lede" style="margin-top:10px;">
-          For recruiting or project inquiries:
-        </p>
+        <p class="lede" style="margin-top:10px;">For recruiting or project inquiries:</p>
 
         <div class="grid">
           <div class="card white">
@@ -606,7 +613,6 @@
               <a class="btn primary" href="mailto:jamesdrake@gmail.com?subject=Mechanical%20R%26D%20Opportunity%20-%20James%20Drake">Email</a>
               <a class="btn" href="#" onclick="alert('Paste LinkedIn URL here.'); return false;">LinkedIn</a>
               <a class="btn" href="#" onclick="alert('Paste GitHub URL here.'); return false;">GitHub</a>
-
               <a class="btn" href="https://grabcad.com/james.drake-14/models" target="_blank" rel="noopener">GrabCAD</a>
               <a class="btn" href="https://www.ebay.com/usr/jam_jd_v6dtgp8" target="_blank" rel="noopener">eBay</a>
             </div>
@@ -634,6 +640,5 @@
   </script>
 </body>
 </html>
-
 
 
