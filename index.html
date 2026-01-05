@@ -209,6 +209,27 @@
       gap:14px;
     }
 
+    /* Photo galleries (3 per project) */
+    .gallery{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+    }
+    .gallery a{
+      display:block;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#fff;
+    }
+    .gallery img{
+      width:100%;
+      height:160px;
+      object-fit:cover;
+      display:block;
+    }
+
     .foot{
       margin-top:22px;
       color:var(--faint);
@@ -225,6 +246,8 @@
       .cols{grid-template-columns:1fr}
       .proj-tags{justify-content:flex-start}
       .proj-head{flex-direction:column}
+      .gallery{grid-template-columns:1fr}
+      .gallery img{height:220px}
     }
   </style>
 </head>
@@ -257,6 +280,10 @@
           <a class="btn primary" href="#" onclick="alert('Upload resume PDF and update this link.'); return false;">Resume</a>
           <a class="btn" href="#" onclick="alert('Paste LinkedIn URL here.'); return false;">LinkedIn</a>
           <a class="btn" href="#" onclick="alert('Paste GitHub URL here.'); return false;">GitHub</a>
+
+          <!-- GrabCAD + eBay -->
+          <a class="btn" href="https://grabcad.com/james.drake-14/models" target="_blank" rel="noopener">GrabCAD</a>
+          <a class="btn" href="https://www.ebay.com/usr/jam_jd_v6dtgp8" target="_blank" rel="noopener">eBay</a>
         </div>
 
         <div class="grid">
@@ -264,7 +291,7 @@
             <h3>Strengths</h3>
             <div class="divider"></div>
             <ul>
-              <li>Mechanical design + packaging: interfaces, mounting, access/serviceability, and clean integration..</li>
+              <li>Mechanical design + packaging: interfaces, mounting, access/serviceability, and clean integration.</li>
               <li>Prototype-driven iteration: fast revisions guided by fit checks and observed outcomes.</li>
               <li>Validation mindset: repeatable checks, clear notes on what changed, and why it improved.</li>
               <li>Instrumentation: sensor integration and calibration for reliable measurements during testing.</li>
@@ -294,45 +321,6 @@
         <p class="lede" style="margin-top:10px;">
           Selected work across mechanical design and prototyping, with instrumentation included where it supports measurement, control, or usability.
         </p>
-
-        <!-- MIDI -->
-        <div class="project" id="midi">
-          <div class="proj-head">
-            <div>
-              <h2>Audio Control Surface (Physical Controls + Level Display)</h2>
-              <p>
-                A hardware controller designed for an audio workflow: tactile controls paired with a clear level display.
-                Built around clean packaging, stable behavior, and a layout that supports fast, repeatable use.
-              </p>
-            </div>
-            <div class="proj-tags">
-              <span class="pill">Product layout</span>
-              <span class="pill">Packaging</span>
-              <span class="pill">User interaction</span>
-              <span class="pill">Embedded</span>
-            </div>
-          </div>
-          <div class="cols">
-            <div class="card white">
-              <h3>What I built</h3>
-              <div class="divider"></div>
-              <ul>
-                <li>Physical layout decisions: spacing, ergonomics, control placement.</li>
-                <li>Clean integration: mounting strategy, wiring paths, access/serviceability.</li>
-                <li>Consistent input behavior with clear visual feedback.</li>
-              </ul>
-            </div>
-            <div class="card white">
-              <h3>How I validated it</h3>
-              <div class="divider"></div>
-              <ul>
-                <li>Iterated from repeatable use cases (workflow speed and consistency).</li>
-                <li>Improved stability (noise/jitter handling) without sacrificing responsiveness.</li>
-                <li>Logged revisions with intent and observed outcome.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
 
         <!-- THERMOCOUPLE -->
         <div class="project" id="thermo">
@@ -370,6 +358,19 @@
                 <li>Change log for adjustments and observed behavior.</li>
               </ul>
             </div>
+          </div>
+
+          <!-- Thermocouple case photos (uploaded) -->
+          <div class="gallery" aria-label="Thermocouple rig photos">
+            <a href="images/TC%20Case%20Front%20Angle.png" target="_blank" rel="noopener">
+              <img src="images/TC%20Case%20Front%20Angle.png" alt="Thermocouple case — front angle" loading="lazy" />
+            </a>
+            <a href="images/TC%20Case%20Back%20Angle.png" target="_blank" rel="noopener">
+              <img src="images/TC%20Case%20Back%20Angle.png" alt="Thermocouple case — back angle" loading="lazy" />
+            </a>
+            <a href="images/TC%20Case%20Filler%20Angle.png" target="_blank" rel="noopener">
+              <img src="images/TC%20Case%20Filler%20Angle.png" alt="Thermocouple case — additional view" loading="lazy" />
+            </a>
           </div>
         </div>
 
@@ -410,6 +411,19 @@
               </ul>
             </div>
           </div>
+
+          <!-- IV Photos -->
+          <div class="gallery" aria-label="Smart IV system photos">
+            <a href="images/IV%20Stand%203%20Angle.png" target="_blank" rel="noopener">
+              <img src="images/IV%20Stand%203%20Angle.png" alt="Smart IV system — 3/4 view (CAD)" loading="lazy" />
+            </a>
+            <a href="images/IV%20Stand%20Actual.png" target="_blank" rel="noopener">
+              <img src="images/IV%20Stand%20Actual.png" alt="Smart IV system — physical prototype" loading="lazy" />
+            </a>
+            <a href="images/IV%20Stand%20Assembly%20Drawing.png" target="_blank" rel="noopener">
+              <img src="images/IV%20Stand%20Assembly%20Drawing.png" alt="Smart IV system — assembly drawing" loading="lazy" />
+            </a>
+          </div>
         </div>
 
         <!-- DRONE -->
@@ -449,6 +463,19 @@
               </ul>
             </div>
           </div>
+
+          <!-- Drone Photos -->
+          <div class="gallery" aria-label="Drone platform photos">
+            <a href="images/Drone%20Front%20Angle.png" target="_blank" rel="noopener">
+              <img src="images/Drone%20Front%20Angle.png" alt="Drone platform — front angle" loading="lazy" />
+            </a>
+            <a href="images/Drone%20Back%20Angle.png" target="_blank" rel="noopener">
+              <img src="images/Drone%20Back%20Angle.png" alt="Drone platform — back angle" loading="lazy" />
+            </a>
+            <a href="images/Drone%20Filler%20Shot.png" target="_blank" rel="noopener">
+              <img src="images/Drone%20Filler%20Shot.png" alt="Drone platform — additional view" loading="lazy" />
+            </a>
+          </div>
         </div>
 
         <!-- TRIM -->
@@ -487,6 +514,19 @@
                 <li>Acceptance criteria for final installation and performance.</li>
               </ul>
             </div>
+          </div>
+
+          <!-- Trim Photos -->
+          <div class="gallery" aria-label="Automotive trim component photos">
+            <a href="images/Trim%20Clip%20Front%20Angle.png" target="_blank" rel="noopener">
+              <img src="images/Trim%20Clip%20Front%20Angle.png" alt="Trim component — CAD front angle" loading="lazy" />
+            </a>
+            <a href="images/Trim%20Clip%20Back%20Angle.png" target="_blank" rel="noopener">
+              <img src="images/Trim%20Clip%20Back%20Angle.png" alt="Trim component — CAD back angle" loading="lazy" />
+            </a>
+            <a href="images/Trim%20Clip%20Actual.png" target="_blank" rel="noopener">
+              <img src="images/Trim%20Clip%20Actual.png" alt="Trim component — installed on vehicle" loading="lazy" />
+            </a>
           </div>
         </div>
 
@@ -528,6 +568,19 @@
             </div>
           </div>
 
+          <!-- Water Pump photos (uploaded) -->
+          <div class="gallery" aria-label="Water pump assembly photos">
+            <a href="images/Water%20Pump%20Front%20Angle.png" target="_blank" rel="noopener">
+              <img src="images/Water%20Pump%20Front%20Angle.png" alt="Water pump — front angle" loading="lazy" />
+            </a>
+            <a href="images/Water%20Pump%20Back%20Angle.png" target="_blank" rel="noopener">
+              <img src="images/Water%20Pump%20Back%20Angle.png" alt="Water pump — back angle" loading="lazy" />
+            </a>
+            <a href="images/Water%20Pump%20Actual.png" target="_blank" rel="noopener">
+              <img src="images/Water%20Pump%20Actual.png" alt="Water pump — physical part" loading="lazy" />
+            </a>
+          </div>
+
           <div class="foot">
             <span>© <span id="y"></span> James Drake</span>
             <span><a href="#about">Back to top ↑</a></span>
@@ -553,6 +606,9 @@
               <a class="btn primary" href="mailto:jamesdrake@gmail.com?subject=Mechanical%20R%26D%20Opportunity%20-%20James%20Drake">Email</a>
               <a class="btn" href="#" onclick="alert('Paste LinkedIn URL here.'); return false;">LinkedIn</a>
               <a class="btn" href="#" onclick="alert('Paste GitHub URL here.'); return false;">GitHub</a>
+
+              <a class="btn" href="https://grabcad.com/james.drake-14/models" target="_blank" rel="noopener">GrabCAD</a>
+              <a class="btn" href="https://www.ebay.com/usr/jam_jd_v6dtgp8" target="_blank" rel="noopener">eBay</a>
             </div>
           </div>
 
@@ -563,6 +619,8 @@
               <li>Resume (PDF link)</li>
               <li>LinkedIn profile</li>
               <li>GitHub (project code where applicable)</li>
+              <li><a href="https://grabcad.com/james.drake-14/models" target="_blank" rel="noopener">GrabCAD (models)</a></li>
+              <li><a href="https://www.ebay.com/usr/jam_jd_v6dtgp8" target="_blank" rel="noopener">eBay (listings)</a></li>
             </ul>
           </div>
         </div>
@@ -576,5 +634,6 @@
   </script>
 </body>
 </html>
+
 
 
