@@ -9,11 +9,11 @@
   <style>
     :root{
       --bg:#ffffff;
-      --surface:#f8fafc;      /* slate-50 */
-      --text:#0f172a;         /* slate-900 */
-      --muted:#475569;        /* slate-600 */
-      --faint:#94a3b8;        /* slate-400 */
-      --line:#e2e8f0;         /* slate-200 */
+      --surface:#f8fafc;
+      --text:#0f172a;
+      --muted:#475569;
+      --faint:#94a3b8;
+      --line:#e2e8f0;
       --shadow:0 18px 42px rgba(2,6,23,.08);
       --r:18px;
       --max:1080px;
@@ -228,8 +228,9 @@
       height:170px;
       object-fit:cover;
       display:block;
+      background:#fff;
     }
-    /* Use this to "zoom out" / avoid cropping on select images */
+    /* zoom-out (no crop) */
     .gallery img.contain{
       object-fit:contain;
       background:#fff;
@@ -283,12 +284,9 @@
         </p>
 
         <div class="cta">
-          <!-- Replace these placeholders with real links whenever you're ready -->
           <a class="btn primary" href="#" onclick="alert('Upload resume PDF and update this link.'); return false;">Resume</a>
           <a class="btn" href="#" onclick="alert('Paste LinkedIn URL here.'); return false;">LinkedIn</a>
           <a class="btn" href="#" onclick="alert('Paste GitHub URL here.'); return false;">GitHub</a>
-
-          <!-- Real links you gave -->
           <a class="btn" href="https://grabcad.com/james.drake-14/models" target="_blank" rel="noopener">GrabCAD</a>
           <a class="btn" href="https://www.ebay.com/usr/jam_jd_v6dtgp8" target="_blank" rel="noopener">eBay</a>
         </div>
@@ -369,14 +367,14 @@
           </div>
 
           <div class="gallery" aria-label="Thermocouple rig photos">
-            <a href="images/TC Case Front Angle.png" target="_blank" rel="noopener">
-              <img src="images/TC Case Front Angle.png" alt="Thermocouple case — front angle" loading="lazy" />
+            <a class="media" data-base="TC Case Back Angle" href="#">
+              <img data-base="TC Case Back Angle" alt="Thermocouple case — back angle" loading="lazy" />
             </a>
-            <a href="images/TC Case Back Angle.png" target="_blank" rel="noopener">
-              <img src="images/TC Case Back Angle.png" alt="Thermocouple case — back angle" loading="lazy" />
+            <a class="media" data-base="TC Case Filler Angle" href="#">
+              <img data-base="TC Case Filler Angle" alt="Thermocouple case — filler angle" loading="lazy" />
             </a>
-            <a href="images/TC Case Filler Angle.png" target="_blank" rel="noopener">
-              <img src="images/TC Case Filler Angle.png" alt="Thermocouple case — additional view" loading="lazy" />
+            <a class="media" data-base="TC Case Front Angle" href="#">
+              <img data-base="TC Case Front Angle" alt="Thermocouple case — front angle" loading="lazy" />
             </a>
           </div>
         </div>
@@ -421,14 +419,14 @@
           </div>
 
           <div class="gallery" aria-label="Smart IV system photos">
-            <a href="images/IV Stand 3 Angle.png" target="_blank" rel="noopener">
-              <img src="images/IV Stand 3 Angle.png" alt="Smart IV system — 3/4 view (CAD)" loading="lazy" />
+            <a class="media" data-base="IV Stand 3 Angle" href="#">
+              <img data-base="IV Stand 3 Angle" alt="IV stand — CAD views" loading="lazy" />
             </a>
-            <a href="images/IV Stand Actual.png" target="_blank" rel="noopener">
-              <img src="images/IV Stand Actual.png" alt="Smart IV system — physical prototype" loading="lazy" />
+            <a class="media" data-base="IV Stand Actual" href="#">
+              <img data-base="IV Stand Actual" alt="IV stand — physical build" loading="lazy" />
             </a>
-            <a href="images/IV Stand Assembly Drawing.png" target="_blank" rel="noopener">
-              <img src="images/IV Stand Assembly Drawing.png" alt="Smart IV system — assembly drawing" loading="lazy" />
+            <a class="media" data-base="IV Stand Assembly Drawing" href="#">
+              <img data-base="IV Stand Assembly Drawing" alt="IV stand — assembly drawing" loading="lazy" />
             </a>
           </div>
         </div>
@@ -473,14 +471,14 @@
           </div>
 
           <div class="gallery" aria-label="Drone platform photos">
-            <a href="images/Drone Front Angle.png" target="_blank" rel="noopener">
-              <img src="images/Drone Front Angle.png" alt="Drone platform — front angle" loading="lazy" />
+            <a class="media" data-base="Drone Back Angle" href="#">
+              <img data-base="Drone Back Angle" alt="Drone — back angle" loading="lazy" />
             </a>
-            <a href="images/Drone Back Angle.png" target="_blank" rel="noopener">
-              <img src="images/Drone Back Angle.png" alt="Drone platform — back angle" loading="lazy" />
+            <a class="media" data-base="Drone Filler Shot" href="#">
+              <img data-base="Drone Filler Shot" alt="Drone — filler shot" loading="lazy" />
             </a>
-            <a href="images/Drone Filler Shot.png" target="_blank" rel="noopener">
-              <img src="images/Drone Filler Shot.png" alt="Drone platform — additional view" loading="lazy" />
+            <a class="media" data-base="Drone Front Angle" href="#">
+              <img data-base="Drone Front Angle" alt="Drone — front angle" loading="lazy" />
             </a>
           </div>
         </div>
@@ -525,20 +523,19 @@
           </div>
 
           <div class="gallery" aria-label="Automotive trim component photos">
-            <a href="images/Trim Clip Front Angle.png" target="_blank" rel="noopener">
-              <img src="images/Trim Clip Front Angle.png" alt="Trim component — CAD front angle" loading="lazy" />
+            <a class="media" data-base="Trim Clip Actual" href="#">
+              <img class="contain" data-base="Trim Clip Actual" alt="Trim clip — actual" loading="lazy" />
             </a>
-            <a href="images/Trim Clip Back Angle.png" target="_blank" rel="noopener">
-              <img src="images/Trim Clip Back Angle.png" alt="Trim component — CAD back angle" loading="lazy" />
+            <a class="media" data-base="Trim Clip Back Angle" href="#">
+              <img data-base="Trim Clip Back Angle" alt="Trim clip — back angle" loading="lazy" />
             </a>
-            <a href="images/Trim Clip Actual.png" target="_blank" rel="noopener">
-              <!-- contain = zoom out (no crop) -->
-              <img class="contain" src="images/Trim Clip Actual.png" alt="Trim component — installed on vehicle" loading="lazy" />
+            <a class="media" data-base="Trim Clip Front Angle" href="#">
+              <img data-base="Trim Clip Front Angle" alt="Trim clip — front angle" loading="lazy" />
             </a>
           </div>
         </div>
 
-        <!-- PUMP -->
+        <!-- WATER PUMP -->
         <div class="project" id="pump">
           <div class="proj-head">
             <div>
@@ -577,16 +574,15 @@
             </div>
           </div>
 
-          <div class="gallery" aria-label="Water pump assembly photos">
-            <a href="images/Water Pump Front Angle.png" target="_blank" rel="noopener">
-              <img src="images/Water Pump Front Angle.png" alt="Water pump — front angle" loading="lazy" />
+          <div class="gallery" aria-label="Water pump photos">
+            <a class="media" data-base="Water Pump Actual" href="#">
+              <img class="contain" data-base="Water Pump Actual" alt="Water pump — actual" loading="lazy" />
             </a>
-            <a href="images/Water Pump Back Angle.png" target="_blank" rel="noopener">
-              <img src="images/Water Pump Back Angle.png" alt="Water pump — back angle" loading="lazy" />
+            <a class="media" data-base="Water Pump Back Angle" href="#">
+              <img data-base="Water Pump Back Angle" alt="Water pump — back angle" loading="lazy" />
             </a>
-            <a href="images/Water Pump Actual.png" target="_blank" rel="noopener">
-              <!-- contain = zoom out (no crop) -->
-              <img class="contain" src="images/Water Pump Actual.png" alt="Water pump — physical part" loading="lazy" />
+            <a class="media" data-base="Water Pump Front Angle" href="#">
+              <img data-base="Water Pump Front Angle" alt="Water pump — front angle" loading="lazy" />
             </a>
           </div>
 
@@ -636,9 +632,47 @@
   </main>
 
   <script>
+    // Footer year
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Auto-detect extensions so you don't have to rename files.
+    // Tries: png -> jpg -> jpeg -> webp
+    const exts = ["png", "jpg", "jpeg", "webp"];
+
+    function findExistingImage(baseName) {
+      return new Promise((resolve, reject) => {
+        let i = 0;
+
+        function tryNext() {
+          if (i >= exts.length) return reject(new Error("No file found for: " + baseName));
+          const ext = exts[i++];
+          const url = `images/${baseName}.${ext}`;
+          const probe = new Image();
+          probe.onload = () => resolve(url);
+          probe.onerror = () => tryNext();
+          probe.src = url;
+        }
+
+        tryNext();
+      });
+    }
+
+    // Fill every <img data-base="..."> and match its parent <a class="media"> href too.
+    document.querySelectorAll('img[data-base]').forEach(async (img) => {
+      const base = img.getAttribute('data-base');
+      try {
+        const url = await findExistingImage(base);
+        img.src = url;
+
+        const parent = img.closest('a.media');
+        if (parent) parent.href = url;
+      } catch (e) {
+        // If something is truly missing, show a subtle placeholder
+        img.alt = `${img.alt} (missing file)`;
+        img.style.opacity = "0.4";
+        img.style.filter = "grayscale(1)";
+      }
+    });
   </script>
 </body>
 </html>
-
-
