@@ -216,6 +216,11 @@
       grid-template-columns: repeat(3, 1fr);
       gap:12px;
     }
+    /* for the IV section (5 across on desktop) */
+    .gallery.wide{
+      grid-template-columns: repeat(5, 1fr);
+    }
+
     .gallery a{
       display:block;
       border-radius:14px;
@@ -235,6 +240,18 @@
       background:#fff;
     }
 
+    /* one “slot” that contains 2 stacked images */
+    .gallery a.stack{
+      display:grid;
+      grid-template-rows: 1fr 1fr;
+      gap:8px;
+      background:#fff;
+    }
+    .gallery a.stack img{
+      height:126px; /* 126 + 126 + 8 = 260 (matches normal tile height) */
+      object-fit:cover;
+    }
+
     .foot{
       margin-top:22px;
       color:var(--faint);
@@ -252,7 +269,9 @@
       .proj-tags{justify-content:flex-start}
       .proj-head{flex-direction:column}
       .gallery{grid-template-columns:1fr}
+      .gallery.wide{grid-template-columns:1fr}
       .gallery img{height:320px;}
+      .gallery a.stack img{height:156px;} /* 156 + 156 + 8 = 320 */
     }
   </style>
 </head>
@@ -366,11 +385,11 @@
           </div>
 
           <div class="gallery">
-            <a href="./images/TC%20Case%20Back%20Angle.png" target="_blank" rel="noopener">
-              <img src="./images/TC%20Case%20Back%20Angle.png" alt="TC case — back angle" loading="lazy">
+            <a href="./images/TC%20Controller%20Front%20Angle.png" target="_blank" rel="noopener">
+              <img src="./images/TC%20Controller%20Front%20Angle.png" alt="TC controller — front angle" loading="lazy">
             </a>
-            <a href="./images/TC%20Case%20Filler%20Angle.png" target="_blank" rel="noopener">
-              <img src="./images/TC%20Case%20Filler%20Angle.png" alt="TC case — filler angle" loading="lazy">
+            <a href="./images/TC%20Controller%20Back%20Angle.png" target="_blank" rel="noopener">
+              <img src="./images/TC%20Controller%20Back%20Angle.png" alt="TC controller — back angle" loading="lazy">
             </a>
             <a href="./images/TC%20Case%20Front%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/TC%20Case%20Front%20Angle.png" alt="TC case — front angle" loading="lazy">
@@ -417,15 +436,29 @@
             </div>
           </div>
 
-          <div class="gallery">
+          <!-- 5-wide gallery + removed drawing + added IV bag images -->
+          <div class="gallery wide">
             <a href="./images/IV%20Stand%203%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/IV%20Stand%203%20Angle.png" alt="IV stand — CAD views" loading="lazy">
             </a>
+
+            <!-- cropped (cover) instead of contain, so it won’t look skinny -->
             <a href="./images/IV%20Stand%20Actual.png" target="_blank" rel="noopener">
-              <img class="contain" src="./images/IV%20Stand%20Actual.png" alt="IV stand — physical build" loading="lazy">
+              <img src="./images/IV%20Stand%20Actual.png" alt="IV stand — physical build" loading="lazy">
             </a>
-            <a href="./images/IV%20Stand%20Assembly%20Drawing.png" target="_blank" rel="noopener">
-              <img src="./images/IV%20Stand%20Assembly%20Drawing.png" alt="IV stand — assembly drawing" loading="lazy">
+
+            <a href="./images/IV%20Bag%20Exploded%20Base.png" target="_blank" rel="noopener">
+              <img src="./images/IV%20Bag%20Exploded%20Base.png" alt="IV bag — exploded base" loading="lazy">
+            </a>
+
+            <a href="./images/IV%20Bag%20Exploded%20Top.png" target="_blank" rel="noopener">
+              <img src="./images/IV%20Bag%20Exploded%20Top.png" alt="IV bag — exploded top" loading="lazy">
+            </a>
+
+            <!-- one slot containing both Middle Top + Middle Bottom -->
+            <a class="stack" href="./images/IV%20Bag%20Middle%20Top.png" target="_blank" rel="noopener">
+              <img src="./images/IV%20Bag%20Middle%20Top.png" alt="IV bag — middle top" loading="lazy">
+              <img src="./images/IV%20Bag%20Middle%20Bottom.png" alt="IV bag — middle bottom" loading="lazy">
             </a>
           </div>
         </div>
@@ -521,15 +554,16 @@
             </div>
           </div>
 
+          <!-- switched order -->
           <div class="gallery">
-            <a href="./images/Trim%20Clip%20Actual.png" target="_blank" rel="noopener">
-              <img class="contain" src="./images/Trim%20Clip%20Actual.png" alt="Trim clip — actual" loading="lazy">
+            <a href="./images/Trim%20Clip%20Front%20Angle.png" target="_blank" rel="noopener">
+              <img src="./images/Trim%20Clip%20Front%20Angle.png" alt="Trim clip — front angle" loading="lazy">
             </a>
             <a href="./images/Trim%20Clip%20Back%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/Trim%20Clip%20Back%20Angle.png" alt="Trim clip — back angle" loading="lazy">
             </a>
-            <a href="./images/Trim%20Clip%20Front%20Angle.png" target="_blank" rel="noopener">
-              <img src="./images/Trim%20Clip%20Front%20Angle.png" alt="Trim clip — front angle" loading="lazy">
+            <a href="./images/Trim%20Clip%20Actual.png" target="_blank" rel="noopener">
+              <img class="contain" src="./images/Trim%20Clip%20Actual.png" alt="Trim clip — actual" loading="lazy">
             </a>
           </div>
         </div>
@@ -573,15 +607,16 @@
             </div>
           </div>
 
+          <!-- switched order -->
           <div class="gallery">
-            <a href="./images/Water%20Pump%20Actual.png" target="_blank" rel="noopener">
-              <img class="contain" src="./images/Water%20Pump%20Actual.png" alt="Water pump — actual" loading="lazy">
+            <a href="./images/Water%20Pump%20Front%20Angle.png" target="_blank" rel="noopener">
+              <img src="./images/Water%20Pump%20Front%20Angle.png" alt="Water pump — front angle" loading="lazy">
             </a>
             <a href="./images/Water%20Pump%20Back%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/Water%20Pump%20Back%20Angle.png" alt="Water pump — back angle" loading="lazy">
             </a>
-            <a href="./images/Water%20Pump%20Front%20Angle.png" target="_blank" rel="noopener">
-              <img src="./images/Water%20Pump%20Front%20Angle.png" alt="Water pump — front angle" loading="lazy">
+            <a href="./images/Water%20Pump%20Actual.png" target="_blank" rel="noopener">
+              <img class="contain" src="./images/Water%20Pump%20Actual.png" alt="Water pump — actual" loading="lazy">
             </a>
           </div>
 
@@ -635,4 +670,3 @@
   </script>
 </body>
 </html>
-
