@@ -32,7 +32,6 @@
     a{color:inherit; text-decoration:none}
     a:hover{opacity:.92}
 
-    /* Header */
     .topbar{
       position:sticky;
       top:0;
@@ -178,7 +177,6 @@
     ul{margin:0; padding-left:18px; color:var(--muted)}
     li{margin:6px 0}
 
-    /* Projects */
     .project{
       padding:26px 0;
       border-top:1px solid var(--line);
@@ -209,17 +207,14 @@
       gap:14px;
     }
 
-    /* ✅ BIGGER IMAGE GALLERY */
     .gallery{
       margin-top:14px;
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap:12px;
     }
-    /* for the IV section (5 across on desktop) */
-    .gallery.wide{
-      grid-template-columns: repeat(5, 1fr);
-    }
+    .gallery.row-4{ grid-template-columns: repeat(4, 1fr); }
+    .gallery.row-5{ grid-template-columns: repeat(5, 1fr); }
 
     .gallery a{
       display:block;
@@ -228,28 +223,19 @@
       border:1px solid var(--line);
       background:#fff;
     }
-    .gallery img{
+    .gallery img,
+    .gallery video{
       width:100%;
-      height:260px;      /* bigger so projects are visible */
+      height:220px;
       object-fit:cover;
       display:block;
       background:#fff;
     }
     .gallery img.contain{
-      object-fit:contain; /* zoom out so it doesn't crop */
+      object-fit:contain;
       background:#fff;
     }
 
-    /* ✅ VIDEO TILE SUPPORT (for .mov) */
-    .gallery video{
-      width:100%;
-      height:260px;
-      object-fit:cover;
-      display:block;
-      background:#fff;
-    }
-
-    /* one “slot” that contains 2 stacked images */
     .gallery a.stack{
       display:grid;
       grid-template-rows: 1fr 1fr;
@@ -257,7 +243,7 @@
       background:#fff;
     }
     .gallery a.stack img{
-      height:126px; /* 126 + 126 + 8 = 260 (matches normal tile height) */
+      height:106px;
       object-fit:cover;
     }
 
@@ -278,10 +264,10 @@
       .proj-tags{justify-content:flex-start}
       .proj-head{flex-direction:column}
       .gallery{grid-template-columns:1fr}
-      .gallery.wide{grid-template-columns:1fr}
-      .gallery img{height:320px;}
-      .gallery video{height:320px;}
-      .gallery a.stack img{height:156px;} /* 156 + 156 + 8 = 320 */
+      .gallery.row-4{grid-template-columns:1fr}
+      .gallery.row-5{grid-template-columns:1fr}
+      .gallery img, .gallery video{height:320px;}
+      .gallery a.stack img{height:156px;}
     }
   </style>
 </head>
@@ -301,7 +287,6 @@
   <main>
     <div class="wrap">
 
-      <!-- ABOUT -->
       <section class="section" id="about">
         <div class="kicker">Mechanical Engineering • R&amp;D Portfolio</div>
         <h1>Mechanical product development — CAD, prototyping, and test-driven iteration.</h1>
@@ -348,14 +333,12 @@
         </div>
       </section>
 
-      <!-- PROJECTS -->
       <section class="section" id="projects">
         <h2>Projects</h2>
         <p class="lede" style="margin-top:10px;">
           Selected work across mechanical design and prototyping, with instrumentation included where it supports measurement, control, or usability.
         </p>
 
-        <!-- THERMOCOUPLE -->
         <div class="project" id="thermo">
           <div class="proj-head">
             <div>
@@ -394,7 +377,7 @@
             </div>
           </div>
 
-          <div class="gallery">
+          <div class="gallery row-4">
             <a href="./images/TC%20Controller%20Front%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/TC%20Controller%20Front%20Angle.png" alt="TC controller — front angle" loading="lazy">
             </a>
@@ -404,14 +387,12 @@
             <a href="./images/TC%20Case%20Front%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/TC%20Case%20Front%20Angle.png" alt="TC case — front angle" loading="lazy">
             </a>
-            <!-- ✅ added last -->
             <a href="./images/TC%20working.jpg" target="_blank" rel="noopener">
               <img src="./images/TC%20working.jpg" alt="TC test rig — working" loading="lazy">
             </a>
           </div>
         </div>
 
-        <!-- IV -->
         <div class="project" id="iv">
           <div class="proj-head">
             <div>
@@ -450,30 +431,19 @@
             </div>
           </div>
 
-          <!-- ✅ replaced + added images -->
-          <div class="gallery wide">
+          <div class="gallery row-5">
             <a href="./images/IV%20Stand%203%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/IV%20Stand%203%20Angle.png" alt="IV stand — CAD views" loading="lazy">
             </a>
-
-            <!-- ✅ replace IV Stand Actual with IV bag stand -->
             <a href="./images/IV%20bag%20stand.jpg" target="_blank" rel="noopener">
               <img src="./images/IV%20bag%20stand.jpg" alt="IV bag stand — physical" loading="lazy">
             </a>
-
-            <!-- ✅ add IV bag wiring after that -->
             <a href="./images/IV%20bag%20wiring.jpg" target="_blank" rel="noopener">
               <img src="./images/IV%20bag%20wiring.jpg" alt="IV bag wiring" loading="lazy">
             </a>
-
-            <a href="./images/IV%20Bag%20Exploded%20Base.png" target="_blank" rel="noopener">
-              <img src="./images/IV%20Bag%20Exploded%20Base.png" alt="IV bag — exploded base" loading="lazy">
-            </a>
-
             <a href="./images/IV%20Bag%20Exploded%20Top.png" target="_blank" rel="noopener">
               <img src="./images/IV%20Bag%20Exploded%20Top.png" alt="IV bag — exploded top" loading="lazy">
             </a>
-
             <a class="stack" href="./images/IV%20Bag%20Middle%20Top.png" target="_blank" rel="noopener">
               <img src="./images/IV%20Bag%20Middle%20Top.png" alt="IV bag — middle top" loading="lazy">
               <img src="./images/IV%20Bag%20Middle%20Bottom.png" alt="IV bag — middle bottom" loading="lazy">
@@ -481,7 +451,6 @@
           </div>
         </div>
 
-        <!-- DRONE -->
         <div class="project" id="drone">
           <div class="proj-head">
             <div>
@@ -520,7 +489,6 @@
             </div>
           </div>
 
-          <!-- ✅ front angle first, then swaps -->
           <div class="gallery">
             <a href="./images/Drone%20Front%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/Drone%20Front%20Angle.png" alt="Drone — front angle" loading="lazy">
@@ -534,7 +502,6 @@
           </div>
         </div>
 
-        <!-- TRIM -->
         <div class="project" id="trim">
           <div class="proj-head">
             <div>
@@ -573,8 +540,7 @@
             </div>
           </div>
 
-          <!-- ✅ added Trim plus clips -->
-          <div class="gallery">
+          <div class="gallery row-4">
             <a href="./images/Trim%20Clip%20Front%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/Trim%20Clip%20Front%20Angle.png" alt="Trim clip — front angle" loading="lazy">
             </a>
@@ -590,7 +556,6 @@
           </div>
         </div>
 
-        <!-- WATER PUMP -->
         <div class="project" id="pump">
           <div class="proj-head">
             <div>
@@ -629,19 +594,18 @@
             </div>
           </div>
 
-          <!-- ✅ add Waterpump Vid as second-to-last -->
-          <div class="gallery">
+          <div class="gallery row-4">
             <a href="./images/Water%20Pump%20Front%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/Water%20Pump%20Front%20Angle.png" alt="Water pump — front angle" loading="lazy">
             </a>
             <a href="./images/Water%20Pump%20Back%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/Water%20Pump%20Back%20Angle.png" alt="Water pump — back angle" loading="lazy">
             </a>
-
-            <a href="./images/Waterpump%20Vid.mov" target="_blank" rel="noopener">
-              <video src="./images/Waterpump%20Vid.mov" controls preload="metadata"></video>
+            <a href="./images/Waterpump%20Vid.mp4" target="_blank" rel="noopener">
+              <video controls preload="metadata" playsinline>
+                <source src="./images/Waterpump%20Vid.mp4" type="video/mp4">
+              </video>
             </a>
-
             <a href="./images/Water%20Pump%20Actual.png" target="_blank" rel="noopener">
               <img class="contain" src="./images/Water%20Pump%20Actual.png" alt="Water pump — actual" loading="lazy">
             </a>
@@ -654,7 +618,6 @@
         </div>
       </section>
 
-      <!-- CONTACT -->
       <section class="section" id="contact">
         <h2>Contact</h2>
         <p class="lede" style="margin-top:10px;">For recruiting or project inquiries:</p>
