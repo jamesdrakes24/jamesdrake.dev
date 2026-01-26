@@ -240,6 +240,15 @@
       background:#fff;
     }
 
+    /* ✅ VIDEO TILE SUPPORT (for .mov) */
+    .gallery video{
+      width:100%;
+      height:260px;
+      object-fit:cover;
+      display:block;
+      background:#fff;
+    }
+
     /* one “slot” that contains 2 stacked images */
     .gallery a.stack{
       display:grid;
@@ -271,6 +280,7 @@
       .gallery{grid-template-columns:1fr}
       .gallery.wide{grid-template-columns:1fr}
       .gallery img{height:320px;}
+      .gallery video{height:320px;}
       .gallery a.stack img{height:156px;} /* 156 + 156 + 8 = 320 */
     }
   </style>
@@ -394,6 +404,10 @@
             <a href="./images/TC%20Case%20Front%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/TC%20Case%20Front%20Angle.png" alt="TC case — front angle" loading="lazy">
             </a>
+            <!-- ✅ added last -->
+            <a href="./images/TC%20working.jpg" target="_blank" rel="noopener">
+              <img src="./images/TC%20working.jpg" alt="TC test rig — working" loading="lazy">
+            </a>
           </div>
         </div>
 
@@ -436,15 +450,20 @@
             </div>
           </div>
 
-          <!-- 5-wide gallery + removed drawing + added IV bag images -->
+          <!-- ✅ replaced + added images -->
           <div class="gallery wide">
             <a href="./images/IV%20Stand%203%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/IV%20Stand%203%20Angle.png" alt="IV stand — CAD views" loading="lazy">
             </a>
 
-            <!-- cropped (cover) instead of contain, so it won’t look skinny -->
-            <a href="./images/IV%20Stand%20Actual.png" target="_blank" rel="noopener">
-              <img src="./images/IV%20Stand%20Actual.png" alt="IV stand — physical build" loading="lazy">
+            <!-- ✅ replace IV Stand Actual with IV bag stand -->
+            <a href="./images/IV%20bag%20stand.jpg" target="_blank" rel="noopener">
+              <img src="./images/IV%20bag%20stand.jpg" alt="IV bag stand — physical" loading="lazy">
+            </a>
+
+            <!-- ✅ add IV bag wiring after that -->
+            <a href="./images/IV%20bag%20wiring.jpg" target="_blank" rel="noopener">
+              <img src="./images/IV%20bag%20wiring.jpg" alt="IV bag wiring" loading="lazy">
             </a>
 
             <a href="./images/IV%20Bag%20Exploded%20Base.png" target="_blank" rel="noopener">
@@ -455,7 +474,6 @@
               <img src="./images/IV%20Bag%20Exploded%20Top.png" alt="IV bag — exploded top" loading="lazy">
             </a>
 
-            <!-- one slot containing both Middle Top + Middle Bottom -->
             <a class="stack" href="./images/IV%20Bag%20Middle%20Top.png" target="_blank" rel="noopener">
               <img src="./images/IV%20Bag%20Middle%20Top.png" alt="IV bag — middle top" loading="lazy">
               <img src="./images/IV%20Bag%20Middle%20Bottom.png" alt="IV bag — middle bottom" loading="lazy">
@@ -502,15 +520,16 @@
             </div>
           </div>
 
+          <!-- ✅ front angle first, then swaps -->
           <div class="gallery">
-            <a href="./images/Drone%20Back%20Angle.png" target="_blank" rel="noopener">
-              <img src="./images/Drone%20Back%20Angle.png" alt="Drone — back angle" loading="lazy">
-            </a>
-            <a href="./images/Drone%20Filler%20Shot.png" target="_blank" rel="noopener">
-              <img src="./images/Drone%20Filler%20Shot.png" alt="Drone — filler shot" loading="lazy">
-            </a>
             <a href="./images/Drone%20Front%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/Drone%20Front%20Angle.png" alt="Drone — front angle" loading="lazy">
+            </a>
+            <a href="./images/Drone%20Actual.jpg" target="_blank" rel="noopener">
+              <img src="./images/Drone%20Actual.jpg" alt="Drone — actual" loading="lazy">
+            </a>
+            <a href="./images/Drone%20Actual%20Close.jpg" target="_blank" rel="noopener">
+              <img src="./images/Drone%20Actual%20Close.jpg" alt="Drone — actual close" loading="lazy">
             </a>
           </div>
         </div>
@@ -554,7 +573,7 @@
             </div>
           </div>
 
-          <!-- switched order -->
+          <!-- ✅ added Trim plus clips -->
           <div class="gallery">
             <a href="./images/Trim%20Clip%20Front%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/Trim%20Clip%20Front%20Angle.png" alt="Trim clip — front angle" loading="lazy">
@@ -564,6 +583,9 @@
             </a>
             <a href="./images/Trim%20Clip%20Actual.png" target="_blank" rel="noopener">
               <img class="contain" src="./images/Trim%20Clip%20Actual.png" alt="Trim clip — actual" loading="lazy">
+            </a>
+            <a href="./images/Trim%20plus%20clips.jpg" target="_blank" rel="noopener">
+              <img src="./images/Trim%20plus%20clips.jpg" alt="Trim clip — plus clips" loading="lazy">
             </a>
           </div>
         </div>
@@ -607,7 +629,7 @@
             </div>
           </div>
 
-          <!-- switched order -->
+          <!-- ✅ add Waterpump Vid as second-to-last -->
           <div class="gallery">
             <a href="./images/Water%20Pump%20Front%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/Water%20Pump%20Front%20Angle.png" alt="Water pump — front angle" loading="lazy">
@@ -615,6 +637,11 @@
             <a href="./images/Water%20Pump%20Back%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/Water%20Pump%20Back%20Angle.png" alt="Water pump — back angle" loading="lazy">
             </a>
+
+            <a href="./images/Waterpump%20Vid.mov" target="_blank" rel="noopener">
+              <video src="./images/Waterpump%20Vid.mov" controls preload="metadata"></video>
+            </a>
+
             <a href="./images/Water%20Pump%20Actual.png" target="_blank" rel="noopener">
               <img class="contain" src="./images/Water%20Pump%20Actual.png" alt="Water pump — actual" loading="lazy">
             </a>
