@@ -289,11 +289,10 @@
 
       <section class="section" id="about">
         <div class="kicker">Mechanical Engineering • R&amp;D Portfolio</div>
-        <h1>Mechanical product development — CAD, prototyping, and test-driven iteration.</h1>
+        <h1>CAD, prototyping, and test-driven iteration.</h1>
         <p class="lede">
-          I take ideas from CAD to working prototypes, then refine them using repeatable checks and documented results.
-          My projects emphasize mechanical packaging, reliable assembly, and design changes backed by testing.
-          When measurement helps, I integrate simple instrumentation—sensor integration and calibration—to quantify performance and guide iteration.
+          I take ideas from CAD to working prototypes and refine them through repeatable testing and documented results.
+          Projects span mechanical packaging, reliable assembly, and instrumentation for quantifying performance.
         </p>
 
         <div class="cta">
@@ -309,10 +308,10 @@
             <h3>Strengths</h3>
             <div class="divider"></div>
             <ul>
-              <li>Mechanical design + packaging: interfaces, mounting, access/serviceability, and clean integration.</li>
-              <li>Prototype-driven iteration: fast revisions guided by fit checks and observed outcomes.</li>
-              <li>Validation mindset: repeatable checks, clear notes on what changed, and why it improved.</li>
-              <li>Instrumentation: sensor integration and calibration for reliable measurements during testing.</li>
+              <li>Mechanical design: interfaces, mounting, tolerances, and serviceability.</li>
+              <li>Rapid iteration: fast revisions guided by fit checks and observed outcomes.</li>
+              <li>Validation: repeatable test procedures with clear change logs.</li>
+              <li>Instrumentation: sensor integration and calibration for reliable measurement.</li>
             </ul>
           </div>
 
@@ -336,16 +335,72 @@
       <section class="section" id="projects">
         <h2>Projects</h2>
         <p class="lede" style="margin-top:10px;">
-          Selected work across mechanical design and prototyping, with instrumentation included where it supports measurement, control, or usability.
+          Selected work across mechanical design, prototyping, and instrumentation.
         </p>
 
+        <!-- CARB ADAPTER -->
+        <div class="project" id="carb">
+          <div class="proj-head">
+            <div>
+              <h2>DRZ400 Carb Adapter — Velocity Stack Geometry</h2>
+              <p>
+                Custom adapter machined to maintain the factory velocity stack profile while fitting an aftermarket carburetor.
+                Driven by interface measurements, modeled in CAD, and validated through physical fitment.
+              </p>
+            </div>
+            <div class="proj-tags">
+              <span class="pill">CAD</span>
+              <span class="pill">Machined part</span>
+              <span class="pill">Fitment</span>
+              <span class="pill">Automotive</span>
+            </div>
+          </div>
+
+          <div class="cols">
+            <div class="card white">
+              <h3>What I built</h3>
+              <div class="divider"></div>
+              <ul>
+                <li>Modeled adapter from measured carb and airbox interfaces.</li>
+                <li>Preserved velocity stack taper to maintain intake airflow geometry.</li>
+                <li>Iterated geometry until fitment was clean and repeatable.</li>
+              </ul>
+            </div>
+            <div class="card white">
+              <h3>Key considerations</h3>
+              <div class="divider"></div>
+              <ul>
+                <li>Tight dimensional tolerances on both mating faces.</li>
+                <li>Geometry constrained to maintain stack profile — not just clearance.</li>
+                <li>Validated against installed carburetor with no rework needed.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="gallery row-4">
+            <a href="./images/Angle%201.jpg" target="_blank" rel="noopener">
+              <img src="./images/Angle%201.jpg" alt="Carb adapter — angle 1" loading="lazy">
+            </a>
+            <a href="./images/Angle%202.jpg" target="_blank" rel="noopener">
+              <img src="./images/Angle%202.jpg" alt="Carb adapter — angle 2" loading="lazy">
+            </a>
+            <a href="./images/Cad%20Model.png" target="_blank" rel="noopener">
+              <img class="contain" src="./images/Cad%20Model.png" alt="Carb adapter — CAD model" loading="lazy">
+            </a>
+            <a href="./images/Installed.jpg" target="_blank" rel="noopener">
+              <img src="./images/Installed.jpg" alt="Carb adapter — installed" loading="lazy">
+            </a>
+          </div>
+        </div>
+
+        <!-- THERMOCOUPLE -->
         <div class="project" id="thermo">
           <div class="proj-head">
             <div>
               <h2>Thermocouple Temperature Control Test Rig</h2>
               <p>
-                A repeatable thermal test setup with feedback control. Designed to tune response and evaluate behavior using clear metrics
-                (overshoot, settling time, steady-state error).
+                Repeatable thermal test setup with closed-loop feedback. Built to tune response and evaluate overshoot,
+                settling time, and steady-state error against consistent baselines.
               </p>
             </div>
             <div class="proj-tags">
@@ -361,18 +416,17 @@
               <h3>What I built</h3>
               <div class="divider"></div>
               <ul>
-                <li>Measurement/control stack around thermocouple feedback.</li>
-                <li>Setup designed for repeatability with safe operating limits.</li>
-                <li>Tuning workflow focused on stability first, then speed.</li>
+                <li>Control stack around thermocouple feedback with safe operating limits.</li>
+                <li>Tuning workflow prioritizing stability before speed.</li>
+                <li>Documented change log tied to observed step response behavior.</li>
               </ul>
             </div>
             <div class="card white">
-              <h3>How I validated it</h3>
+              <h3>Validation</h3>
               <div class="divider"></div>
               <ul>
-                <li>Step response characterization to compare tuning changes.</li>
-                <li>Repeatability runs across multiple trials.</li>
-                <li>Change log for adjustments and observed behavior.</li>
+                <li>Step response runs to compare tuning changes head-to-head.</li>
+                <li>Repeatability confirmed across multiple trials.</li>
               </ul>
             </div>
           </div>
@@ -393,13 +447,14 @@
           </div>
         </div>
 
+        <!-- IV SYSTEM -->
         <div class="project" id="iv">
           <div class="proj-head">
             <div>
               <h2>Smart IV System (Concept + Prototype Plan)</h2>
               <p>
-                System concept structured like a development effort: requirements → design decisions → verification plan.
-                Focused on mechanical constraints, usability, and reliable measurement.
+                Requirements-driven concept structured as a real development effort: constraints → design decisions → verification plan.
+                Focused on mechanical reliability, usability, and measurement accuracy.
               </p>
             </div>
             <div class="proj-tags">
@@ -415,18 +470,17 @@
               <h3>What I defined</h3>
               <div class="divider"></div>
               <ul>
-                <li>Requirements around safety, repeatability, and clear operator feedback.</li>
-                <li>Mechanical architecture with safe limits and predictable behavior.</li>
-                <li>Measurement constraints: calibration, drift, repeatable zeroing.</li>
+                <li>Safety, repeatability, and operator feedback requirements.</li>
+                <li>Mechanical architecture with predictable behavior and safe limits.</li>
+                <li>Measurement constraints: calibration, drift, and repeatable zeroing.</li>
               </ul>
             </div>
             <div class="card white">
-              <h3>How I would verify it</h3>
+              <h3>Verification approach</h3>
               <div class="divider"></div>
               <ul>
                 <li>Bench testing against known conditions with acceptance criteria.</li>
-                <li>Cycle testing for wear and reliability.</li>
-                <li>Failure-mode thinking and safe defaults.</li>
+                <li>Cycle testing for wear and failure-mode analysis.</li>
               </ul>
             </div>
           </div>
@@ -451,13 +505,13 @@
           </div>
         </div>
 
+        <!-- DRONE -->
         <div class="project" id="drone">
           <div class="proj-head">
             <div>
               <h2>Autonomous Drone Platform (Build + Integration)</h2>
               <p>
-                Platform work under real constraints (weight, vibration, packaging) with emphasis on reliability and controlled iteration.
-                Focused on integration choices that support consistent performance.
+                Full platform build under real constraints — weight, vibration, packaging — with reliability treated as a core requirement.
               </p>
             </div>
             <div class="proj-tags">
@@ -473,18 +527,16 @@
               <h3>What I built</h3>
               <div class="divider"></div>
               <ul>
-                <li>Packaging and assembly decisions to reduce failure points.</li>
-                <li>Mounting strategy mindful of vibration and serviceability.</li>
-                <li>Documented tradeoffs (weight vs robustness, access vs stiffness).</li>
+                <li>Packaging decisions to reduce failure points and ease serviceability.</li>
+                <li>Vibration-aware mounting strategy with documented tradeoffs.</li>
               </ul>
             </div>
             <div class="card white">
-              <h3>How I iterated</h3>
+              <h3>Iteration approach</h3>
               <div class="divider"></div>
               <ul>
-                <li>Controlled changes with consistent evaluation checks.</li>
-                <li>Logged changes and observed impact.</li>
-                <li>Reliability treated as a requirement alongside performance.</li>
+                <li>Controlled changes with consistent evaluation checks each cycle.</li>
+                <li>Change log with observed impact on performance and reliability.</li>
               </ul>
             </div>
           </div>
@@ -502,13 +554,13 @@
           </div>
         </div>
 
+        <!-- TRIM -->
         <div class="project" id="trim">
           <div class="proj-head">
             <div>
               <h2>Automotive Trim Component (CAD → Prototype → Fitment)</h2>
               <p>
-                Part development cycle: measured interfaces, modeled geometry, rapid prototypes, and revisions until installation was clean and repeatable.
-                Emphasis on fit, durability considerations, and evidence-based iteration.
+                Full part cycle: measured interfaces, modeled geometry, rapid prototypes, and revisions until installation was clean and repeatable.
               </p>
             </div>
             <div class="proj-tags">
@@ -525,8 +577,7 @@
               <div class="divider"></div>
               <ul>
                 <li>Interface-driven design: clearances, mounting geometry, tolerance awareness.</li>
-                <li>Prototyped and revised using physical fit checks and documented observations.</li>
-                <li>Material/geometry decisions aligned with the use environment.</li>
+                <li>Prototyped and revised using physical fit checks and notes each round.</li>
               </ul>
             </div>
             <div class="card white">
@@ -534,8 +585,7 @@
               <div class="divider"></div>
               <ul>
                 <li>Revision history with rationale for each change.</li>
-                <li>Critical dimensions captured with screenshots and notes.</li>
-                <li>Acceptance criteria for final installation and performance.</li>
+                <li>Critical dimensions and acceptance criteria documented for final install.</li>
               </ul>
             </div>
           </div>
@@ -556,13 +606,13 @@
           </div>
         </div>
 
+        <!-- WATER PUMP -->
         <div class="project" id="pump">
           <div class="proj-head">
             <div>
               <h2>Water Pump Assembly Model (SolidWorks)</h2>
               <p>
-                Structured assembly model emphasizing mechanical fundamentals: component breakdown, constraints, and interface awareness.
-                Built with clean mates, clear part relationships, and manufacturable geometry in mind.
+                Structured assembly emphasizing mechanical fundamentals: component breakdown, constraint-driven mates, and interface clarity.
               </p>
             </div>
             <div class="proj-tags">
@@ -578,18 +628,16 @@
               <h3>What I built</h3>
               <div class="divider"></div>
               <ul>
-                <li>Constraint-driven assembly reflecting real interfaces.</li>
-                <li>Organized parts/subassemblies for reviewability and clarity.</li>
-                <li>Captured design intent through views and notes, not just geometry.</li>
+                <li>Constraint-driven assembly with clean part relationships and reviewable structure.</li>
+                <li>Design intent captured through views and notes, not just geometry.</li>
               </ul>
             </div>
             <div class="card white">
               <h3>Engineering considerations</h3>
               <div class="divider"></div>
               <ul>
-                <li>Interface surfaces and fastener access awareness.</li>
-                <li>Assembly/serviceability considerations in layout decisions.</li>
-                <li>DFM mindset: manufacturable geometry and assembly logic.</li>
+                <li>Interface surfaces, fastener access, and assembly/serviceability in every layout decision.</li>
+                <li>DFM mindset: manufacturable geometry and logical build sequence.</li>
               </ul>
             </div>
           </div>
