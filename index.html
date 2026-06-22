@@ -278,6 +278,7 @@
       <div class="brand"><span class="mark" aria-hidden="true"></span><span>James Drake</span></div>
       <nav class="nav" aria-label="Site navigation">
         <a href="#about">About</a>
+        <a href="#aerospace-bracket">Bracket</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -292,7 +293,7 @@
         <h1>CAD, prototyping, and test-driven iteration.</h1>
         <p class="lede">
           I take ideas from CAD to working prototypes and refine them through repeatable testing and documented results.
-          Projects span mechanical packaging, reliable assembly, and instrumentation for quantifying performance.
+          Projects span mechanical packaging, reliable assembly, structural validation, and instrumentation for quantifying performance.
         </p>
 
         <div class="cta">
@@ -310,7 +311,7 @@
             <ul>
               <li>Mechanical design: interfaces, mounting, tolerances, and serviceability.</li>
               <li>Rapid iteration: fast revisions guided by fit checks and observed outcomes.</li>
-              <li>Validation: repeatable test procedures with clear change logs.</li>
+              <li>Validation: repeatable test procedures, FEA comparisons, and clear change logs.</li>
               <li>Instrumentation: sensor integration and calibration for reliable measurement.</li>
             </ul>
           </div>
@@ -320,6 +321,9 @@
             <div class="divider"></div>
             <div class="meta">
               <span class="pill">SolidWorks CAD</span>
+              <span class="pill">SolidWorks Simulation</span>
+              <span class="pill">FEA</span>
+              <span class="pill">DFAM</span>
               <span class="pill">Assemblies</span>
               <span class="pill">FDM additive manufacturing</span>
               <span class="pill">Prototype fabrication</span>
@@ -335,8 +339,63 @@
       <section class="section" id="projects">
         <h2>Projects</h2>
         <p class="lede" style="margin-top:10px;">
-          Selected work across mechanical design, prototyping, and instrumentation.
+          Selected work across mechanical design, prototyping, simulation, and instrumentation.
         </p>
+
+        <!-- AEROSPACE ACTUATOR BRACKET -->
+        <div class="project" id="aerospace-bracket">
+          <div class="proj-head">
+            <div>
+              <h2>Aerospace Actuator Bracket — DFAM Lightweight Redesign</h2>
+              <p>
+                Redesigned an actuator interface bracket using an engineering-focused DFAM approach. The revision preserved
+                the critical mounting and clevis interfaces while using localized material removal and ribbed load paths to
+                reduce peak stress and improve structural margin. The design was validated in FEA under 1.25× loading conditions.
+              </p>
+            </div>
+            <div class="proj-tags">
+              <span class="pill">SolidWorks</span>
+              <span class="pill">FEA</span>
+              <span class="pill">DFAM</span>
+              <span class="pill">Lightweighting</span>
+              <span class="pill">Aerospace</span>
+            </div>
+          </div>
+
+          <div class="cols">
+            <div class="card white">
+              <h3>What I redesigned</h3>
+              <div class="divider"></div>
+              <ul>
+                <li>Created an initial actuator bracket concept preserving the required mounting and clevis interfaces.</li>
+                <li>Developed a lightweighted revision using localized material removal and ribbed structural load paths.</li>
+                <li>Kept mass nearly unchanged while improving the bracket's stress response and safety margin.</li>
+              </ul>
+            </div>
+            <div class="card white">
+              <h3>FEA validation</h3>
+              <div class="divider"></div>
+              <ul>
+                <li>Compared the original concept and lightweighted redesign under the same 1.25× loading conditions.</li>
+                <li>Reduced maximum von Mises stress from approximately 4.51e8 Pa to 4.20e8 Pa.</li>
+                <li>Increased minimum factor of safety from approximately 1.1 to 1.2, creating a safer design with more margin.</li>
+                <li>Maintained nearly identical mass at approximately 4.4 lb.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="gallery">
+            <a href="./images/Original%20Bracket.png" target="_blank" rel="noopener">
+              <img class="contain" src="./images/Original%20Bracket.png" alt="Initial aerospace actuator bracket concept" loading="lazy">
+            </a>
+            <a href="./images/Lightweight%20Bracket.png" target="_blank" rel="noopener">
+              <img class="contain" src="./images/Lightweight%20Bracket.png" alt="Lightweighted DFAM aerospace actuator bracket redesign" loading="lazy">
+            </a>
+            <a href="./images/FOS%20Plot.png" target="_blank" rel="noopener">
+              <img class="contain" src="./images/FOS%20Plot.png" alt="FEA factor of safety plot for aerospace actuator bracket" loading="lazy">
+            </a>
+          </div>
+        </div>
 
         <!-- CARB ADAPTER -->
         <div class="project" id="carb">
