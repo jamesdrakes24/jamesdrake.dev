@@ -17,11 +17,12 @@
       --shadow:0 18px 42px rgba(2,6,23,.08);
       --r:18px;
       --max:1080px;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      --mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
     }
 
     *{box-sizing:border-box}
+
     body{
       margin:0;
       font-family:var(--sans);
@@ -29,17 +30,25 @@
       background:var(--bg);
       line-height:1.55;
     }
-    a{color:inherit; text-decoration:none}
-    a:hover{opacity:.92}
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    a:hover{
+      opacity:.92;
+    }
 
     .topbar{
       position:sticky;
       top:0;
       z-index:30;
       background:rgba(255,255,255,.88);
-      backdrop-filter: blur(10px);
+      backdrop-filter:blur(10px);
       border-bottom:1px solid var(--line);
     }
+
     .topbar-inner{
       max-width:var(--max);
       margin:0 auto;
@@ -49,6 +58,7 @@
       justify-content:space-between;
       gap:14px;
     }
+
     .brand{
       display:flex;
       align-items:center;
@@ -57,13 +67,21 @@
       letter-spacing:-.2px;
       white-space:nowrap;
     }
-    .mark{width:10px;height:10px;border-radius:999px;background:var(--text)}
+
+    .mark{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:var(--text);
+    }
+
     .nav{
       display:flex;
       gap:8px;
       flex-wrap:wrap;
       justify-content:flex-end;
     }
+
     .nav a{
       font-size:13px;
       color:var(--muted);
@@ -71,20 +89,30 @@
       border:1px solid transparent;
       border-radius:999px;
     }
+
     .nav a:hover{
       color:var(--text);
       background:var(--surface);
       border-color:var(--line);
     }
 
-    main{padding:34px 18px 80px}
-    .wrap{max-width:var(--max); margin:0 auto}
+    main{
+      padding:34px 18px 80px;
+    }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+    }
 
     .section{
       padding:34px 0;
       border-bottom:1px solid var(--line);
     }
-    .section:last-child{border-bottom:none}
+
+    .section:last-child{
+      border-bottom:none;
+    }
 
     .kicker{
       font-size:12px;
@@ -93,25 +121,29 @@
       letter-spacing:.18em;
       margin-bottom:10px;
     }
+
     h1{
       margin:0 0 10px;
       font-size:42px;
       letter-spacing:-1px;
       line-height:1.08;
-      max-width: 44ch;
+      max-width:44ch;
     }
+
     .lede{
       margin:0;
       color:var(--muted);
-      max-width: 92ch;
+      max-width:92ch;
       font-size:16px;
     }
+
     h2{
       margin:0;
       font-size:24px;
       letter-spacing:-.5px;
       line-height:1.2;
     }
+
     h3{
       margin:0;
       font-size:12px;
@@ -121,7 +153,13 @@
       font-family:var(--mono);
     }
 
-    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+    .cta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
     .btn{
       display:inline-flex;
       align-items:center;
@@ -132,9 +170,13 @@
       background:#fff;
       color:var(--text);
       font-weight:750;
-      box-shadow: 0 1px 0 rgba(2,6,23,.04);
+      box-shadow:0 1px 0 rgba(2,6,23,.04);
     }
-    .btn:hover{background:var(--surface)}
+
+    .btn:hover{
+      background:var(--surface);
+    }
+
     .btn.primary{
       background:var(--text);
       border-color:var(--text);
@@ -143,10 +185,11 @@
 
     .grid{
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
+      grid-template-columns:1.15fr .85fr;
       gap:16px;
       margin-top:18px;
     }
+
     .card{
       background:var(--surface);
       border:1px solid var(--line);
@@ -154,16 +197,19 @@
       padding:16px;
       box-shadow:var(--shadow);
     }
+
     .card.white{
       background:#fff;
       box-shadow:none;
     }
+
     .meta{
       margin-top:12px;
       display:flex;
       flex-wrap:wrap;
       gap:8px;
     }
+
     .pill{
       font-size:12px;
       color:var(--muted);
@@ -173,26 +219,45 @@
       border-radius:999px;
       white-space:nowrap;
     }
-    .divider{height:1px;background:var(--line); margin:14px 0}
-    ul{margin:0; padding-left:18px; color:var(--muted)}
-    li{margin:6px 0}
+
+    .divider{
+      height:1px;
+      background:var(--line);
+      margin:14px 0;
+    }
+
+    ul{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+    }
+
+    li{
+      margin:6px 0;
+    }
 
     .project{
       padding:26px 0;
       border-top:1px solid var(--line);
     }
-    .project:first-child{border-top:none}
+
+    .project:first-child{
+      border-top:none;
+    }
+
     .proj-head{
       display:flex;
       align-items:flex-start;
       justify-content:space-between;
       gap:16px;
     }
+
     .proj-head p{
       margin:8px 0 0;
       color:var(--muted);
-      max-width: 92ch;
+      max-width:92ch;
     }
+
     .proj-tags{
       display:flex;
       flex-wrap:wrap;
@@ -200,21 +265,28 @@
       justify-content:flex-end;
       align-items:flex-start;
     }
+
     .cols{
       margin-top:14px;
       display:grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns:1fr 1fr;
       gap:14px;
     }
 
     .gallery{
       margin-top:14px;
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns:repeat(3,1fr);
       gap:12px;
     }
-    .gallery.row-4{ grid-template-columns: repeat(4, 1fr); }
-    .gallery.row-5{ grid-template-columns: repeat(5, 1fr); }
+
+    .gallery.row-4{
+      grid-template-columns:repeat(4,1fr);
+    }
+
+    .gallery.row-5{
+      grid-template-columns:repeat(5,1fr);
+    }
 
     .gallery a{
       display:block;
@@ -223,6 +295,7 @@
       border:1px solid var(--line);
       background:#fff;
     }
+
     .gallery img,
     .gallery video{
       width:100%;
@@ -231,6 +304,7 @@
       display:block;
       background:#fff;
     }
+
     .gallery img.contain{
       object-fit:contain;
       background:#fff;
@@ -238,10 +312,11 @@
 
     .gallery a.stack{
       display:grid;
-      grid-template-rows: 1fr 1fr;
+      grid-template-rows:1fr 1fr;
       gap:8px;
       background:#fff;
     }
+
     .gallery a.stack img{
       height:106px;
       object-fit:cover;
@@ -257,17 +332,47 @@
       flex-wrap:wrap;
     }
 
-    @media (max-width: 980px){
-      h1{font-size:34px}
-      .grid{grid-template-columns:1fr}
-      .cols{grid-template-columns:1fr}
-      .proj-tags{justify-content:flex-start}
-      .proj-head{flex-direction:column}
-      .gallery{grid-template-columns:1fr}
-      .gallery.row-4{grid-template-columns:1fr}
-      .gallery.row-5{grid-template-columns:1fr}
-      .gallery img, .gallery video{height:320px;}
-      .gallery a.stack img{height:156px;}
+    @media (max-width:980px){
+      h1{
+        font-size:34px;
+      }
+
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .cols{
+        grid-template-columns:1fr;
+      }
+
+      .proj-tags{
+        justify-content:flex-start;
+      }
+
+      .proj-head{
+        flex-direction:column;
+      }
+
+      .gallery{
+        grid-template-columns:1fr;
+      }
+
+      .gallery.row-4{
+        grid-template-columns:1fr;
+      }
+
+      .gallery.row-5{
+        grid-template-columns:1fr;
+      }
+
+      .gallery img,
+      .gallery video{
+        height:320px;
+      }
+
+      .gallery a.stack img{
+        height:156px;
+      }
     }
   </style>
 </head>
@@ -275,7 +380,11 @@
 <body>
   <header class="topbar">
     <div class="topbar-inner">
-      <div class="brand"><span class="mark" aria-hidden="true"></span><span>James Drake</span></div>
+      <div class="brand">
+        <span class="mark" aria-hidden="true"></span>
+        <span>James Drake</span>
+      </div>
+
       <nav class="nav" aria-label="Site navigation">
         <a href="#about">About</a>
         <a href="#aerospace-bracket">Bracket</a>
@@ -290,14 +399,16 @@
 
       <section class="section" id="about">
         <div class="kicker">Mechanical Engineering • R&amp;D Portfolio</div>
+
         <h1>CAD, prototyping, and test-driven iteration.</h1>
+
         <p class="lede">
           I take ideas from CAD to working prototypes and refine them through repeatable testing and documented results.
           Projects span mechanical packaging, reliable assembly, structural validation, and instrumentation for quantifying performance.
         </p>
 
         <div class="cta">
-          <a class="btn primary" href="./images/James-Drake-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+          <a class="btn primary" href="./images/James%20Drake%202026-27%20Resume.pdf" target="_blank" rel="noopener">Resume</a>
           <a class="btn" href="https://www.linkedin.com/in/james-drake-b592281a7/" target="_blank" rel="noopener">LinkedIn</a>
           <a class="btn" href="https://github.com/jamesdrakes24" target="_blank" rel="noopener">GitHub</a>
           <a class="btn" href="https://grabcad.com/james.drake-14/models" target="_blank" rel="noopener">GrabCAD</a>
@@ -308,6 +419,7 @@
           <div class="card white">
             <h3>Strengths</h3>
             <div class="divider"></div>
+
             <ul>
               <li>Mechanical design: interfaces, mounting, tolerances, and serviceability.</li>
               <li>Rapid iteration: fast revisions guided by fit checks and observed outcomes.</li>
@@ -319,6 +431,7 @@
           <div class="card">
             <h3>Tools / experience</h3>
             <div class="divider"></div>
+
             <div class="meta">
               <span class="pill">SolidWorks CAD</span>
               <span class="pill">SolidWorks Simulation</span>
@@ -338,21 +451,23 @@
 
       <section class="section" id="projects">
         <h2>Projects</h2>
+
         <p class="lede" style="margin-top:10px;">
           Selected work across mechanical design, prototyping, simulation, and instrumentation.
         </p>
 
-        <!-- AEROSPACE ACTUATOR BRACKET -->
         <div class="project" id="aerospace-bracket">
           <div class="proj-head">
             <div>
               <h2>Aerospace Actuator Bracket — DFAM Lightweight Redesign</h2>
+
               <p>
                 Redesigned an actuator interface bracket using an engineering-focused DFAM approach. The revision preserved
                 the critical mounting and clevis interfaces while using localized material removal and ribbed load paths to
                 reduce peak stress and improve structural margin. The design was validated in FEA under 1.25× loading conditions.
               </p>
             </div>
+
             <div class="proj-tags">
               <span class="pill">SolidWorks</span>
               <span class="pill">FEA</span>
@@ -366,15 +481,18 @@
             <div class="card white">
               <h3>What I redesigned</h3>
               <div class="divider"></div>
+
               <ul>
                 <li>Created an initial actuator bracket concept preserving the required mounting and clevis interfaces.</li>
                 <li>Developed a lightweighted revision using localized material removal and ribbed structural load paths.</li>
                 <li>Kept mass nearly unchanged while improving the bracket's stress response and safety margin.</li>
               </ul>
             </div>
+
             <div class="card white">
               <h3>FEA validation</h3>
               <div class="divider"></div>
+
               <ul>
                 <li>Compared the original concept and lightweighted redesign under the same 1.25× loading conditions.</li>
                 <li>Reduced maximum von Mises stress from approximately 4.51e8 Pa to 4.20e8 Pa.</li>
@@ -388,25 +506,28 @@
             <a href="./images/Original%20Bracket.png" target="_blank" rel="noopener">
               <img class="contain" src="./images/Original%20Bracket.png" alt="Initial aerospace actuator bracket concept" loading="lazy">
             </a>
+
             <a href="./images/Lightweight%20Bracket.png" target="_blank" rel="noopener">
               <img class="contain" src="./images/Lightweight%20Bracket.png" alt="Lightweighted DFAM aerospace actuator bracket redesign" loading="lazy">
             </a>
+
             <a href="./images/FOS%20Plot.png" target="_blank" rel="noopener">
               <img class="contain" src="./images/FOS%20Plot.png" alt="FEA factor of safety plot for aerospace actuator bracket" loading="lazy">
             </a>
           </div>
         </div>
 
-        <!-- CARB ADAPTER -->
         <div class="project" id="carb">
           <div class="proj-head">
             <div>
               <h2>DRZ400 Carb Adapter — Velocity Stack Geometry</h2>
+
               <p>
                 Custom adapter designed to maintain the factory velocity stack profile while fitting an aftermarket carburetor.
                 Driven by interface measurements, modeled in CAD, and validated through physical fitment.
               </p>
             </div>
+
             <div class="proj-tags">
               <span class="pill">CAD</span>
               <span class="pill">Machined part</span>
@@ -419,15 +540,18 @@
             <div class="card white">
               <h3>What I built</h3>
               <div class="divider"></div>
+
               <ul>
                 <li>Modeled adapter from measured carb and airbox interfaces.</li>
                 <li>Preserved velocity stack taper to maintain intake airflow geometry.</li>
                 <li>Iterated geometry until fitment was clean and repeatable.</li>
               </ul>
             </div>
+
             <div class="card white">
               <h3>Key considerations</h3>
               <div class="divider"></div>
+
               <ul>
                 <li>Tight dimensional tolerances on both mating faces.</li>
                 <li>Geometry constrained to maintain stack profile — not just clearance.</li>
@@ -440,28 +564,32 @@
             <a href="./images/Angle%201.jpg" target="_blank" rel="noopener">
               <img src="./images/Angle%201.jpg" alt="Carb adapter — angle 1" loading="lazy">
             </a>
+
             <a href="./images/Angle%202.jpg" target="_blank" rel="noopener">
               <img src="./images/Angle%202.jpg" alt="Carb adapter — angle 2" loading="lazy">
             </a>
+
             <a href="./images/Cad%20Model.png" target="_blank" rel="noopener">
               <img class="contain" src="./images/Cad%20Model.png" alt="Carb adapter — CAD model" loading="lazy">
             </a>
+
             <a href="./images/Installed.jpg" target="_blank" rel="noopener">
               <img src="./images/Installed.jpg" alt="Carb adapter — installed" loading="lazy">
             </a>
           </div>
         </div>
 
-        <!-- THERMOCOUPLE -->
         <div class="project" id="thermo">
           <div class="proj-head">
             <div>
               <h2>Thermocouple Temperature Control Test Rig</h2>
+
               <p>
                 Repeatable thermal test setup with closed-loop feedback. Built to tune response and evaluate overshoot,
                 settling time, and steady-state error against consistent baselines.
               </p>
             </div>
+
             <div class="proj-tags">
               <span class="pill">Test rig</span>
               <span class="pill">Thermal</span>
@@ -474,15 +602,18 @@
             <div class="card white">
               <h3>What I built</h3>
               <div class="divider"></div>
+
               <ul>
                 <li>Control stack around thermocouple feedback with safe operating limits.</li>
                 <li>Tuning workflow prioritizing stability before speed.</li>
                 <li>Documented change log tied to observed step response behavior.</li>
               </ul>
             </div>
+
             <div class="card white">
               <h3>Validation</h3>
               <div class="divider"></div>
+
               <ul>
                 <li>Step response runs to compare tuning changes head-to-head.</li>
                 <li>Repeatability confirmed across multiple trials.</li>
@@ -494,28 +625,32 @@
             <a href="./images/TC%20Controller%20Front%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/TC%20Controller%20Front%20Angle.png" alt="TC controller — front angle" loading="lazy">
             </a>
+
             <a href="./images/TC%20Controller%20Back%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/TC%20Controller%20Back%20Angle.png" alt="TC controller — back angle" loading="lazy">
             </a>
+
             <a href="./images/TC%20Case%20Front%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/TC%20Case%20Front%20Angle.png" alt="TC case — front angle" loading="lazy">
             </a>
+
             <a href="./images/TC%20working.jpg" target="_blank" rel="noopener">
               <img src="./images/TC%20working.jpg" alt="TC test rig — working" loading="lazy">
             </a>
           </div>
         </div>
 
-        <!-- IV SYSTEM -->
         <div class="project" id="iv">
           <div class="proj-head">
             <div>
               <h2>Smart IV System (Concept + Prototype Plan)</h2>
+
               <p>
                 Requirements-driven concept structured as a real development effort: constraints → design decisions → verification plan.
                 Focused on mechanical reliability, usability, and measurement accuracy.
               </p>
             </div>
+
             <div class="proj-tags">
               <span class="pill">System design</span>
               <span class="pill">Mechanisms</span>
@@ -528,15 +663,18 @@
             <div class="card white">
               <h3>What I defined</h3>
               <div class="divider"></div>
+
               <ul>
                 <li>Safety, repeatability, and operator feedback requirements.</li>
                 <li>Mechanical architecture with predictable behavior and safe limits.</li>
                 <li>Measurement constraints: calibration, drift, and repeatable zeroing.</li>
               </ul>
             </div>
+
             <div class="card white">
               <h3>Verification approach</h3>
               <div class="divider"></div>
+
               <ul>
                 <li>Bench testing against known conditions with acceptance criteria.</li>
                 <li>Cycle testing for wear and failure-mode analysis.</li>
@@ -548,15 +686,19 @@
             <a href="./images/IV%20Stand%203%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/IV%20Stand%203%20Angle.png" alt="IV stand — CAD views" loading="lazy">
             </a>
+
             <a href="./images/IV%20bag%20stand.jpg" target="_blank" rel="noopener">
               <img src="./images/IV%20bag%20stand.jpg" alt="IV bag stand — physical" loading="lazy">
             </a>
+
             <a href="./images/IV%20bag%20wiring.jpg" target="_blank" rel="noopener">
               <img src="./images/IV%20bag%20wiring.jpg" alt="IV bag wiring" loading="lazy">
             </a>
+
             <a href="./images/IV%20Bag%20Exploded%20Top.png" target="_blank" rel="noopener">
               <img src="./images/IV%20Bag%20Exploded%20Top.png" alt="IV bag — exploded top" loading="lazy">
             </a>
+
             <a class="stack" href="./images/IV%20Bag%20Middle%20Top.png" target="_blank" rel="noopener">
               <img src="./images/IV%20Bag%20Middle%20Top.png" alt="IV bag — middle top" loading="lazy">
               <img src="./images/IV%20Bag%20Middle%20Bottom.png" alt="IV bag — middle bottom" loading="lazy">
@@ -564,15 +706,16 @@
           </div>
         </div>
 
-        <!-- DRONE -->
         <div class="project" id="drone">
           <div class="proj-head">
             <div>
               <h2>Autonomous Drone Platform (Build + Integration)</h2>
+
               <p>
                 Full platform build under real constraints — weight, vibration, packaging — with reliability treated as a core requirement.
               </p>
             </div>
+
             <div class="proj-tags">
               <span class="pill">Integration</span>
               <span class="pill">Packaging</span>
@@ -585,14 +728,17 @@
             <div class="card white">
               <h3>What I built</h3>
               <div class="divider"></div>
+
               <ul>
                 <li>Packaging decisions to reduce failure points and ease serviceability.</li>
                 <li>Vibration-aware mounting strategy with documented tradeoffs.</li>
               </ul>
             </div>
+
             <div class="card white">
               <h3>Iteration approach</h3>
               <div class="divider"></div>
+
               <ul>
                 <li>Controlled changes with consistent evaluation checks each cycle.</li>
                 <li>Change log with observed impact on performance and reliability.</li>
@@ -604,24 +750,27 @@
             <a href="./images/Drone%20Front%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/Drone%20Front%20Angle.png" alt="Drone — front angle" loading="lazy">
             </a>
+
             <a href="./images/Drone%20Actual.jpg" target="_blank" rel="noopener">
               <img src="./images/Drone%20Actual.jpg" alt="Drone — actual" loading="lazy">
             </a>
+
             <a href="./images/Drone%20Actual%20Close.jpg" target="_blank" rel="noopener">
               <img src="./images/Drone%20Actual%20Close.jpg" alt="Drone — actual close" loading="lazy">
             </a>
           </div>
         </div>
 
-        <!-- TRIM -->
         <div class="project" id="trim">
           <div class="proj-head">
             <div>
               <h2>Automotive Trim Component (CAD → Prototype → Fitment)</h2>
+
               <p>
                 Full part cycle: measured interfaces, modeled geometry, rapid prototypes, and revisions until installation was clean and repeatable.
               </p>
             </div>
+
             <div class="proj-tags">
               <span class="pill">CAD</span>
               <span class="pill">Fitment</span>
@@ -634,14 +783,17 @@
             <div class="card white">
               <h3>What I built</h3>
               <div class="divider"></div>
+
               <ul>
                 <li>Interface-driven design: clearances, mounting geometry, tolerance awareness.</li>
                 <li>Prototyped and revised using physical fit checks and notes each round.</li>
               </ul>
             </div>
+
             <div class="card white">
               <h3>How results were captured</h3>
               <div class="divider"></div>
+
               <ul>
                 <li>Revision history with rationale for each change.</li>
                 <li>Critical dimensions and acceptance criteria documented for final install.</li>
@@ -653,27 +805,31 @@
             <a href="./images/Trim%20Clip%20Front%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/Trim%20Clip%20Front%20Angle.png" alt="Trim clip — front angle" loading="lazy">
             </a>
+
             <a href="./images/Trim%20Clip%20Back%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/Trim%20Clip%20Back%20Angle.png" alt="Trim clip — back angle" loading="lazy">
             </a>
+
             <a href="./images/Trim%20Clip%20Actual.png" target="_blank" rel="noopener">
               <img class="contain" src="./images/Trim%20Clip%20Actual.png" alt="Trim clip — actual" loading="lazy">
             </a>
+
             <a href="./images/Trim%20plus%20clips.jpg" target="_blank" rel="noopener">
               <img src="./images/Trim%20plus%20clips.jpg" alt="Trim clip — plus clips" loading="lazy">
             </a>
           </div>
         </div>
 
-        <!-- WATER PUMP -->
         <div class="project" id="pump">
           <div class="proj-head">
             <div>
               <h2>Water Pump Assembly Model (SolidWorks)</h2>
+
               <p>
                 Structured assembly emphasizing mechanical fundamentals: component breakdown, constraint-driven mates, and interface clarity.
               </p>
             </div>
+
             <div class="proj-tags">
               <span class="pill">SolidWorks</span>
               <span class="pill">Assemblies</span>
@@ -686,14 +842,17 @@
             <div class="card white">
               <h3>What I built</h3>
               <div class="divider"></div>
+
               <ul>
                 <li>Constraint-driven assembly with clean part relationships and reviewable structure.</li>
                 <li>Design intent captured through views and notes, not just geometry.</li>
               </ul>
             </div>
+
             <div class="card white">
               <h3>Engineering considerations</h3>
               <div class="divider"></div>
+
               <ul>
                 <li>Interface surfaces, fastener access, and assembly/serviceability in every layout decision.</li>
                 <li>DFM mindset: manufacturable geometry and logical build sequence.</li>
@@ -705,14 +864,17 @@
             <a href="./images/Water%20Pump%20Front%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/Water%20Pump%20Front%20Angle.png" alt="Water pump — front angle" loading="lazy">
             </a>
+
             <a href="./images/Water%20Pump%20Back%20Angle.png" target="_blank" rel="noopener">
               <img src="./images/Water%20Pump%20Back%20Angle.png" alt="Water pump — back angle" loading="lazy">
             </a>
+
             <a href="./images/Waterpump%20Vid.mp4" target="_blank" rel="noopener">
               <video controls preload="metadata" playsinline>
                 <source src="./images/Waterpump%20Vid.mp4" type="video/mp4">
               </video>
             </a>
+
             <a href="./images/Water%20Pump%20Actual.png" target="_blank" rel="noopener">
               <img class="contain" src="./images/Water%20Pump%20Actual.png" alt="Water pump — actual" loading="lazy">
             </a>
@@ -727,18 +889,25 @@
 
       <section class="section" id="contact">
         <h2>Contact</h2>
-        <p class="lede" style="margin-top:10px;">For recruiting or project inquiries:</p>
+
+        <p class="lede" style="margin-top:10px;">
+          For recruiting or project inquiries:
+        </p>
 
         <div class="grid">
           <div class="card white">
             <h3>Email</h3>
             <div class="divider"></div>
+
             <p class="lede" style="margin:0;">
-              <a href="mailto:jamesdrake@gmail.com?subject=Mechanical%20R%26D%20Opportunity%20-%20James%20Drake"><b>jamesdrake@gmail.com</b></a>
+              <a href="mailto:jamesdrake@gmail.com?subject=Mechanical%20R%26D%20Opportunity%20-%20James%20Drake">
+                <b>jamesdrake@gmail.com</b>
+              </a>
             </p>
+
             <div class="cta">
               <a class="btn primary" href="mailto:jamesdrake@gmail.com?subject=Mechanical%20R%26D%20Opportunity%20-%20James%20Drake">Email</a>
-              <a class="btn" href="./images/James-Drake-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+              <a class="btn" href="./images/James%20Drake%202026-27%20Resume.pdf" target="_blank" rel="noopener">Resume</a>
               <a class="btn" href="https://www.linkedin.com/in/james-drake-b592281a7/" target="_blank" rel="noopener">LinkedIn</a>
               <a class="btn" href="https://github.com/jamesdrakes24" target="_blank" rel="noopener">GitHub</a>
               <a class="btn" href="https://grabcad.com/james.drake-14/models" target="_blank" rel="noopener">GrabCAD</a>
@@ -749,8 +918,9 @@
           <div class="card">
             <h3>Professional links</h3>
             <div class="divider"></div>
+
             <ul>
-              <li><a href="./images/James-Drake-Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a></li>
+              <li><a href="./images/James%20Drake%202026-27%20Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a></li>
               <li><a href="https://www.linkedin.com/in/james-drake-b592281a7/" target="_blank" rel="noopener">LinkedIn profile</a></li>
               <li><a href="https://github.com/jamesdrakes24" target="_blank" rel="noopener">GitHub</a></li>
               <li><a href="https://grabcad.com/james.drake-14/models" target="_blank" rel="noopener">GrabCAD (models)</a></li>
