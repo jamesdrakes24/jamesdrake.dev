@@ -310,6 +310,16 @@
       background:#fff;
     }
 
+    /* Crop the portrait phone media so it fills the same tiles
+       as the rest of the bracket gallery without stretching. */
+    .gallery .bracket-build-photo{
+      object-position:50% 48%;
+    }
+
+    .gallery .bracket-machining-video{
+      object-position:50% 50%;
+    }
+
     .gallery a.stack{
       display:grid;
       grid-template-rows:1fr 1fr;
@@ -502,7 +512,7 @@
             </div>
           </div>
 
-          <div class="gallery">
+          <div class="gallery row-4">
             <a href="./images/Original%20Bracket.png" target="_blank" rel="noopener">
               <img class="contain" src="./images/Original%20Bracket.png" alt="Initial aerospace actuator bracket concept" loading="lazy">
             </a>
@@ -511,8 +521,14 @@
               <img class="contain" src="./images/Lightweight%20Bracket.png" alt="Lightweighted DFAM aerospace actuator bracket redesign" loading="lazy">
             </a>
 
-            <a href="./images/FOS%20Plot.png" target="_blank" rel="noopener">
-              <img class="contain" src="./images/FOS%20Plot.png" alt="FEA factor of safety plot for aerospace actuator bracket" loading="lazy">
+            <a href="./images/printed%20part.PNG" target="_blank" rel="noopener">
+              <img class="bracket-build-photo" src="./images/printed%20part.PNG" alt="Aerospace actuator bracket during metal additive manufacturing" loading="lazy">
+            </a>
+
+            <a href="./images/Img%205366(200).mp4" target="_blank" rel="noopener">
+              <video class="bracket-machining-video" controls preload="metadata" playsinline>
+                <source src="./images/Img%205366(200).mp4" type="video/mp4">
+              </video>
             </a>
           </div>
         </div>
